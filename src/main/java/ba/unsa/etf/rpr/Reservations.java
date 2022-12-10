@@ -39,5 +39,13 @@ public class Reservations {
         this.stayNights = stayNights;
     }
 
-
+    @Override
+    public String toString() {
+        return "Reservations{" +
+                "id=" + id +
+                ", reservationDate='" + reservationDate + '\'' +
+                ", dateOfArrival='" + dateOfArrival + '\'' +
+                ", stayNights=" + stayNights +
+                '}';
+    }
 }
