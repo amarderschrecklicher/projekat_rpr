@@ -22,4 +22,20 @@ public class Reservations {
     public int getStayNights() {
         return stayNights;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setReservationDate(String reservationDate) {
+        this.reservationDate = reservationDate;
+    }
+
+    public void setDateOfArrival(String dateOfArrival) {
+        this.dateOfArrival = dateOfArrival;
+    }
+
+    public void setStayNights(int stayNights) {
+        this.stayNights = stayNights;
+    }
 }
