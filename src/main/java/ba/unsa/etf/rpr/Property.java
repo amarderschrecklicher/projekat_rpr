@@ -8,4 +8,6 @@ public class Property {
     private int bathrooms;
     private int kitchens;
     private String location;
+    private boolean acH;
+    private double price;
 }
