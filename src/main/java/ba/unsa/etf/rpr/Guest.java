@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr;
 
+import java.util.Objects;
+
 public class Guest {
 
     private int id;
@@ -57,5 +59,18 @@ public class Guest {
                 ", email='" + email + '\'' +
                 ", country='" + country + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Guest guest = (Guest) o;
+        return id == guest.id && guestNumber == guest.guestNumber && name.equals(guest.name) && email.equals(guest.email) && country.equals(guest.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, guestNumber, email, country);
     }
 }
