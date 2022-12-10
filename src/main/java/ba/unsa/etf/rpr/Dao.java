@@ -17,7 +17,7 @@ public interface Dao<spp> {
 
     void delete(int id);
 
-
+    List<spp> getall();
 
 
 
