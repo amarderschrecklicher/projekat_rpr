@@ -74,4 +74,18 @@ public class Property {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Property{" +
+                "id=" + id +
+                ", propertyType='" + propertyType + '\'' +
+                ", beds=" + beds +
+                ", bathrooms=" + bathrooms +
+                ", kitchens=" + kitchens +
+                ", location='" + location + '\'' +
+                ", acH=" + acH +
+                ", price=" + price +
+                '}';
+    }
 }
