@@ -38,4 +38,6 @@ public class Reservations {
     public void setStayNights(int stayNights) {
         this.stayNights = stayNights;
     }
+
+
 }
