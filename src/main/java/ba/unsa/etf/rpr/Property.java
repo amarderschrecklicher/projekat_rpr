@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr;
 
+import java.util.Objects;
+
 public class Property {
 
     private int id;
@@ -87,5 +89,18 @@ public class Property {
                 ", acH=" + acH +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Property property = (Property) o;
+        return id == property.id && beds == property.beds && bathrooms == property.bathrooms && kitchens == property.kitchens && acH == property.acH && Double.compare(property.price, price) == 0 && propertyType.equals(property.propertyType) && location.equals(property.location);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, propertyType, beds, bathrooms, kitchens, location, acH, price);
     }
 }
