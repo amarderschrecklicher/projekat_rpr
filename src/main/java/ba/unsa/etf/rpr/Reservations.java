@@ -7,4 +7,19 @@ public class Reservations {
     private String dateOfArrival;
     private int stayNights;
 
+    public int getId() {
+        return id;
+    }
+
+    public String getReservationDate() {
+        return reservationDate;
+    }
+
+    public String getDateOfArrival() {
+        return dateOfArrival;
+    }
+
+    public int getStayNights() {
+        return stayNights;
+    }
 }
