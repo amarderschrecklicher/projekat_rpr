@@ -13,6 +13,8 @@ public interface Dao<spp> {
 
     spp add(spp item);
 
+    spp update(spp item);
+
 
 
 
