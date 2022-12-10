@@ -11,4 +11,13 @@ public interface Dao<spp> {
 
     spp getById(int id);
 
+    spp add(spp item);
+
+
+
+
+
+
+
+
 }
