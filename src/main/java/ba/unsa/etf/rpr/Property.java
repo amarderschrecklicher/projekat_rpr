@@ -6,4 +6,6 @@ public class Property {
     private String propertyType;
     private int beds;
     private int bathrooms;
+    private int kitchens;
+    private String location;
 }
