@@ -27,4 +27,24 @@ public class Guest {
     public String getCountry() {
         return country;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGuestNumber(int guestNumber) {
+        this.guestNumber = guestNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
 }
