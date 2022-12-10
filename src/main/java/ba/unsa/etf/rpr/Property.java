@@ -42,4 +42,36 @@ public class Property {
     public double getPrice() {
         return price;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPropertyType(String propertyType) {
+        this.propertyType = propertyType;
+    }
+
+    public void setBeds(int beds) {
+        this.beds = beds;
+    }
+
+    public void setBathrooms(int bathrooms) {
+        this.bathrooms = bathrooms;
+    }
+
+    public void setKitchens(int kitchens) {
+        this.kitchens = kitchens;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setAcH(boolean acH) {
+        this.acH = acH;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
