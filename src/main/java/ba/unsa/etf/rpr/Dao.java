@@ -15,6 +15,8 @@ public interface Dao<spp> {
 
     spp update(spp item);
 
+    void delete(int id);
+
 
 
 
