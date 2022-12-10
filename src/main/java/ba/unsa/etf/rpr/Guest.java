@@ -7,4 +7,24 @@ public class Guest {
     private int guestNumber;
     private String email;
     private String country;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getGuestNumber() {
+        return guestNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getCountry() {
+        return country;
+    }
 }
