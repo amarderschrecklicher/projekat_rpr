@@ -47,4 +47,15 @@ public class Guest {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    @Override
+    public String toString() {
+        return "Guest{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", guestNumber=" + guestNumber +
+                ", email='" + email + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }
