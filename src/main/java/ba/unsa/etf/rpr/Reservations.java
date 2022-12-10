@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr;
 
+import java.util.Objects;
+
 public class Reservations {
 
     private int id;
@@ -47,5 +49,18 @@ public class Reservations {
                 ", dateOfArrival='" + dateOfArrival + '\'' +
                 ", stayNights=" + stayNights +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reservations that = (Reservations) o;
+        return id == that.id && stayNights == that.stayNights && reservationDate.equals(that.reservationDate) && dateOfArrival.equals(that.dateOfArrival);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, reservationDate, dateOfArrival, stayNights);
     }
 }
