@@ -7,7 +7,6 @@ public class Guest {
     private int id;
     private String name;
     private int guestNumber;
-    private String email;
     private String country;
 
     public int getId() {
@@ -20,10 +19,6 @@ public class Guest {
 
     public int getGuestNumber() {
         return guestNumber;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public String getCountry() {
@@ -42,9 +37,6 @@ public class Guest {
         this.guestNumber = guestNumber;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public void setCountry(String country) {
         this.country = country;
@@ -56,7 +48,6 @@ public class Guest {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", guestNumber=" + guestNumber +
-                ", email='" + email + '\'' +
                 ", country='" + country + '\'' +
                 '}';
     }
@@ -66,11 +57,11 @@ public class Guest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Guest guest = (Guest) o;
-        return id == guest.id && guestNumber == guest.guestNumber && name.equals(guest.name) && email.equals(guest.email) && country.equals(guest.country);
+        return id == guest.id && guestNumber == guest.guestNumber && name.equals(guest.name) && country.equals(guest.country);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, guestNumber, email, country);
+        return Objects.hash(id, name, guestNumber, country);
     }
 }
