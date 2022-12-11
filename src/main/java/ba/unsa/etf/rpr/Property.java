@@ -6,7 +6,7 @@ public class Property {
 
     private int id;
     private String propertyType;
-    private int beds;
+    private int capacity;
     private int bathrooms;
     private int kitchens;
     private String location;
@@ -21,8 +21,8 @@ public class Property {
         return propertyType;
     }
 
-    public int getBeds() {
-        return beds;
+    public int getCapacity() {
+        return capacity;
     }
 
     public int getBathrooms() {
@@ -53,8 +53,8 @@ public class Property {
         this.propertyType = propertyType;
     }
 
-    public void setBeds(int beds) {
-        this.beds = beds;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     public void setBathrooms(int bathrooms) {
@@ -82,7 +82,7 @@ public class Property {
         return "Property{" +
                 "id=" + id +
                 ", propertyType='" + propertyType + '\'' +
-                ", beds=" + beds +
+                ", capacity=" + capacity +
                 ", bathrooms=" + bathrooms +
                 ", kitchens=" + kitchens +
                 ", location='" + location + '\'' +
@@ -96,11 +96,11 @@ public class Property {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Property property = (Property) o;
-        return id == property.id && beds == property.beds && bathrooms == property.bathrooms && kitchens == property.kitchens && acH == property.acH && Double.compare(property.price, price) == 0 && propertyType.equals(property.propertyType) && location.equals(property.location);
+        return id == property.id && capacity == property.capacity && bathrooms == property.bathrooms && kitchens == property.kitchens && acH == property.acH && Double.compare(property.price, price) == 0 && propertyType.equals(property.propertyType) && location.equals(property.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, propertyType, beds, bathrooms, kitchens, location, acH, price);
+        return Objects.hash(id, propertyType, capacity, bathrooms, kitchens, location, acH, price);
     }
 }
