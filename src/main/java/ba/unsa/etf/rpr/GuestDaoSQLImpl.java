@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GuestDaoSQLImpl implements GuestDAO {
@@ -64,7 +65,30 @@ public class GuestDaoSQLImpl implements GuestDAO {
 
     @Override
     public List<Guest> searchByName(String name) {
-        return null;
+        String query = "SELECT * FROM guest WHERE id = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setString(1, name);
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Guest> guestLista = new ArrayList<>();
+            if (rs.next()) { // result set is iterator.
+                Guest guest = new Guest();
+                guest.setId(rs.getInt(1));
+                guest.setName(rs.getString(2));
+                guest.setNumberOfGuests(rs.getInt(3));
+                guest.setGuestNumber(rs.getString(4));
+                guest.setCountry(rs.getString(5));
+                rs.close();
+                return guest;
+            } else {
+                return null; // if there is no elements in the result set return null
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // poor error handling
+        }
+
+
+
     }
 
     @Override
