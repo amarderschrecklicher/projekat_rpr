@@ -38,8 +38,8 @@ public class Reservations {
         this.dateIn = dateIn;
     }
 
-    public void setStayNights(int stayNights) {
-        this.stayNights = stayNights;
+    public void setStayNights(Date dateOut) {
+        this.dateOut= dateOut;
     }
 
     @Override
@@ -47,8 +47,8 @@ public class Reservations {
         return "Reservations{" +
                 "id=" + id +
                 ", reservationDate='" + reservationDate + '\'' +
-                ", dateOfArrival='" + dateOfArrival + '\'' +
-                ", stayNights=" + stayNights +
+                ", dateIn='" + dateIn + '\'' +
+                ", dateOut=" + dateOut +
                 '}';
     }
 
@@ -57,11 +57,11 @@ public class Reservations {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Reservations that = (Reservations) o;
-        return id == that.id && stayNights == that.stayNights && reservationDate.equals(that.reservationDate) && dateOfArrival.equals(that.dateOfArrival);
+        return id == that.id && dateOut == that.dateOut && reservationDate.equals(that.reservationDate) && dateIn.equals(that.dateIn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, reservationDate, dateOfArrival, stayNights);
+        return Objects.hash(id, reservationDate, dateIn, dateOut);
     }
 }
