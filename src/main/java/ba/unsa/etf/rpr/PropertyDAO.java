@@ -4,7 +4,9 @@ import java.util.List;
 
 public interface PropertyDAO extends Dao<Property>{
 
-    List<Property> searchByType(String type);
+   boolean hasAC(Property property);
 
-    List<Property> searchByPrice(String price);
+   double pricePerNights(Property property);
+
+
 }
