@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface GuestDAO extends Dao<Guest>{
 
-    List<Guest> searchByName(String name);
+    int numberOfGuests(String name);
 
-    List<Guest> searchByEmail(String email);
+    String countryOfOrigin(String email);
 
 }
