@@ -28,8 +28,9 @@ public class GuestDaoSQLImpl implements GuestDAO {
                 Guest guest = new Guest();
                 guest.setId(rs.getInt(1));
                 guest.setName(rs.getString(2));
-                guest.setGuestNumber(rs.getInt(3));
-                guest.setCountry(rs.getString(4));
+                guest.setNumberOfGuests(rs.getInt(3));
+                guest.setGuestNumber(rs.getString(4));
+                guest.setCountry(rs.getString(5));
                 rs.close();
                 return guest;
             } else {

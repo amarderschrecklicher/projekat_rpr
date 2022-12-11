@@ -6,7 +6,10 @@ public class Guest {
 
     private int id;
     private String name;
-    private int guestNumber;
+
+    private int numberOfGuests;
+
+    private String guestNumber;
     private String country;
 
     public int getId() {
@@ -17,7 +20,11 @@ public class Guest {
         return name;
     }
 
-    public int getGuestNumber() {
+    public int getNumberOfGuests() {
+        return numberOfGuests;
+    }
+
+    public String getGuestNumber() {
         return guestNumber;
     }
 
@@ -33,10 +40,13 @@ public class Guest {
         this.name = name;
     }
 
-    public void setGuestNumber(int guestNumber) {
-        this.guestNumber = guestNumber;
+    public void setNumberOfGuests(int numberOfGuests) {
+        this.numberOfGuests = numberOfGuests;
     }
 
+    public void setGuestNumber(String guestNumber) {
+        this.guestNumber = guestNumber;
+    }
 
     public void setCountry(String country) {
         this.country = country;
@@ -47,7 +57,8 @@ public class Guest {
         return "Guest{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", guestNumber=" + guestNumber +
+                ", numberOfGuests=" + numberOfGuests +
+                ", guestNumber='" + guestNumber + '\'' +
                 ", country='" + country + '\'' +
                 '}';
     }
@@ -57,11 +68,11 @@ public class Guest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Guest guest = (Guest) o;
-        return id == guest.id && guestNumber == guest.guestNumber && name.equals(guest.name) && country.equals(guest.country);
+        return id == guest.id && numberOfGuests == guest.numberOfGuests && name.equals(guest.name) && guestNumber.equals(guest.guestNumber) && country.equals(guest.country);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, guestNumber, country);
+        return Objects.hash(id, name, numberOfGuests, guestNumber, country);
     }
 }
