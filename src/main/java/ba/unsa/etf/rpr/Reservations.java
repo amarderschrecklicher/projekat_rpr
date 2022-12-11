@@ -1,40 +1,41 @@
 package ba.unsa.etf.rpr;
 
 import java.util.Objects;
+import java.util.Date;
 
 public class Reservations {
 
     private int id;
-    private String reservationDate;
-    private String dateOfArrival;
-    private int stayNights;
+    private Date reservationDate;
+    private Date dateIn;
+    private Date dateOut;
 
     public int getId() {
         return id;
     }
 
-    public String getReservationDate() {
+    public Date getReservationDate() {
         return reservationDate;
     }
 
-    public String getDateOfArrival() {
-        return dateOfArrival;
+    public Date getDateIn() {
+        return dateIn;
     }
 
-    public int getStayNights() {
-        return stayNights;
+    public Date getDateOut() {
+        return dateOut;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setReservationDate(String reservationDate) {
+    public void setReservationDate(Date reservationDate) {
         this.reservationDate = reservationDate;
     }
 
-    public void setDateOfArrival(String dateOfArrival) {
-        this.dateOfArrival = dateOfArrival;
+    public void setDateOfArrival(Date dateIn) {
+        this.dateIn = dateIn;
     }
 
     public void setStayNights(int stayNights) {
