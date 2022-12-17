@@ -4,15 +4,15 @@ import java.util.Date;
 import java.util.List;
 
 public interface ReservationsDAO extends Dao<Reservations>{
-    List<Reservations> nightsOfStay(Date a, Date b);
+    int nightsOfStay(Reservations reservation);
 
     List<Reservations> allOfReseravtions(Guest guest);
 
-    Property  propertyDetails(Reservations reservations);
+    Property  propertyDetails(Reservations reservation);
 
-    Host hostOfReservation(Reservations reservations);
+    Host hostOfReservation(Reservations reservation);
 
-    boolean  capacityMatch(Reservations  reservations);
+    boolean  capacityMatch(Reservations  reservation);
 
 }
 

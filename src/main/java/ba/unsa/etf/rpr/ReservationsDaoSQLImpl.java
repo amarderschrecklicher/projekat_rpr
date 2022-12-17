@@ -30,8 +30,10 @@ public class ReservationsDaoSQLImpl implements ReservationsDAO{
     }
 
     @Override
-    public List<Reservations> nightsOfStay(Date a, Date b) {
-        return null;
+    public int nightsOfStay(Reservations reservation) {
+
+
+        return 0;
     }
 
     @Override
