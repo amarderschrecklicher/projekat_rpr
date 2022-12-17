@@ -8,5 +8,7 @@ public interface PropertyDAO extends Dao<Property>{
 
    double pricePerNights(Property property);
 
+   boolean isAvailable(Property property);
+
 
 }

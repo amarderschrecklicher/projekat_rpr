@@ -37,4 +37,9 @@ public class PropertyDaoSQLImpl implements PropertyDAO{
     public double pricePerNights(Property property) {
         return 0;
     }
+
+    @Override
+    public boolean isAvailable(Property property) {
+        return false;
+    }
 }
