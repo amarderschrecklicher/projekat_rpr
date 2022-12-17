@@ -1,8 +1,11 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.dao;
+
+import ba.unsa.etf.rpr.dao.Host;
+import ba.unsa.etf.rpr.dao.HostDAO;
 
 import java.util.List;
 
-public class HostDaoSQLImpl implements HostDAO{
+public class HostDaoSQLImpl implements HostDAO {
     @Override
     public Host getById(int id) {
         return null;

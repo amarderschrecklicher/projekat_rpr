@@ -1,9 +1,8 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.dao;
 
 import java.util.Date;
-import java.util.List;
 
-public interface PropertyDAO extends Dao<Property>{
+public interface PropertyDAO extends Dao<Property> {
 
    boolean hasAC(int idProperty);
 

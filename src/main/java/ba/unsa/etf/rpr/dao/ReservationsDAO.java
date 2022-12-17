@@ -1,9 +1,8 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.dao;
 
-import java.util.Date;
 import java.util.List;
 
-public interface ReservationsDAO extends Dao<Reservations>{
+public interface ReservationsDAO extends Dao<Reservations> {
     int nightsOfStay(int idReservation);
 
     List<Reservations> allOfReseravtions(Guest guest);

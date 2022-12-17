@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

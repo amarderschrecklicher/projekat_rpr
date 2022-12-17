@@ -1,7 +1,9 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.dao;
+
+import ba.unsa.etf.rpr.dao.Guest;
+import ba.unsa.etf.rpr.dao.GuestDAO;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class GuestDaoSQLImpl implements GuestDAO {
