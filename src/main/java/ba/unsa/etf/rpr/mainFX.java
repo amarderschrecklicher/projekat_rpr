@@ -1,21 +1,26 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.controller.Controller;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class mainFX extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene =new Scene(new Button("Prijava"),200,250);
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("fxmly.fxml"));
+        Parent root = null;
+        Controller controller = new Controller();
+        loader.setController(controller);
+        root = loader.load();
+        Scene scene =new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
         stage.setTitle("JAVAFX");
         stage.setScene(scene);
         stage.show();
-        Stage stage2=new Stage();
-        stage2.setTitle("DRUGI PROZOR");
-        stage2.setScene(new Scene(new Button("drugo dugme"),100,100));
-        stage2.show();
     }
     public static void mainFX(String []args) {
         launch(args);
