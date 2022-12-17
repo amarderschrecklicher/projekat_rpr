@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface PropertyDAO extends Dao<Property>{
 
-   boolean hasAC(Property property);
+   boolean hasAC(int idProperty);
 
    double pricePerNight(int idProperty);
 

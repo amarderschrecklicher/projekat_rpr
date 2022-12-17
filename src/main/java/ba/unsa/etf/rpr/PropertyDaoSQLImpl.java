@@ -36,7 +36,23 @@ public class PropertyDaoSQLImpl implements PropertyDAO{
     }
 
     @Override
-    public boolean hasAC(Property property) {
+    public boolean hasAC(int idProperty) {
+        String query = "SELECT * FROM Property WHERE PropertyID = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setInt(1, idProperty);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()) {
+                return rs.getBoolean(7);
+            }
+            else {
+                return false; // if there is no elements in the result set return null
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // poor error handling
+        }
+
         return false;
     }
 
