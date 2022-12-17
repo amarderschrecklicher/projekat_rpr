@@ -94,17 +94,42 @@ public class ReservationsDaoSQLImpl implements ReservationsDAO{
     }
 
     @Override
-    public Property propertyDetails(Reservations reservations) {
+    public Property propertyDetails(int idReservation) {
+        String query = "SELECT * FROM Reservations WHERE GuestID = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setInt(1, idReservation);
+            ResultSet rs = stmt.executeQuery();
+            List<Reservations> res = null;
+            if(rs.next()) {
+                Reservations rez=new Reservations();
+                rez.setId(rs.getInt(1));
+                rez.setHostID(rs.getInt(2));
+                rez.setGuestID(rs.getInt(3));
+                rez.setPropertyID(rs.getInt(4));
+                rez.setReservationDate(rs.getDate(5));
+                rez.setDateIn(rs.getDate(6));
+                rez.setDateOut(rs.getDate(7));
+                res.add(rez);
+            }
+            else {
+                return null; // if there is no elements in the result set return null
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // poor error handling
+        }
+
         return null;
     }
 
     @Override
-    public Host hostOfReservation(Reservations reservations) {
+    public Host hostOfReservation(int idReservation) {
         return null;
     }
 
     @Override
-    public boolean capacityMatch(Reservations reservations) {
+    public boolean capacityMatch(int idReservation) {
         return false;
     }
 }

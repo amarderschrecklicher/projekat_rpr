@@ -8,11 +8,11 @@ public interface ReservationsDAO extends Dao<Reservations>{
 
     List<Reservations> allOfReseravtions(Guest guest);
 
-    Property  propertyDetails(Reservations reservation);
+    Property  propertyDetails(int idReservation);
 
-    Host hostOfReservation(Reservations reservation);
+    Host hostOfReservation(int idReservation);
 
-    boolean  capacityMatch(Reservations  reservation);
+    boolean  capacityMatch(int idReservation);
 
 }
 
