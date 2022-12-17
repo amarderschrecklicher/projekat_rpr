@@ -7,9 +7,9 @@ public interface PropertyDAO extends Dao<Property>{
 
    boolean hasAC(Property property);
 
-   double pricePerNight(Property property);
+   double pricePerNight(int idProperty);
 
-   boolean isAvailable(Property property, Date d);
+   boolean isAvailable(Property property, Date d1,Date d2);
 
 
 }
