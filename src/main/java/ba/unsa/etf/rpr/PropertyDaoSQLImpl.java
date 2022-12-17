@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+import java.util.Date;
 import java.util.List;
 
 public class PropertyDaoSQLImpl implements PropertyDAO{
@@ -34,12 +35,12 @@ public class PropertyDaoSQLImpl implements PropertyDAO{
     }
 
     @Override
-    public double pricePerNights(Property property) {
+    public double pricePerNight(Property property) {
         return 0;
     }
 
     @Override
-    public boolean isAvailable(Property property) {
+    public boolean isAvailable(Property property, Date d) {
         return false;
     }
 }
