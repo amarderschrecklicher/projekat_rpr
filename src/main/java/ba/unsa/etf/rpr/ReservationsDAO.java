@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface ReservationsDAO extends Dao<Reservations>{
-    int nightsOfStay(Reservations reservation);
+    int nightsOfStay(int idReservation);
 
     List<Reservations> allOfReseravtions(Guest guest);
 

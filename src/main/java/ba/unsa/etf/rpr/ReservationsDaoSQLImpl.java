@@ -1,9 +1,15 @@
 package ba.unsa.etf.rpr;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
 public class ReservationsDaoSQLImpl implements ReservationsDAO{
+    private Connection connection;
+
     @Override
     public Reservations getById(int id) {
         return null;
@@ -30,10 +36,26 @@ public class ReservationsDaoSQLImpl implements ReservationsDAO{
     }
 
     @Override
-    public int nightsOfStay(Reservations reservation) {
+    public int nightsOfStay(int idReservation) {
+        String query = "SELECT dateIn,dateOut FROM guest WHERE idreservations = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setInt(1, idReservation);
+            ResultSet rs = stmt.executeQuery();
+           Date dateIn=rs.getDate(6);
+           Date dateOut=rs.getDate(7);
 
+            if (rs.next()) { // result set is iterator.
+                return rs.getInt(3);
+            }else {
+                return 0; // if there is no elements in the result set return null
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // poor error handling
+        }
 
         return 0;
+
     }
 
     @Override
