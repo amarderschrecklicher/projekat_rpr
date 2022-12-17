@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 import java.util.Date;
 import java.util.List;
 
@@ -42,12 +44,13 @@ public class ReservationsDaoSQLImpl implements ReservationsDAO{
             PreparedStatement stmt = this.connection.prepareStatement(query);
             stmt.setInt(1, idReservation);
             ResultSet rs = stmt.executeQuery();
-           Date dateIn=rs.getDate(6);
-           Date dateOut=rs.getDate(7);
+            if(rs.next()) {
+                Date dateIn = rs.getDate(6);
+                Date dateOut = rs.getDate(7);
 
-            if (rs.next()) { // result set is iterator.
-                return rs.getInt(3);
-            }else {
+                return (int) ChronoUnit.DAYS.between((Temporal) dateIn, (Temporal) dateOut);
+            }
+            else {
                 return 0; // if there is no elements in the result set return null
             }
         } catch (SQLException e) {
@@ -60,6 +63,27 @@ public class ReservationsDaoSQLImpl implements ReservationsDAO{
 
     @Override
     public List<Reservations> allOfReseravtions(Guest guest) {
+        String query = "SELECT * FROM Reservations WHERE GuestID = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setInt(1, guest.getId());
+            ResultSet rs = stmt.executeQuery();
+            List<Reservations> res;
+            if(rs.next()) {
+                Reservations rez=new Reservations();
+                rez.setId(rs.getInt(1));
+                rez.setReservationDate(rs.getDate(5));
+                rez.setDateIn(rs.getDate(6));
+                rez.setDateOut(rs.getDate(7));
+            }
+            else {
+                return null; // if there is no elements in the result set return null
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // poor error handling
+        }
+
+
         return null;
     }
 
