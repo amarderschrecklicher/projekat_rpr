@@ -39,7 +39,7 @@ public class ReservationsDaoSQLImpl implements ReservationsDAO{
 
     @Override
     public int nightsOfStay(int idReservation) {
-        String query = "SELECT dateIn,dateOut FROM guest WHERE idreservations = ?";
+        String query = "SELECT dateIn,dateOut FROM Reservations WHERE idreservations = ?";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(query);
             stmt.setInt(1, idReservation);
@@ -68,17 +68,23 @@ public class ReservationsDaoSQLImpl implements ReservationsDAO{
             PreparedStatement stmt = this.connection.prepareStatement(query);
             stmt.setInt(1, guest.getId());
             ResultSet rs = stmt.executeQuery();
-            List<Reservations> res;
+            List<Reservations> res = null;
             if(rs.next()) {
                 Reservations rez=new Reservations();
                 rez.setId(rs.getInt(1));
+                rez.setHostID(rs.getInt(2));
+                rez.setGuestID(rs.getInt(3));
+                rez.setPropertyID(rs.getInt(4));
                 rez.setReservationDate(rs.getDate(5));
                 rez.setDateIn(rs.getDate(6));
                 rez.setDateOut(rs.getDate(7));
+                res.add(rez);
             }
             else {
                 return null; // if there is no elements in the result set return null
             }
+
+            return res;
         } catch (SQLException e) {
             e.printStackTrace(); // poor error handling
         }
