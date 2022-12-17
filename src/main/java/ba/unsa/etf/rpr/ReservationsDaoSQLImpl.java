@@ -166,6 +166,43 @@ public class ReservationsDaoSQLImpl implements ReservationsDAO{
 
     @Override
     public boolean capacityMatch(int idReservation) {
+        String query = "SELECT * FROM Reservations WHERE idReservationss = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setInt(1, idReservation);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()) {
+                query="SELECT * FROM Guest WHERE idGuest = ?";
+                stmt = this.connection.prepareStatement(query);
+                stmt.setInt(1, rs.getInt(3));
+                ResultSet rs2=stmt.executeQuery();
+                if(rs2.next()) {
+                    query="SELECT * FROM Property WHERE PropertyID = ?";
+                    stmt = this.connection.prepareStatement(query);
+                    stmt.setInt(1, rs.getInt(4));
+                    ResultSet rs3=stmt.executeQuery();
+
+                if(rs3.next()) {
+                    return rs3.getInt(3) == rs2.getInt(3);
+                }
+                else {
+                    return false; // if there is no elements in the result set return null
+                }
+
+                }
+                else {
+                    return false; // if there is no elements in the result set return null
+                }
+            }
+            else {
+                return false; // if there is no elements in the result set return null
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // poor error handling
+        }
+
+
         return false;
     }
 }
