@@ -42,15 +42,13 @@ public class PropertyDaoSQLImpl implements PropertyDAO{
 
     @Override
     public double pricePerNight(int idProperty) {
-        String query = "SELECT * FROM Reservations WHERE PropertyID = ?";
+        String query = "SELECT * FROM Property WHERE PropertyID = ?";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(query);
             stmt.setInt(1, idProperty);
             ResultSet rs = stmt.executeQuery();
             if(rs.next()) {
-                Date date1=rs.getDate(6);
-                Date date2=rs.getDate(7);
-
+            return rs.getDouble(8);
             }
             else {
                 return 0; // if there is no elements in the result set return null
