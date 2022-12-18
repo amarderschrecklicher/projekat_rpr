@@ -5,6 +5,10 @@ import javafx.fxml.FXML;
 
 public class Controller {
 
+    public void click(ActionEvent actionEvent){
+
+    }
+
     @FXML
     public void initialize() {
 
