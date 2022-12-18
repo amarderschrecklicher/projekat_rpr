@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="762.0" style="-fx-background-color: #001B52;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controller.Controller">
    <children>
-      <Label layoutX="68.0" layoutY="87.0" text="Extranet" textFill="#00e457" AnchorPane.bottomAnchor="384.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="80.0">
+      <Label layoutX="68.0" layoutY="87.0" text="Extranet" textFill="#00e457" AnchorPane.bottomAnchor="384.0" AnchorPane.leftAnchor="72.0" AnchorPane.topAnchor="80.0">
          <font>
             <Font size="20.0" />
          </font></Label>
