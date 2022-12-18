@@ -1,16 +1,23 @@
-package ba.unsa.etf.rpr.controller;
+package ba.unsa.etf.rpr.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-import javax.swing.*;
+import java.io.IOException;
 import java.sql.*;
+
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
 public class Controller {
@@ -20,6 +27,7 @@ public class Controller {
     public Button signIn;
     @FXML
     public AnchorPane scenePane;
+    public Button signUp;
     @FXML
     private TextField userName;
     @FXML
@@ -75,14 +83,15 @@ public class Controller {
         }
 
     }
-    public void click2(ActionEvent actionEvent){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText(null);
-        alert.setContentText("haloooo!");
-
-        alert.showAndWait();
-
+    public void click2(ActionEvent actionEvent) throws IOException {
+    final Stage login=(Stage) scenePane.getScene().getWindow();
+    Stage  stage=new Stage();
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signUp.fxml"));
+    loader.load();
+    stage.setTitle("JAVAFX");
+    stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+    stage.show();
+    login.hide();
     }
 
     @FXML
