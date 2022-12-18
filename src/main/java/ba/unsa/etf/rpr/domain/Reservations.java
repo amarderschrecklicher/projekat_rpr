@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr.dao;
+package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
 import java.util.Date;

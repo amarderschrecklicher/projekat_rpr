@@ -14,23 +14,25 @@
         <RowConstraints maxHeight="45.0" minHeight="0.0" prefHeight="28.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
     </rowConstraints>
    <children>
       <Label text="Username:" GridPane.rowIndex="1" />
+      <Label text="Password:" GridPane.rowIndex="2" />
       <TextField prefHeight="25.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="5.0" top="1.0" />
          </GridPane.margin>
       </TextField>
-      <TextField prefHeight="13.0" prefWidth="108.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </PasswordField>
+      <ProgressBar prefWidth="200.0" progress="0.0" />
+      <Button mnemonicParsing="false" text="Button" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
          <GridPane.margin>
-            <Insets bottom="5.0" top="5.0" />
-         </GridPane.margin>
-      </TextField>
-      <Label text="Password:" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="266.0" text="Login" GridPane.columnSpan="2" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets />
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Button>
    </children>

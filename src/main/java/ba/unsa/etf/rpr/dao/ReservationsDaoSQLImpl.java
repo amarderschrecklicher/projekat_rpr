@@ -1,5 +1,10 @@
 package ba.unsa.etf.rpr.dao;
 
+import ba.unsa.etf.rpr.domain.Guest;
+import ba.unsa.etf.rpr.domain.Host;
+import ba.unsa.etf.rpr.domain.Property;
+import ba.unsa.etf.rpr.domain.Reservations;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

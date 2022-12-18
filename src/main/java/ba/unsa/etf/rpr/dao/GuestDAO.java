@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.dao.Dao;
-import ba.unsa.etf.rpr.dao.Guest;
+import ba.unsa.etf.rpr.domain.Guest;
 
 public interface GuestDAO extends Dao<Guest> {
 

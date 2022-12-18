@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.dao.Host;
-import ba.unsa.etf.rpr.dao.HostDAO;
+import ba.unsa.etf.rpr.domain.Host;
 
 import java.util.List;
 

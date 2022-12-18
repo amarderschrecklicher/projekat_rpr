@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.dao.Guest;
-import ba.unsa.etf.rpr.dao.GuestDAO;
+import ba.unsa.etf.rpr.domain.Guest;
 
 import java.sql.*;
 import java.util.List;
