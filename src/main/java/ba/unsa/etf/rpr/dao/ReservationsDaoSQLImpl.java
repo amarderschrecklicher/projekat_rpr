@@ -15,6 +15,7 @@ import java.time.temporal.Temporal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class ReservationsDaoSQLImpl extends AbstractDao<Reservations> implements ReservationsDAO{
     private Connection connection;
@@ -42,7 +43,15 @@ public class ReservationsDaoSQLImpl extends AbstractDao<Reservations> implements
 
     @Override
     public Map<String, Object> object2row(Reservations object) {
-        return null;
+        Map<String, Object> row = new TreeMap<String, Object>();
+        row.put("id", object.getId());
+        row.put("hostId", object.getHostID());
+        row.put("guestId",object.getGuestID());
+        row.put("propertyId",object.getPropertyID());
+        row.put("reservationDate",object.getReservationDate());
+        row.put("dateIn",object.getDateIn());
+        row.put("dateOut",object.getDateOut());
+        return row;
     }
 
     @Override
