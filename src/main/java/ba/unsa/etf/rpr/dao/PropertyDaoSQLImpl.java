@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.dao;
 
+import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
+import ba.unsa.etf.rpr.exceptions.Exceptionss;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,9 +10,47 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
-public class PropertyDaoSQLImpl implements PropertyDAO{
+public class PropertyDaoSQLImpl extends AbstractDao<Property> implements PropertyDAO{
     private Connection connection;
+
+    public PropertyDaoSQLImpl() {
+        super("Property");
+    }
+
+    @Override
+    public Property row2object(ResultSet rs) throws Exceptionss {
+        try {
+            Property q = new Property();
+            q.setId(rs.getInt(1));
+            q.setPropertyType(rs.getString(2));
+            q.setCapacity(rs.getInt(3));
+            q.setBathrooms(rs.getInt(4));
+            q.setKitchens(rs.getInt(5));
+            q.setLocation(rs.getString(6));
+            q.setAcH(rs.getBoolean(7));
+            q.setPrice(rs.getDouble(8));
+            return q;
+        } catch (Exception e) {
+            throw new Exceptionss(e.getMessage(), e);
+        }
+    }
+
+    @Override
+    public Map<String, Object> object2row(Property object) {
+        Map<String, Object> row = new TreeMap<String, Object>();
+        row.put("id", object.getId());
+        row.put("type", object.getPropertyType());
+        row.put("capacity",object.getCapacity());
+        row.put("bathrooms",object.getBathrooms());
+        row.put("kitchens",object.getKitchens());
+        row.put("location",object.getLocation());
+        row.put("AC/HEATING",object.isAcH());
+        row.put("price",object.getPrice());
+        return row;
+    }
 
     @Override
     public Property getById(int id) {

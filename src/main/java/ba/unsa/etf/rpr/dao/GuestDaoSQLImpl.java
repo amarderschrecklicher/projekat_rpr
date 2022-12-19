@@ -42,26 +42,6 @@ public class GuestDaoSQLImpl extends AbstractDao<Guest> implements GuestDAO {
 
     @Override
     public Guest getById(int id) {
-        String query = "SELECT * FROM guest WHERE id = ?";
-        try {
-            PreparedStatement stmt = this.connection.prepareStatement(query);
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) { // result set is iterator.
-                Guest guest = new Guest();
-                guest.setId(rs.getInt(1));
-                guest.setName(rs.getString(2));
-                guest.setNumberOfGuests(rs.getInt(3));
-                guest.setGuestNumber(rs.getString(4));
-                guest.setCountry(rs.getString(5));
-                rs.close();
-                return guest;
-            } else {
-                return null; // if there is no elements in the result set return null
-            }
-        } catch (SQLException e) {
-            e.printStackTrace(); // poor error handling
-        }
         return null;
     }
 
