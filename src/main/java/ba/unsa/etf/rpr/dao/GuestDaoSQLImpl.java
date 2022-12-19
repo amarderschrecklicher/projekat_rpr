@@ -13,7 +13,7 @@ public class GuestDaoSQLImpl extends AbstractDao<Guest> implements GuestDAO {
     private Connection connection;
 
     public GuestDaoSQLImpl(){
-    super("Guest");
+        super("Guest");
     }
 
 
@@ -41,16 +41,6 @@ public class GuestDaoSQLImpl extends AbstractDao<Guest> implements GuestDAO {
         row.put("number",object.getGuestNumber());
         row.put("country",object.getCountry());
         return row;
-    }
-
-    @Override
-    public Guest getById(int id) {
-        return null;
-    }
-
-    @Override
-    public List<Guest> getAll() {
-        return null;
     }
 
     @Override
