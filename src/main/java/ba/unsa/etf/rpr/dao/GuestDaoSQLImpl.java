@@ -37,6 +37,9 @@ public class GuestDaoSQLImpl extends AbstractDao<Guest> implements GuestDAO {
         Map<String, Object> row = new TreeMap<String, Object>();
         row.put("id", object.getId());
         row.put("name", object.getName());
+        row.put("numberOfGuests",object.getNumberOfGuests());
+        row.put("number",object.getGuestNumber());
+        row.put("country",object.getCountry());
         return row;
     }
 
