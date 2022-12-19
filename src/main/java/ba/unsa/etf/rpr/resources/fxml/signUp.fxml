@@ -47,10 +47,10 @@
             <RowConstraints maxHeight="282.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="numberHost" id="number" prefHeight="11.0" prefWidth="157.0" promptText="Number:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="surnameHost" id="hostSur" prefHeight="2.0" prefWidth="245.0" promptText="Host surname:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="nameHost" id="hostName" prefHeight="13.0" prefWidth="245.0" promptText="Host name: " GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Sign up" textFill="#fffdfd"  GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField id="number" fx:id="numberHost" prefHeight="11.0" prefWidth="157.0" promptText="Number:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField id="hostSur" fx:id="surnameHost" prefHeight="2.0" prefWidth="245.0" promptText="Host surname:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField id="hostName" fx:id="nameHost" prefHeight="13.0" prefWidth="245.0" promptText="Host name: " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Sign up" textFill="#fffdfd" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="27.0" />
                </font>
@@ -58,8 +58,8 @@
                   <Insets left="73.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="emailHost" id="email" prefHeight="92.0" prefWidth="159.0" promptText="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Button fx:id="signUpBtn" onAction="#signUP" alignment="CENTER" mnemonicParsing="false" text="Sign up" textAlignment="JUSTIFY" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <TextField id="email" fx:id="emailHost" prefHeight="92.0" prefWidth="159.0" promptText="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button fx:id="signUpBtn" alignment="CENTER" mnemonicParsing="false" onAction="#signUP" text="Sign up" textAlignment="JUSTIFY" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="90.0" />
                </GridPane.margin>
@@ -82,7 +82,7 @@
             <Insets bottom="60.0" left="181.0" />
          </GridPane.margin>
       </Button>
-      <Label text="Extranet" textFill="#0af229" GridPane.columnIndex="1">
+      <Label text="Extranet" textFill="#00e457" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets bottom="10.0" left="50.0" top="80.0" />
          </GridPane.margin>

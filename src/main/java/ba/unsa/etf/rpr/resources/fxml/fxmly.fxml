@@ -42,12 +42,12 @@
          <children>
             <PasswordField promptText="Password:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField promptText="Username:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="signIn" mnemonicParsing="false" onAction="#click1" text="Sign in" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="signIn" mnemonicParsing="false" onAction="#click1" text="Log in" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="75.0" />
                </GridPane.margin>
             </Button>
-            <Label text="Sign in" textFill="#f5efef" GridPane.columnIndex="1">
+            <Label text="Log in" textFill="#f5efef" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="70.0" />
                </GridPane.margin>
@@ -70,7 +70,7 @@
             <Image url="@../house-for-rent-background_23-2147772983.jpg" />
          </image>
          <GridPane.margin>
-            <Insets top="30.0" />
+            <Insets left="10.0" top="30.0" />
          </GridPane.margin>
       </ImageView>
       <Label text="Extranet" textFill="#00e457" GridPane.rowIndex="1">
@@ -78,12 +78,12 @@
             <Font name="System Bold" size="20.0" />
          </font>
          <GridPane.margin>
-            <Insets bottom="300.0" left="60.0" top="35.0" />
+            <Insets bottom="300.0" left="70.0" top="35.0" />
          </GridPane.margin>
       </Label>
       <Button fx:id="signUp" mnemonicParsing="false" onAction="#click2" text="Sign up" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets left="180.0" top="375.0" />
+            <Insets left="179.0" top="375.0" />
          </GridPane.margin>
       </Button>
       <Label text="Not a member?" textFill="#00e457" GridPane.rowIndex="1">
@@ -91,7 +91,7 @@
             <Font name="System Italic" size="13.0" />
          </font>
          <GridPane.margin>
-            <Insets left="167.0" top="320.0" />
+            <Insets left="165.0" top="320.0" />
          </GridPane.margin>
       </Label>
    </children>

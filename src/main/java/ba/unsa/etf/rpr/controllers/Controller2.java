@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.dao.HostDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.Host;
+import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.*;
@@ -38,7 +40,7 @@ public class Controller2 {
         Stage  stage=new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/fxmly.fxml"));
         loader.load();
-        stage.setTitle("JAVAFX");
+        stage.setTitle("EXTRANET");
         stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.show();
         login.hide();
@@ -49,7 +51,7 @@ public class Controller2 {
         stage.close();
     }
 
-    public void signUP(ActionEvent actionEvent) {
+    public void signUP(ActionEvent actionEvent) throws Exceptionss {
         HostDaoSQLImpl user= new HostDaoSQLImpl();
         Host usr= new Host();
         usr.setName(nameHost.getText()+surnameHost.getText());

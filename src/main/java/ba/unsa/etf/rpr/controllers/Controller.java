@@ -88,7 +88,7 @@ public class Controller {
     Stage  stage=new Stage();
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signUp.fxml"));
     loader.load();
-    stage.setTitle("JAVAFX");
+    stage.setTitle("SIGN UP");
     stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
     stage.show();
     login.hide();
