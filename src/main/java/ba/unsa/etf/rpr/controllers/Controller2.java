@@ -55,6 +55,6 @@ public class Controller2 {
         usr.setName(nameHost.getText()+surnameHost.getText());
         usr.setNumber(numberHost.getText());
         usr.setEmail(emailHost.getText());
-
+        user.add(usr);
     }
 }
