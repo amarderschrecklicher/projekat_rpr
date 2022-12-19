@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.dao.HostDaoSQLImpl;
+import ba.unsa.etf.rpr.domain.Host;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +21,11 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class Controller2 {
 
+    public Button signUpBtn;
+    public TextField nameHost;
+    public TextField surnameHost;
+    public TextField numberHost;
+    public TextField emailHost;
     @FXML
     private GridPane scenePanee;
 
@@ -40,5 +47,14 @@ public class Controller2 {
     public void close(ActionEvent actionEvent) {
         Stage stage=(Stage) scenePanee.getScene().getWindow();
         stage.close();
+    }
+
+    public void signUP(ActionEvent actionEvent) {
+        HostDaoSQLImpl user= new HostDaoSQLImpl();
+        Host usr= new Host();
+        usr.setName(nameHost.getText()+surnameHost.getText());
+        usr.setNumber(numberHost.getText());
+        usr.setEmail(emailHost.getText());
+
     }
 }

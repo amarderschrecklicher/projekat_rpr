@@ -26,7 +26,7 @@ public class Controller {
     @FXML
     public Button signIn;
     @FXML
-    public AnchorPane scenePane;
+    public GridPane scenePane;
     public Button signUp;
     @FXML
     private TextField userName;
