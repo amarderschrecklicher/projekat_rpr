@@ -6,6 +6,7 @@ import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class HostDaoSQLImpl extends AbstractDao<Host> implements HostDAO {
     public HostDaoSQLImpl() {
@@ -42,7 +43,12 @@ public class HostDaoSQLImpl extends AbstractDao<Host> implements HostDAO {
 
     @Override
     public Map<String, Object> object2row(Host object) {
-        return null;
+        Map<String, Object> row = new TreeMap<String, Object>();
+        row.put("id",object.getId());
+        row.put("name",object.getName());
+        row.put("number",object.getNumber());
+        row.put("e-mail",object.getEmail());
+        return row;
     }
 
     @Override
