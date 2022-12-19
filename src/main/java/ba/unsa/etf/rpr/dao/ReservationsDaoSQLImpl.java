@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.domain.Guest;
 import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.domain.Reservations;
+import ba.unsa.etf.rpr.exceptions.Exceptionss;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,9 +14,36 @@ import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
-public class ReservationsDaoSQLImpl implements ReservationsDAO{
+public class ReservationsDaoSQLImpl extends AbstractDao<Reservations> implements ReservationsDAO{
     private Connection connection;
+
+    public ReservationsDaoSQLImpl() {
+        super("Reservations");
+    }
+
+    @Override
+    public Reservations row2object(ResultSet rs) throws Exceptionss, SQLException {
+        try{
+        Reservations q = new Reservations();
+        q.setId(rs.getInt(1));
+        q.setHostID(rs.getInt(2));
+        q.setGuestID(rs.getInt(3));
+        q.setPropertyID(rs.getInt(4));
+        q.setReservationDate(rs.getDate(5));
+        q.setDateIn(rs.getDate(6));
+        q.setDateOut(rs.getDate(7));
+        return q;
+    } catch (Exception e) {
+        throw new Exceptionss(e.getMessage(), e);
+    }
+    }
+
+    @Override
+    public Map<String, Object> object2row(Reservations object) {
+        return null;
+    }
 
     @Override
     public Reservations getById(int id) {

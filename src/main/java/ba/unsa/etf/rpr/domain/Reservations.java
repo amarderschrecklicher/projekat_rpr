@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Objects;
 import java.util.Date;
 
-public class Reservations {
+public class Reservations implements Idable {
 
     private int id;
     private int hostID;
