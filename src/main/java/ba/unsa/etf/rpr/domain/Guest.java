@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
 
-public class Guest {
+public class Guest implements Idable {
 
     private int id;
     private String name;

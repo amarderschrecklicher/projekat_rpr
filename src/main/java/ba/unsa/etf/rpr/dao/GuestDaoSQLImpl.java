@@ -1,23 +1,44 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Guest;
+import ba.unsa.etf.rpr.exceptions.Exceptionss;
 
 import java.sql.*;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
-public class GuestDaoSQLImpl implements GuestDAO {
+public class GuestDaoSQLImpl extends AbstractDao<Guest> implements GuestDAO {
 
     private Connection connection;
 
     public GuestDaoSQLImpl(){
-        try {
-            this.connection = DriverManager.getConnection("url", "usr", "psw");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    super("Guest");
     }
 
 
+    @Override
+    public Guest row2object(ResultSet rs) throws Exceptionss {
+        try {
+            Guest guest = new Guest();
+            guest.setId(rs.getInt(1));
+            guest.setName(rs.getString(2));
+            guest.setNumberOfGuests(rs.getInt(3));
+            guest.setGuestNumber(rs.getString(4));
+            guest.setCountry(rs.getString(5));
+            return guest;
+        } catch (SQLException e) {
+            throw new Exceptionss(e.getMessage(), e);
+        }
+    }
+
+    @Override
+    public Map<String, Object> object2row(Guest object) {
+        Map<String, Object> row = new TreeMap<String, Object>();
+        row.put("id", object.getId());
+        row.put("name", object.getName());
+        return row;
+    }
 
     @Override
     public Guest getById(int id) {
@@ -42,21 +63,6 @@ public class GuestDaoSQLImpl implements GuestDAO {
             e.printStackTrace(); // poor error handling
         }
         return null;
-    }
-
-    @Override
-    public Guest add(Guest item) {
-        return null;
-    }
-
-    @Override
-    public Guest update(Guest item) {
-        return null;
-    }
-
-    @Override
-    public void delete(int id) {
-
     }
 
     @Override
