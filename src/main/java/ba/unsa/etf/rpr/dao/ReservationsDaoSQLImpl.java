@@ -54,30 +54,7 @@ public class ReservationsDaoSQLImpl extends AbstractDao<Reservations> implements
         return row;
     }
 
-    @Override
-    public Reservations getById(int id) {
-        return null;
-    }
 
-    @Override
-    public Reservations add(Reservations item) {
-        return null;
-    }
-
-    @Override
-    public Reservations update(Reservations item) {
-        return null;
-    }
-
-    @Override
-    public void delete(int id) {
-
-    }
-
-    @Override
-    public List<Reservations> getall() {
-        return null;
-    }
 
     @Override
     public int nightsOfStay(int idReservation) {

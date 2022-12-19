@@ -49,7 +49,7 @@ public class GuestDaoSQLImpl extends AbstractDao<Guest> implements GuestDAO {
     }
 
     @Override
-    public List<Guest> getall() {
+    public List<Guest> getAll() {
         return null;
     }
 

@@ -53,31 +53,6 @@ public class PropertyDaoSQLImpl extends AbstractDao<Property> implements Propert
     }
 
     @Override
-    public Property getById(int id) {
-        return null;
-    }
-
-    @Override
-    public Property add(Property item) {
-        return null;
-    }
-
-    @Override
-    public Property update(Property item) {
-        return null;
-    }
-
-    @Override
-    public void delete(int id) {
-
-    }
-
-    @Override
-    public List<Property> getall() {
-        return null;
-    }
-
-    @Override
     public boolean hasAC(int idProperty) {
         String query = "SELECT * FROM Property WHERE PropertyID = ?";
         try {

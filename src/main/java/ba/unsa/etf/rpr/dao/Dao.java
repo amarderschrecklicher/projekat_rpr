@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
-import ba.unsa.etf.rpr.exceptions.Izuzeci;
 
 import java.util.List;
 
@@ -12,7 +11,7 @@ import java.util.List;
  */
 public interface Dao<spp> {
 
-    spp getById(int id) throws Izuzeci, Exceptionss;
+    spp getById(int id) throws  Exceptionss;
 
     spp add(spp item) throws Exceptionss;
 
@@ -20,11 +19,7 @@ public interface Dao<spp> {
 
     void delete(int id) throws Exceptionss;
 
-    List<spp> getall();
-
-
-
-
+    List<spp> getAll() throws Exceptionss;
 
 
 }
