@@ -79,7 +79,7 @@ public class ReservationsDaoSQLImpl extends AbstractDao<Reservations> implements
         return 0;
 
     }
-
+/*
     @Override
     public List<Reservations> allOfReseravtions(Guest guest) {
         String query = "SELECT * FROM Reservations WHERE GuestID = ?";
@@ -111,6 +111,8 @@ public class ReservationsDaoSQLImpl extends AbstractDao<Reservations> implements
 
         return null;
     }
+    */
+
 
     @Override
     public Property propertyDetails(int idReservation) {

@@ -11,7 +11,8 @@ import java.util.List;
 public interface ReservationsDAO extends Dao<Reservations> {
     int nightsOfStay(int idReservation);
 
-    List<Reservations> allOfReseravtions(Guest guest)throws Exceptionss;
+/*
+    List<Reservations> allOfReseravtions(Guest guest)throws Exceptionss;*/
 
     Property propertyDetails(int idReservation)throws Exceptionss;
 
