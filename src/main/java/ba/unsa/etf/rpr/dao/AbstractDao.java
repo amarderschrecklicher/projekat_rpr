@@ -73,7 +73,6 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             throw new Exceptionss(e.getMessage(), e);
         }
     }
-
     public void delete(int id) throws Exceptionss {
         String sql = "DELETE FROM "+tableName+" WHERE id = ?";
         try{
