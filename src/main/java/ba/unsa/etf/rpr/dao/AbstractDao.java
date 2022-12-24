@@ -140,6 +140,25 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         }
     }
 
+    public List<T> executeQuery(String query, Object[] params) throws  Exceptionss{
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            if (params != null){
+                for(int i = 1; i <= params.length; i++){
+                    stmt.setObject(i, params[i-1]);
+                }
+            }
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<T> resultList = new ArrayList<>();
+            while (rs.next()) {
+                resultList.add(row2object(rs));
+            }
+            return resultList;
+        } catch (SQLException e) {
+            throw new Exceptionss(e.getMessage(), e);
+        }
+    }
+
     /**
      * Accepts KV storage of column names and return CSV of columns and question marks for insert statement
      * Example: (id, name, date) ?,?,?
