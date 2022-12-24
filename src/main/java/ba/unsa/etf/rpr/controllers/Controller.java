@@ -1,26 +1,27 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.dao.*;
+import ba.unsa.etf.rpr.domain.Host;
+import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.Date;
+import java.util.List;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
 public class Controller {
+
+    private final Host host = new Host();
     @FXML
     public Button closeButton;
     @FXML
@@ -33,9 +34,16 @@ public class Controller {
     @FXML
     private PasswordField passWord;
 
+    public TableColumn<Host, String> idColumn;
+    public TableColumn<Host, String> nameColumn;
+    public TableColumn<Host, Date> numberColumn;
+    public TableColumn<Host, Integer> emailColumn;
+
+
     Connection con;
     PreparedStatement ps;
     ResultSet  rez;
+
 
     public void click(ActionEvent actionEvent){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -46,7 +54,7 @@ public class Controller {
         alert.showAndWait();
 
     }
-    public void click1(ActionEvent actionEvent) throws ClassNotFoundException, SQLException{
+    public void click1(ActionEvent actionEvent) throws ClassNotFoundException, SQLException, Exceptionss, IOException {
         String user = userName.getText(), pass = passWord.getText();
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
 
@@ -56,28 +64,23 @@ public class Controller {
             alert1.showAndWait();
         }
         else {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:myqsl://localhost/superpos","root","");
-            ps=con.prepareStatement("select * from sql7583417 where username=? and password=?");
-            ps.setString(1,user);
-            ps.setString(2,pass);
-            rez=ps.executeQuery();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            host.setName(user);
+            host.setNumber(pass);
+            if(DaoFactory.HostDao().searchHost(host)){
+                final Stage login=(Stage) scenePane.getScene().getWindow();
+                Stage  stage=new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signUp.fxml"));
+                loader.load();
+                stage.setTitle("SIGN UP");
+                stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+                stage.show();
+                login.hide();
 
-            if(rez.next()) {
-                alert.setTitle("Success");alert.setHeaderText(null);
-                alert.setContentText("Login success!");
-                alert.showAndWait();
             }
-            else  {
-
-                alert.setTitle("Failed");alert.setHeaderText(null);
-                alert.setContentText("Login failed!");
-                alert.showAndWait();
-
-                userName.setText("");
-                passWord.setText("");
-                userName.requestFocus();
+            else {
+                alert1.setTitle("Error");alert1.setHeaderText(null);
+                alert1.setContentText("Username or password wrong!");
+                alert1.showAndWait();
             }
 
         }
@@ -111,9 +114,5 @@ public class Controller {
 
     }
 
-    public void userName(ActionEvent actionEvent) {
-    }
 
-    public void password(ActionEvent actionEvent) {
-    }
 }
