@@ -25,7 +25,7 @@
    <children>
       <ImageView blendMode="DARKEN" fitHeight="798.0" fitWidth="781.0" opacity="0.4" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.rowSpan="2">
          <image>
-            <Image url="@../house-for-rent-background_23-2147772983.jpg" />
+            <Image url="@../imgs/house-for-rent-background_23-2147772983.jpg" />
          </image>
          <GridPane.margin>
             <Insets />

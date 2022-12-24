@@ -67,7 +67,7 @@
       </Button>
       <ImageView blendMode="DARKEN" fitHeight="440.0" fitWidth="429.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
          <image>
-            <Image url="@../house-for-rent-background_23-2147772983.jpg" />
+            <Image url="@../imgs/house-for-rent-background_23-2147772983.jpg" />
          </image>
          <GridPane.margin>
             <Insets left="10.0" top="30.0" />
