@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.dao.HostDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
@@ -52,11 +53,11 @@ public class Controller2 {
     }
 
     public void signUP(ActionEvent actionEvent) throws Exceptionss {
-        HostDaoSQLImpl user= new HostDaoSQLImpl();
-        Host usr= new Host();
-        usr.setName(nameHost.getText()+surnameHost.getText());
-        usr.setNumber(numberHost.getText());
-        usr.setEmail(emailHost.getText());
-        user.add(usr);
+        Host host =new Host();
+        host.setName(nameHost.getText()+surnameHost.getText());
+        host.setEmail(emailHost.getText());
+        host.setId(DaoFactory.HostDao().getAll().size()+1);
+        host.setNumber(numberHost.getText());
+        DaoFactory.HostDao().add(host);
     }
 }

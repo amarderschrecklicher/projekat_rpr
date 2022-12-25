@@ -100,6 +100,25 @@ public class Controller {
     @FXML
     public void initialize() {
 
+        userName.textProperty().addListener((obs,stara,nova)->{
+            if(userName.getText().isEmpty()){
+                userName.getStyleClass().removeAll("");
+                userName.getStyleClass().add("");
+            }else{
+                userName.getStyleClass().removeAll("");
+                userName.getStyleClass().add("");
+            }
+        });
+
+        passWord.textProperty().addListener((obs,stara,nova)->{
+            if(passWord.getText().isEmpty()){
+                passWord.getStyleClass().removeAll("");
+                passWord.getStyleClass().add("");
+            }else{
+                passWord.getStyleClass().removeAll("");
+                passWord.getStyleClass().add("");
+            }
+        });
     }
 
     public void actionLoginBtn(ActionEvent actionEvent){
