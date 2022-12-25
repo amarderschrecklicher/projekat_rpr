@@ -6,7 +6,6 @@ import java.util.Date;
 public class Reservations implements Idable {
 
     private int id;
-    private int hostID;
     private int guestID;
     private int propertyID;
     private Date reservationDate;
@@ -21,13 +20,6 @@ public class Reservations implements Idable {
         this.id = id;
     }
 
-    public int getHostID() {
-        return hostID;
-    }
-
-    public void setHostID(int hostID) {
-        this.hostID = hostID;
-    }
 
     public int getGuestID() {
         return guestID;
@@ -73,7 +65,6 @@ public class Reservations implements Idable {
     public String toString() {
         return "Reservations{" +
                 "id=" + id +
-                ", hostID=" + hostID +
                 ", guestID=" + guestID +
                 ", propertyID=" + propertyID +
                 ", reservationDate=" + reservationDate +
@@ -87,11 +78,11 @@ public class Reservations implements Idable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Reservations that = (Reservations) o;
-        return id == that.id && hostID == that.hostID && guestID == that.guestID && propertyID == that.propertyID && reservationDate.equals(that.reservationDate) && dateIn.equals(that.dateIn) && dateOut.equals(that.dateOut);
+        return id == that.id  && guestID == that.guestID && propertyID == that.propertyID && reservationDate.equals(that.reservationDate) && dateIn.equals(that.dateIn) && dateOut.equals(that.dateOut);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, hostID, guestID, propertyID, reservationDate, dateIn, dateOut);
+        return Objects.hash(id,  guestID, propertyID, reservationDate, dateIn, dateOut);
     }
 }

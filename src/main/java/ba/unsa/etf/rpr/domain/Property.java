@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Property implements Idable {
 
     private int id;
+    private int hostId;
     private String propertyType;
     private int capacity;
     private int bathrooms;
@@ -13,64 +14,74 @@ public class Property implements Idable {
     private boolean acH;
     private double price;
 
+    @Override
     public int getId() {
         return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getHostId() {
+        return hostId;
+    }
+
+    public void setHostId(int hostId) {
+        this.hostId = hostId;
     }
 
     public String getPropertyType() {
         return propertyType;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public int getBathrooms() {
-        return bathrooms;
-    }
-
-    public int getKitchens() {
-        return kitchens;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public boolean isAcH() {
-        return acH;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setPropertyType(String propertyType) {
         this.propertyType = propertyType;
+    }
+
+    public int getCapacity() {
+        return capacity;
     }
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
+    public int getBathrooms() {
+        return bathrooms;
+    }
+
     public void setBathrooms(int bathrooms) {
         this.bathrooms = bathrooms;
+    }
+
+    public int getKitchens() {
+        return kitchens;
     }
 
     public void setKitchens(int kitchens) {
         this.kitchens = kitchens;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
     public void setLocation(String location) {
         this.location = location;
     }
 
+    public boolean isAcH() {
+        return acH;
+    }
+
     public void setAcH(boolean acH) {
         this.acH = acH;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     public void setPrice(double price) {
@@ -81,6 +92,7 @@ public class Property implements Idable {
     public String toString() {
         return "Property{" +
                 "id=" + id +
+                ", hostId=" + hostId +
                 ", propertyType='" + propertyType + '\'' +
                 ", capacity=" + capacity +
                 ", bathrooms=" + bathrooms +
@@ -96,11 +108,11 @@ public class Property implements Idable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Property property = (Property) o;
-        return id == property.id && capacity == property.capacity && bathrooms == property.bathrooms && kitchens == property.kitchens && acH == property.acH && Double.compare(property.price, price) == 0 && propertyType.equals(property.propertyType) && location.equals(property.location);
+        return id == property.id && hostId == property.hostId && capacity == property.capacity && bathrooms == property.bathrooms && kitchens == property.kitchens && acH == property.acH && Double.compare(property.price, price) == 0 && propertyType.equals(property.propertyType) && location.equals(property.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, propertyType, capacity, bathrooms, kitchens, location, acH, price);
+        return Objects.hash(id, hostId, propertyType, capacity, bathrooms, kitchens, location, acH, price);
     }
 }
