@@ -54,6 +54,12 @@ public class PropertyDaoSQLImpl extends AbstractDao<Property> implements Propert
         return row;
     }
 
+
+    @Override
+    public List<Property> hostProperties(Host host) throws Exceptionss {
+        return executeQuery("SELECT * FROM Property WHERE HostId = ?", new Object[]{host.getId()});
+    }
+
     @Override
     public boolean hasAC(int idProperty) {
         String query = "SELECT * FROM Property WHERE PropertyID = ?";

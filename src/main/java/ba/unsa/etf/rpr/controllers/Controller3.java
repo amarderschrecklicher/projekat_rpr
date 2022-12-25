@@ -26,7 +26,7 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 public class Controller3 extends Controller {
 
     public ListView listProperty;
-    private final Property property = new Property();
+    private Property property = new Property();
     public BorderPane scenePn;
 
     @FXML
@@ -34,9 +34,11 @@ public class Controller3 extends Controller {
 
         Host host=hostGive();
 
-        if(host.getId()==property.getHostId() && !DaoFactory.propertyDao().getAll().isEmpty()) {
+        List<Property> listP=DaoFactory.propertyDao().hostProperties(host);
 
-            ObservableList list1 = (ObservableList) DaoFactory.propertyDao().getAll();
+        if( !listP.isEmpty()) {
+
+            ObservableList list1 = (ObservableList) listP;
             listProperty.setItems(list1);
         }
 /*
