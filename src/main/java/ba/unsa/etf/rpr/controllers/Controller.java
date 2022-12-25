@@ -102,21 +102,21 @@ public class Controller {
 
         userName.textProperty().addListener((obs,stara,nova)->{
             if(userName.getText().isEmpty()){
-                userName.getStyleClass().removeAll("");
-                userName.getStyleClass().add("");
+                userName.getStyleClass().removeAll("Ispravno");
+                userName.getStyleClass().add("Neispravno");
             }else{
-                userName.getStyleClass().removeAll("");
-                userName.getStyleClass().add("");
+                userName.getStyleClass().removeAll("Neispravno");
+                userName.getStyleClass().add("Ispravno");
             }
         });
 
         passWord.textProperty().addListener((obs,stara,nova)->{
             if(passWord.getText().isEmpty()){
-                passWord.getStyleClass().removeAll("");
-                passWord.getStyleClass().add("");
+                passWord.getStyleClass().removeAll("Ispravno");
+                passWord.getStyleClass().add("Neispravno");
             }else{
-                passWord.getStyleClass().removeAll("");
-                passWord.getStyleClass().add("");
+                passWord.getStyleClass().removeAll("Neispravno");
+                passWord.getStyleClass().add("Ispravno");
             }
         });
     }
