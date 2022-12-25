@@ -34,7 +34,7 @@ public class Controller3 extends Controller {
 
         Host host=hostGive();
 
-        if(host.getId()==property.getId() && !DaoFactory.propertyDao().getAll().isEmpty()) {
+        if(host.getId()==property.getHostId() && !DaoFactory.propertyDao().getAll().isEmpty()) {
 
             ObservableList list1 = (ObservableList) DaoFactory.propertyDao().getAll();
             listProperty.setItems(list1);

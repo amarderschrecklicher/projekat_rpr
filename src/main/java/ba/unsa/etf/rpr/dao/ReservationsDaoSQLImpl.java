@@ -29,12 +29,11 @@ public class ReservationsDaoSQLImpl extends AbstractDao<Reservations> implements
         try{
         Reservations q = new Reservations();
         q.setId(rs.getInt(1));
-        q.setHostID(rs.getInt(2));
-        q.setGuestID(rs.getInt(3));
-        q.setPropertyID(rs.getInt(4));
-        q.setReservationDate(rs.getDate(5));
-        q.setDateIn(rs.getDate(6));
-        q.setDateOut(rs.getDate(7));
+        q.setGuestID(rs.getInt(2));
+        q.setPropertyID(rs.getInt(3));
+        q.setReservationDate(rs.getDate(4));
+        q.setDateIn(rs.getDate(5));
+        q.setDateOut(rs.getDate(6));
         return q;
     } catch (Exception e) {
         throw new Exceptionss(e.getMessage(), e);
@@ -45,7 +44,6 @@ public class ReservationsDaoSQLImpl extends AbstractDao<Reservations> implements
     public Map<String, Object> object2row(Reservations object) {
         Map<String, Object> row = new TreeMap<String, Object>();
         row.put("id", object.getId());
-        row.put("hostId", object.getHostID());
         row.put("guestId",object.getGuestID());
         row.put("propertyId",object.getPropertyID());
         row.put("reservationDate",object.getReservationDate());
