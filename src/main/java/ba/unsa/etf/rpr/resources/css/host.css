@@ -1,7 +1,7 @@
--Neispravno{
+.Neispravno{
     -fx-background-color: lightpink;
 }
 
--Ispravno{
+.Ispravno{
     -fx-background-color: white;
 }

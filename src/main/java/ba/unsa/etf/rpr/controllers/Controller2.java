@@ -35,6 +35,8 @@ public class Controller2 {
     @FXML
     public void initialize() {
 
+        nameHost.setFocusTraversable(true);
+
         nameHost.textProperty().addListener((obs,stara,nova)->{
             if(nameHost.getText().isEmpty()){
                 nameHost.getStyleClass().removeAll("Ispravno");

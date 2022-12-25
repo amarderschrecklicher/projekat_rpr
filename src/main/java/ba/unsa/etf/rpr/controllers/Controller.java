@@ -30,7 +30,7 @@ public class Controller {
     public GridPane scenePane;
     public Button signUp;
     @FXML
-    private TextField userName;
+    public TextField userName;
     @FXML
     private PasswordField passWord;
 
@@ -100,6 +100,7 @@ public class Controller {
     @FXML
     public void initialize() {
 
+        userName.requestFocus();
         userName.textProperty().addListener((obs,stara,nova)->{
             if(userName.getText().isEmpty()){
                 userName.getStyleClass().removeAll("Ispravno");

@@ -6,13 +6,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import java.net.URL?>
 <GridPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="762.0" style="-fx-background-color: #001B52;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.Controller">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="506.0" minWidth="0.0" prefWidth="404.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="710.0" minWidth="10.0" prefWidth="280.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="77.0" />
-  </columnConstraints>
-  <rowConstraints>
+    <stylesheets>
+        <URL value="@/css/fxmly.css"/>
+    </stylesheets>
+    <rowConstraints>
     <RowConstraints maxHeight="91.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="423.0" minHeight="10.0" prefHeight="423.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="158.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
@@ -89,4 +88,10 @@
          </GridPane.margin>
       </Label>
    </children>
+    <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="506.0" minWidth="0.0" prefWidth="404.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="710.0" minWidth="10.0" prefWidth="280.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="77.0" />
+</columnConstraints>
 </GridPane>
+

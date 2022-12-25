@@ -9,9 +9,12 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javax.swing.*;
+
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class mainFX extends Application {
+
 
 
 
@@ -23,7 +26,6 @@ public class mainFX extends Application {
         stage.setTitle("Extranet");
         stage.setScene(new Scene(root , USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.show();
-
     }
     public static void mainFX(String []args) {
         launch(args);
