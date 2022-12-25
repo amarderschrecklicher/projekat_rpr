@@ -30,9 +30,9 @@ public class Controller {
     public GridPane scenePane;
     public Button signUp;
     @FXML
-    public TextField userName;
-    @FXML
     private PasswordField passWord;
+    @FXML
+    public TextField userName;
 
     public TableColumn<Host, String> idColumn;
     public TableColumn<Host, String> nameColumn;
@@ -43,7 +43,6 @@ public class Controller {
     Connection con;
     PreparedStatement ps;
     ResultSet  rez;
-
 
     public void click(ActionEvent actionEvent){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -93,14 +92,14 @@ public class Controller {
     loader.load();
     stage.setTitle("SIGN UP");
     stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+    userName.requestFocus();
     stage.show();
     login.hide();
     }
 
     @FXML
     public void initialize() {
-
-        userName.requestFocus();
+        
         userName.textProperty().addListener((obs,stara,nova)->{
             if(userName.getText().isEmpty()){
                 userName.getStyleClass().removeAll("Ispravno");

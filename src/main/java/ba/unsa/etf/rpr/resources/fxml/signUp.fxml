@@ -53,7 +53,7 @@
          <children>
             <TextField id="number" fx:id="numberHost" prefHeight="11.0" prefWidth="157.0" promptText="Number:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField id="hostSur" fx:id="surnameHost" prefHeight="2.0" prefWidth="245.0" promptText="Host surname:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField id="hostName" fx:id="nameHost" prefHeight="13.0" prefWidth="245.0" promptText="Host name: " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField id="hostName" fx:id="nameHost"  prefHeight="13.0" prefWidth="245.0" promptText="Host name: " GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Sign up" textFill="#fffdfd" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="27.0" />
