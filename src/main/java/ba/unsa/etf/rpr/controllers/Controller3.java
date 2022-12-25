@@ -2,12 +2,16 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.dao.*;
 import ba.unsa.etf.rpr.domain.Host;
+import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -21,8 +25,18 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class Controller3 {
 
+    public ListView listProperty;
+    private final Property property = new Property();
+    public BorderPane scenePn;
+
     @FXML
-    public void initialize() {
+    public void initialize() throws Exceptionss, IOException {
+
+        if(DaoFactory.propertyDao().getAll().isEmpty()) {
+
+            ObservableList list1 = (ObservableList) DaoFactory.propertyDao().getAll();
+            listProperty.setItems(list1);
+        }
 /*
         nameHost.textProperty().addListener((obs,stara,nova)->{
             if(nameHost.getText().isEmpty()){
@@ -66,5 +80,7 @@ public class Controller3 {
    */ }
 
 
+    public void userHi(InputMethodEvent inputMethodEvent) {
+    }
 
 }

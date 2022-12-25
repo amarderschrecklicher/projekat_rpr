@@ -68,9 +68,9 @@ public class Controller {
             if(DaoFactory.HostDao().searchHost(host)){
                 final Stage login=(Stage) scenePane.getScene().getWindow();
                 Stage  stage=new Stage();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signUp.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
                 loader.load();
-                stage.setTitle("SIGN UP");
+                stage.setTitle("HOST MENU");
                 stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
                 stage.show();
                 login.hide();
@@ -92,7 +92,6 @@ public class Controller {
     loader.load();
     stage.setTitle("SIGN UP");
     stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-    userName.requestFocus();
     stage.show();
     login.hide();
     }

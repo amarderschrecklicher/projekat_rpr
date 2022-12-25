@@ -40,7 +40,7 @@ public class HostDaoSQLImpl extends AbstractDao<Host> implements HostDAO {
     @Override
     public boolean searchHost(Host host) throws Exceptionss {
         List<Host> l =this.getAll();
-        for(Host x:l)if(x.getName()== host.getName() && x.getNumber()== host.getNumber())return true;
+        for(Host x:l)if(x.getName().equals(host.getName())  && x.getNumber().equals(host.getNumber()))return true;
         return false;
     }
 }
