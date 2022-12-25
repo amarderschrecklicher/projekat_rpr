@@ -25,13 +25,14 @@ public class PropertyDaoSQLImpl extends AbstractDao<Property> implements Propert
         try {
             Property q = new Property();
             q.setId(rs.getInt(1));
-            q.setPropertyType(rs.getString(2));
-            q.setCapacity(rs.getInt(3));
-            q.setBathrooms(rs.getInt(4));
-            q.setKitchens(rs.getInt(5));
-            q.setLocation(rs.getString(6));
-            q.setAcH(rs.getBoolean(7));
-            q.setPrice(rs.getDouble(8));
+            q.setHostId(rs.getInt(2));
+            q.setPropertyType(rs.getString(3));
+            q.setCapacity(rs.getInt(4));
+            q.setBathrooms(rs.getInt(5));
+            q.setKitchens(rs.getInt(6));
+            q.setLocation(rs.getString(7));
+            q.setAcH(rs.getBoolean(8));
+            q.setPrice(rs.getDouble(9));
             return q;
         } catch (Exception e) {
             throw new Exceptionss(e.getMessage(), e);
@@ -42,6 +43,7 @@ public class PropertyDaoSQLImpl extends AbstractDao<Property> implements Propert
     public Map<String, Object> object2row(Property object) {
         Map<String, Object> row = new TreeMap<String, Object>();
         row.put("id", object.getId());
+        row.put("hostId",object.getHostId());
         row.put("type", object.getPropertyType());
         row.put("capacity",object.getCapacity());
         row.put("bathrooms",object.getBathrooms());
