@@ -23,7 +23,7 @@ import java.util.List;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
-public class Controller3 {
+public class Controller3 extends Controller {
 
     public ListView listProperty;
     private final Property property = new Property();
@@ -32,7 +32,9 @@ public class Controller3 {
     @FXML
     public void initialize() throws Exceptionss, IOException {
 
-        if(DaoFactory.propertyDao().getAll().isEmpty()) {
+        Host host=hostGive();
+
+        if(host.getId()==property.getId() && !DaoFactory.propertyDao().getAll().isEmpty()) {
 
             ObservableList list1 = (ObservableList) DaoFactory.propertyDao().getAll();
             listProperty.setItems(list1);
@@ -78,6 +80,7 @@ public class Controller3 {
             }
         });
    */ }
+
 
 
     public void userHi(InputMethodEvent inputMethodEvent) {

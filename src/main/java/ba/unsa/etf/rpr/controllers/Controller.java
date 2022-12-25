@@ -44,6 +44,8 @@ public class Controller {
     PreparedStatement ps;
     ResultSet  rez;
 
+    public Host hostGive(){return host;}
+
     public void click(ActionEvent actionEvent){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
@@ -97,7 +99,7 @@ public class Controller {
     }
 
     @FXML
-    public void initialize() {
+    public void initialize() throws Exceptionss, IOException {
         
         userName.textProperty().addListener((obs,stara,nova)->{
             if(userName.getText().isEmpty()){
