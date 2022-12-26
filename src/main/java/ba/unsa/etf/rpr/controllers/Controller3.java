@@ -35,8 +35,11 @@ public class Controller3 extends Controller implements Initializable {
         } catch (Exceptionss e) {
             throw new RuntimeException(e);
         }
-
-        hiUser.setText("Hi, "+hostForHi.getName()+" !");
+        String Welcome;Welcome="Hi, ";int i=0;
+        while(hostForHi.getName().charAt(i)!=' ') {
+            Welcome+=hostForHi.getName().charAt(i);i++;}
+        Welcome+=" !";
+        hiUser.setText(Welcome);
 
         List<Property> listP= null;
         try {
@@ -46,7 +49,7 @@ public class Controller3 extends Controller implements Initializable {
         }
 
         if( !listP.isEmpty()) {
-            String[]a = new String[1];int i=0;
+            String[]a = new String[1]; i=0;
             for(Property p:listP){a[i]=p.getPropertyName()+"   :"+p.getPropertyType();i++;}
             listProperty.getItems().addAll(a);
         }
