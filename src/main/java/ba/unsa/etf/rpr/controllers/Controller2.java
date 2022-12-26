@@ -7,6 +7,7 @@ import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -18,11 +19,13 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
+import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
-public class Controller2 {
+public class Controller2 implements Initializable {
 
     public Button signUpBtn;
     public TextField nameHost;
@@ -32,8 +35,8 @@ public class Controller2 {
     @FXML
     private GridPane scenePanee;
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
         nameHost.textProperty().addListener((obs,stara,nova)->{
             if(nameHost.getText().isEmpty()){

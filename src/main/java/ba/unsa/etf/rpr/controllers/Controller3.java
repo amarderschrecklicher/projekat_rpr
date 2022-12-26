@@ -1,45 +1,42 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.dao.*;
-import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.*;
-import java.util.Date;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+public class Controller3 extends Controller implements Initializable {
 
-public class Controller3 extends Controller {
-
-    public ListView listProperty;
-    private Property property = new Property();
+    private ObservableList<String> obsList;
+    @FXML
+    public ListView<String> listProperty;
+    @FXML
     public BorderPane scenePn;
 
-    @FXML
-    public void initialize() throws Exceptionss, IOException {
-
-        Host host=hostGive();
-
-        List<Property> listP=DaoFactory.propertyDao().hostProperties(host);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<Property> listP= null;
+        try {
+            listP = DaoFactory.propertyDao().hostProperties(hostGive());
+        } catch (Exceptionss e) {
+            throw new RuntimeException(e);
+        }
+        for(Property p: listP)
+            obsList.add(p.toString());
 
         if( !listP.isEmpty()) {
-
-            ObservableList list1 = (ObservableList) listP;
-            listProperty.setItems(list1);
+            listProperty.setItems(obsList);
         }
 /*
         nameHost.textProperty().addListener((obs,stara,nova)->{
@@ -81,11 +78,13 @@ public class Controller3 extends Controller {
                 emailHost.getStyleClass().add("Ispravno");
             }
         });
-   */ }
 
+ */
 
+    }
 
     public void userHi(InputMethodEvent inputMethodEvent) {
     }
+
 
 }

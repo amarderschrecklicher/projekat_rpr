@@ -6,20 +6,23 @@ import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import java.util.Date;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
-public class Controller {
+public class Controller implements Initializable {
 
     private final Host host = new Host();
     @FXML
@@ -98,8 +101,8 @@ public class Controller {
     login.hide();
     }
 
-    @FXML
-    public void initialize() throws Exceptionss, IOException {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)  {
         
         userName.textProperty().addListener((obs,stara,nova)->{
             if(userName.getText().isEmpty()){
