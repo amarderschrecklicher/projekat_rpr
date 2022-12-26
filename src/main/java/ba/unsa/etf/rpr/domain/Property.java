@@ -6,6 +6,7 @@ public class Property implements Idable {
 
     private int id;
     private int hostId;
+    private String propertyName;
     private String propertyType;
     private int capacity;
     private int bathrooms;
@@ -30,6 +31,14 @@ public class Property implements Idable {
 
     public void setHostId(int hostId) {
         this.hostId = hostId;
+    }
+
+    public String getPropertyName() {
+        return propertyName;
+    }
+
+    public void setPropertyName(String propertyName) {
+        this.propertyName = propertyName;
     }
 
     public String getPropertyType() {
@@ -93,6 +102,7 @@ public class Property implements Idable {
         return "Property{" +
                 "id=" + id +
                 ", hostId=" + hostId +
+                ", propertyName='" + propertyName + '\'' +
                 ", propertyType='" + propertyType + '\'' +
                 ", capacity=" + capacity +
                 ", bathrooms=" + bathrooms +
@@ -108,11 +118,11 @@ public class Property implements Idable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Property property = (Property) o;
-        return id == property.id && hostId == property.hostId && capacity == property.capacity && bathrooms == property.bathrooms && kitchens == property.kitchens && acH == property.acH && Double.compare(property.price, price) == 0 && propertyType.equals(property.propertyType) && location.equals(property.location);
+        return id == property.id && hostId == property.hostId && capacity == property.capacity && bathrooms == property.bathrooms && kitchens == property.kitchens && acH == property.acH && Double.compare(property.price, price) == 0 && propertyName.equals(property.propertyName) && propertyType.equals(property.propertyType) && location.equals(property.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, hostId, propertyType, capacity, bathrooms, kitchens, location, acH, price);
+        return Objects.hash(id, hostId, propertyName, propertyType, capacity, bathrooms, kitchens, location, acH, price);
     }
 }

@@ -32,11 +32,12 @@ public class Controller3 extends Controller implements Initializable {
         } catch (Exceptionss e) {
             throw new RuntimeException(e);
         }
-        for(Property p: listP)
-            obsList.add(p.toString());
 
         if( !listP.isEmpty()) {
-            listProperty.setItems(obsList);
+            String[]a;int i=0;
+            for(Property p:listP)a[i]=p.getPropertyType().toString();
+            for(Property p:listP)
+            listProperty.getItems().add(p.toString());
         }
 /*
         nameHost.textProperty().addListener((obs,stara,nova)->{
