@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.dao.*;
+import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.collections.ObservableList;
@@ -18,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class Controller3 extends Controller implements Initializable {
 
+    public Label hiUser;
     private ObservableList<String> obsList;
     @FXML
     public ListView<String> listProperty;
@@ -26,6 +28,16 @@ public class Controller3 extends Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        Host hostForHi=null;
+        try {
+             hostForHi=DaoFactory.HostDao().getById(hostGive().getId());
+        } catch (Exceptionss e) {
+            throw new RuntimeException(e);
+        }
+
+        hiUser.setText("Hi, "+hostForHi.getName()+" !");
+
         List<Property> listP= null;
         try {
             listP = DaoFactory.propertyDao().hostProperties(hostGive());
@@ -34,10 +46,9 @@ public class Controller3 extends Controller implements Initializable {
         }
 
         if( !listP.isEmpty()) {
-            String[]a;int i=0;
-            for(Property p:listP)a[i]=p.getPropertyType().toString();
-            for(Property p:listP)
-            listProperty.getItems().add(p.toString());
+            String[]a = new String[1];int i=0;
+            for(Property p:listP){a[i]=p.getPropertyName()+"   :"+p.getPropertyType();i++;}
+            listProperty.getItems().addAll(a);
         }
 /*
         nameHost.textProperty().addListener((obs,stara,nova)->{
