@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -16,13 +17,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
-public class Controller implements Initializable {
+public class login implements Initializable {
 
     private final Host host = new Host();
     @FXML
@@ -138,4 +138,18 @@ public class Controller implements Initializable {
     }
 
 
+    public void hoverCancel(MouseEvent mouseEvent) {
+    }
+
+    public void pressSgnp(MouseEvent mouseEvent) {
+    }
+
+    public void hoverSgnp(MouseEvent mouseEvent) {
+    }
+
+    public void hoverLgn(MouseEvent mouseEvent) {
+    }
+
+    public void pressLgn(MouseEvent mouseEvent) {
+    }
 }

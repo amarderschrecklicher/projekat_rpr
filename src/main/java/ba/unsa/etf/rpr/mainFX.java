@@ -1,15 +1,11 @@
 package ba.unsa.etf.rpr;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import javax.swing.*;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -21,7 +17,7 @@ public class mainFX extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/fxmly.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("Extranet");
         stage.setScene(new Scene(root , USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));

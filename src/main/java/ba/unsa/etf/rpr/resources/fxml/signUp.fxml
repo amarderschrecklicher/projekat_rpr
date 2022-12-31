@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import java.net.URL?>
-<GridPane fx:id="scenePanee" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="762.0" style="-fx-background-color: #001B52;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.Controller2">
+<GridPane fx:id="scenePanee" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="762.0" style="-fx-background-color: #001B52;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.signup">
     <stylesheets>
         <URL value="@/css/signUp.css"/>
     </stylesheets>

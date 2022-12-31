@@ -11,13 +11,12 @@ import javafx.scene.control.*;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.BorderPane;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 
-public class Controller3 extends Controller implements Initializable {
+public class host extends login implements Initializable {
 
     public Label hiUser;
     private ObservableList<String> obsList;

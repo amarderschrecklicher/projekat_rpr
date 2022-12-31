@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
-import ba.unsa.etf.rpr.dao.HostDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.event.ActionEvent;
@@ -9,23 +8,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
-public class Controller2 implements Initializable {
+public class signup implements Initializable {
 
     public Button signUpBtn;
     public TextField nameHost;
@@ -83,7 +77,7 @@ public class Controller2 implements Initializable {
     public void back(ActionEvent actionEvent) throws IOException {
         final Stage login=(Stage) scenePanee.getScene().getWindow();
         Stage  stage=new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/fxmly.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
         loader.load();
         stage.setTitle("EXTRANET");
         stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
