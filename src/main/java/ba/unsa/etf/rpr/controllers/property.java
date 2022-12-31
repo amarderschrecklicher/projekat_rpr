@@ -20,4 +20,10 @@ public class property implements Initializable {
 
     public void applyButton(ActionEvent actionEvent) {
     }
+
+    public void yes(ActionEvent actionEvent) {
+    }
+
+    public void no(ActionEvent actionEvent) {
+    }
 }
