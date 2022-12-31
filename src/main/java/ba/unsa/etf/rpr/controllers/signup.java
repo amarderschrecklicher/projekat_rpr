@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -92,10 +93,14 @@ public class signup implements Initializable {
 
     public void signUP(ActionEvent actionEvent) throws Exceptionss {
         Host host =new Host();
-        host.setName(nameHost.getText()+surnameHost.getText());
+        host.setName(nameHost.getText()+" "+surnameHost.getText());
         host.setEmail(emailHost.getText());
-        host.setId(DaoFactory.HostDao().getAll().size()+1);
         host.setNumber(numberHost.getText());
+        List<Host> list=DaoFactory.HostDao().getAll();
+        for(Host x:list)if(x.getEmail().equals(host.getEmail()) || x.getNumber().equals(host.getNumber())) {
+
+        }
+        else
         DaoFactory.HostDao().add(host);
     }
 }
