@@ -43,7 +43,7 @@ public class GuestDaoSQLImpl extends AbstractDao<Guest> implements GuestDAO {
     }
 @Override
  public List<Guest>searchByName(String name) throws Exceptionss {
-     return executeQuery("SELECT GuestCountry FROM guest WHERE GuestEmail = ?", new Object[]{name});
+     return executeQuery("SELECT GuestCountry FROM guest WHERE GuestName = ?", new Object[]{name});
 
  }
 

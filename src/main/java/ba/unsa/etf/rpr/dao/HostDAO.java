@@ -7,4 +7,6 @@ public interface HostDAO extends Dao<Host> {
 
 boolean searchHost(Host host) throws Exceptionss;
 
+Host getByNumber(String number)throws Exceptionss;
+
 }

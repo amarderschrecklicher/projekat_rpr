@@ -43,4 +43,8 @@ public class HostDaoSQLImpl extends AbstractDao<Host> implements HostDAO {
         for(Host x:l)if(x.getName().equals(host.getName())  && x.getNumber().equals(host.getNumber()))return true;
         return false;
     }
+    @Override
+    public Host getByNumber(String number) throws Exceptionss {
+       return executeQueryUnique("SELECT * FROM Host WHERE HostNumber = ?", new Object[]{number});
+    }
 }

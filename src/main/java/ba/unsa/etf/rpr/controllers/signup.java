@@ -22,13 +22,21 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class signup implements Initializable {
 
+    private final Host hostt = new Host();
+    @FXML
     public Button signUpBtn;
+    @FXML
     public TextField nameHost;
+    @FXML
     public TextField surnameHost;
+    @FXML
     public TextField numberHost;
+    @FXML
     public TextField emailHost;
     @FXML
     private GridPane scenePanee;
+
+    public Host hostNewGive(){return hostt;}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -91,16 +99,24 @@ public class signup implements Initializable {
         stage.close();
     }
 
-    public void signUP(ActionEvent actionEvent) throws Exceptionss {
-        Host host =new Host();
-        host.setName(nameHost.getText()+" "+surnameHost.getText());
-        host.setEmail(emailHost.getText());
-        host.setNumber(numberHost.getText());
+    public void signUP(ActionEvent actionEvent) throws Exceptionss, IOException {
+        hostt.setName(nameHost.getText()+" "+surnameHost.getText());
+        hostt.setEmail(emailHost.getText());
+        hostt.setNumber(numberHost.getText());
         List<Host> list=DaoFactory.HostDao().getAll();
-        for(Host x:list)if(x.getEmail().equals(host.getEmail()) || x.getNumber().equals(host.getNumber())) {
+        for(Host x:list)if(x.getEmail().equals(hostt.getEmail()) || x.getNumber().equals(hostt.getNumber())) {
 
         }
-        else
-        DaoFactory.HostDao().add(host);
+        else {
+            DaoFactory.HostDao().add(hostt);
+            final Stage login=(Stage) scenePanee.getScene().getWindow();
+            Stage  stage=new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
+            loader.load();
+            stage.setTitle("HOST MENU");
+            stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            stage.show();
+            login.hide();
+        }
     }
 }

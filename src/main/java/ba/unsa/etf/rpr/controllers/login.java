@@ -24,7 +24,7 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class login implements Initializable {
 
-    private final Host host = new Host();
+    private Host host = new Host();
     @FXML
     public Button closeButton;
     @FXML
@@ -37,15 +37,7 @@ public class login implements Initializable {
     @FXML
     public TextField userName;
 
-    public TableColumn<Host, String> idColumn;
-    public TableColumn<Host, String> nameColumn;
-    public TableColumn<Host, Date> numberColumn;
-    public TableColumn<Host, Integer> emailColumn;
 
-
-    Connection con;
-    PreparedStatement ps;
-    ResultSet  rez;
 
     public Host hostGive(){return host;}
 
@@ -68,9 +60,11 @@ public class login implements Initializable {
             alert1.showAndWait();
         }
         else {
-            host.setName(user);
-            host.setNumber(pass);
+
+            host=DaoFactory.HostDao().getByNumber(pass);
+
             if(DaoFactory.HostDao().searchHost(host)){
+
                 final Stage login=(Stage) scenePane.getScene().getWindow();
                 Stage  stage=new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
@@ -136,6 +130,8 @@ public class login implements Initializable {
         stage.close();
 
     }
+
+
 
 
 }

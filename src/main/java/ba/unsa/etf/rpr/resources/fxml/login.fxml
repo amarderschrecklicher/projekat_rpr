@@ -56,7 +56,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="userName" editable="false" promptText="Username:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="userName" promptText="Username:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <PasswordField fx:id="passWord" promptText="Password:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
          <opaqueInsets>

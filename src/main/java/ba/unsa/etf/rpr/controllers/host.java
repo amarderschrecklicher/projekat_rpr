@@ -28,12 +28,8 @@ public class host extends login implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Host hostForHi=null;
-        try {
-             hostForHi=DaoFactory.HostDao().getById(hostGive().getId());
-        } catch (Exceptionss e) {
-            throw new RuntimeException(e);
-        }
+        Host hostForHi=hostGive();
+
         String Welcome;Welcome="Hi, ";int i=0;
         while(hostForHi.getName().charAt(i)!=' ') {
             Welcome+=hostForHi.getName().charAt(i);i++;}
