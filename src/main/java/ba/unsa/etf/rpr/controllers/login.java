@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.dao.*;
 import ba.unsa.etf.rpr.domain.Host;
+import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,12 +18,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
-public class login  extends host implements Initializable {
+public class login  implements Initializable {
 
     private  Host host = new Host();
     @FXML
@@ -37,8 +39,6 @@ public class login  extends host implements Initializable {
     @FXML
     public TextField userName;
 
-
-    public Host hostGive(){return host;}
 
     public void click(ActionEvent actionEvent){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -67,11 +67,34 @@ public class login  extends host implements Initializable {
                 Stage  stage=new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
                 loader.load();
+                host set= loader.getController();
+
+                String Welcome ="Hi, ";int i=0;
+
+                while(host.getName().charAt(i)!=' ') {
+                    Welcome+=host.getName().charAt(i);i++;}
+                Welcome+=" !";
+
+                set.hiUser.setText(Welcome);
+
+                List<Property> listP= null;
+                try {
+                    listP = DaoFactory.propertyDao().hostProperties(host);
+                } catch (Exceptionss e) {
+                    throw new RuntimeException(e);
+                }
+
+                if(!listP.isEmpty()) {
+                    String[]a = new String[1]; i=0;
+                    for(Property p:listP){a[i]=p.getPropertyName()+"   : "+p.getPropertyType();i++;}
+                    set.listProperty.getItems().addAll(a);
+                }
+
                 stage.setTitle("HOST MENU");
                 stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
                 stage.show();
                 login.hide();
-                setHostForHi(host);
+
             }
             else {
                 alert1.setTitle("Error");alert1.setHeaderText(null);

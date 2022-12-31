@@ -5,3 +5,7 @@
 .Ispravno{
     -fx-background-color: white;
 }
+
+#listProperty{
+    -fx-background-color: #001B52;
+}

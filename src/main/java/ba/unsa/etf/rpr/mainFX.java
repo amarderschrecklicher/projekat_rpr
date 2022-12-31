@@ -11,9 +11,6 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class mainFX extends Application {
 
-
-
-
     @Override
     public void start(Stage stage) throws Exception {
 
