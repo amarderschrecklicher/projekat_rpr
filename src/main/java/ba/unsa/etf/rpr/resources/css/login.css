@@ -15,10 +15,13 @@
     -fx-background-color: #868585;
 }
 #signUp:hover{
-    -fx-background-color: #dc8b93;
+    -fx-background-color: #a6a3a3;
 }
 #signUp:pressed{
-    -fx-background-color: #c25f6b;
+    -fx-background-color: #868585;
+}
+#closeButton{
+    -fx-background-color: lightpink;
 }
 #closeButton:hover{
     -fx-background-color: #dc8b93;

@@ -40,6 +40,14 @@
             <Insets bottom="80.0" left="30.0" right="60.0" top="120.0" />
          </GridPane.margin>
          <children>
+            <Button id="signIn" fx:id="signIn" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#click1" styleClass="signIn" stylesheets="@../css/login.css" text="Log in" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="80.0" />
+               </GridPane.margin>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
             <Label text="Log in" textFill="#f5efef" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="70.0" />
@@ -50,14 +58,6 @@
             </Label>
             <TextField fx:id="userName" editable="false" promptText="Username:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <PasswordField fx:id="passWord" promptText="Password:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button id="signIn" fx:id="signIn" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#click1" style="-fx-background-color: #ebebeb;" styleClass="signIn" stylesheets="@../css/login.css" text="Log in" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets left="80.0" />
-               </GridPane.margin>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Button>
          </children>
          <opaqueInsets>
             <Insets right="10.0" />

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,10 +12,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
 <GridPane fx:id="scenePanee" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="762.0" style="-fx-background-color: #001B52;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.signup">
     <stylesheets>
-        <URL value="@/css/signUp.css"/>
+        <URL value="@/css/signUp.css" />
     </stylesheets>
     <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="236.0" />
@@ -51,9 +51,15 @@
             <RowConstraints maxHeight="282.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField id="number" fx:id="numberHost" prefHeight="11.0" prefWidth="157.0" promptText="Number:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button fx:id="signUpBtn" alignment="CENTER" mnemonicParsing="false" onAction="#signUP" stylesheets="@../css/signUp.css" text="Sign up" textAlignment="JUSTIFY" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets left="90.0" />
+               </GridPane.margin>
+            </Button>
+            <TextField id="hostName" fx:id="nameHost" prefHeight="13.0" prefWidth="245.0" promptText="Host name: " GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField id="hostSur" fx:id="surnameHost" prefHeight="2.0" prefWidth="245.0" promptText="Host surname:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField id="hostName" fx:id="nameHost"  prefHeight="13.0" prefWidth="245.0" promptText="Host name: " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField id="number" fx:id="numberHost" prefHeight="11.0" prefWidth="157.0" promptText="Number:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField id="email" fx:id="emailHost" prefHeight="92.0" prefWidth="159.0" promptText="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label text="Sign up" textFill="#fffdfd" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="27.0" />
@@ -62,12 +68,6 @@
                   <Insets left="73.0" />
                </GridPane.margin>
             </Label>
-            <TextField id="email" fx:id="emailHost" prefHeight="92.0" prefWidth="159.0" promptText="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Button fx:id="signUpBtn" alignment="CENTER" mnemonicParsing="false" onAction="#signUP" text="Sign up" textAlignment="JUSTIFY" GridPane.columnIndex="1" GridPane.rowIndex="6">
-               <GridPane.margin>
-                  <Insets left="90.0" />
-               </GridPane.margin>
-            </Button>
          </children>
          <padding>
             <Insets left="10.0" />
@@ -76,12 +76,12 @@
             <Insets />
          </GridPane.margin>
       </GridPane>
-      <Button id="back" mnemonicParsing="false" onAction="#back" text="Back">
+      <Button id="back" mnemonicParsing="false" onAction="#back" stylesheets="@../css/signUp.css" text="Back">
          <GridPane.margin>
             <Insets bottom="60.0" left="10.0" />
          </GridPane.margin>
       </Button>
-      <Button id="close" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#close" style="-fx-background-color: lightpink;" text="Close" textAlignment="JUSTIFY" GridPane.columnIndex="2">
+      <Button id="close" fx:id="closeB" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#close" stylesheets="@../css/signUp.css" text="Close" textAlignment="JUSTIFY" GridPane.columnIndex="2">
          <GridPane.margin>
             <Insets bottom="60.0" left="181.0" />
          </GridPane.margin>
