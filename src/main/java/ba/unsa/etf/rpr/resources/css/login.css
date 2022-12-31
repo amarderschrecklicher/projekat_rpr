@@ -5,3 +5,6 @@
 .Ispravno{
     -fx-background-color: white;
 }
+.Cancel:hover{
+    -fx-background-color: #dc8b93;
+}

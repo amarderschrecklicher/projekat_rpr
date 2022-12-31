@@ -138,18 +138,4 @@ public class login implements Initializable {
     }
 
 
-    public void hoverCancel(MouseEvent mouseEvent) {
-    }
-
-    public void pressSgnp(MouseEvent mouseEvent) {
-    }
-
-    public void hoverSgnp(MouseEvent mouseEvent) {
-    }
-
-    public void hoverLgn(MouseEvent mouseEvent) {
-    }
-
-    public void pressLgn(MouseEvent mouseEvent) {
-    }
 }
