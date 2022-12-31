@@ -22,9 +22,9 @@ import java.util.ResourceBundle;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
-public class login implements Initializable {
+public class login  extends host implements Initializable {
 
-    private Host host = new Host();
+    private  Host host = new Host();
     @FXML
     public Button closeButton;
     @FXML
@@ -36,7 +36,6 @@ public class login implements Initializable {
     private PasswordField passWord;
     @FXML
     public TextField userName;
-
 
 
     public Host hostGive(){return host;}
@@ -60,8 +59,7 @@ public class login implements Initializable {
             alert1.showAndWait();
         }
         else {
-
-            host=DaoFactory.HostDao().getByNumber(pass);
+             host=DaoFactory.HostDao().getByNumber(pass);
 
             if(DaoFactory.HostDao().searchHost(host)){
 
@@ -73,7 +71,7 @@ public class login implements Initializable {
                 stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
                 stage.show();
                 login.hide();
-
+                setHostForHi(host);
             }
             else {
                 alert1.setTitle("Error");alert1.setHeaderText(null);

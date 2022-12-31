@@ -20,9 +20,9 @@ import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
-public class signup implements Initializable {
+public class signup  extends host implements Initializable {
 
-    private final Host hostt = new Host();
+    private  Host hostt = new Host();
     @FXML
     public Button signUpBtn;
     @FXML

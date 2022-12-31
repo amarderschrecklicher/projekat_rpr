@@ -16,21 +16,24 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
-public class host extends login implements Initializable {
+public class host  implements Initializable {
 
+    public Host hostForHi=new Host();
+    @FXML
     public Label hiUser;
+
     private ObservableList<String> obsList;
     @FXML
     public ListView<String> listProperty;
     @FXML
     public BorderPane scenePn;
 
+    void setHostForHi(Host host){hostForHi=host;}
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Host hostForHi=hostGive();
-
-        String Welcome;Welcome="Hi, ";int i=0;
+        String Welcome ="Hi, ";int i=0;
         while(hostForHi.getName().charAt(i)!=' ') {
             Welcome+=hostForHi.getName().charAt(i);i++;}
         Welcome+=" !";
@@ -38,7 +41,7 @@ public class host extends login implements Initializable {
 
         List<Property> listP= null;
         try {
-            listP = DaoFactory.propertyDao().hostProperties(hostGive());
+            listP = DaoFactory.propertyDao().hostProperties(hostForHi);
         } catch (Exceptionss e) {
             throw new RuntimeException(e);
         }
