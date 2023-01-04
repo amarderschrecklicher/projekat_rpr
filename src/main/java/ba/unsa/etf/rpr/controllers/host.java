@@ -35,8 +35,6 @@ public class host  implements Initializable {
 
     }
 
-    public void userHi(InputMethodEvent inputMethodEvent) {
-    }
 
 
 }

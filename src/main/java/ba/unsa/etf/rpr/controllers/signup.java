@@ -2,12 +2,14 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Host;
+import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -105,14 +107,41 @@ public class signup  extends host implements Initializable {
         hostt.setNumber(numberHost.getText());
         List<Host> list=DaoFactory.HostDao().getAll();
         for(Host x:list)if(x.getEmail().equals(hostt.getEmail()) || x.getNumber().equals(hostt.getNumber())) {
-
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Error");alert1.setHeaderText(null);
+            alert1.setContentText("User already exists!");
+            alert1.showAndWait();
         }
         else {
             DaoFactory.HostDao().add(hostt);
+
             final Stage login=(Stage) scenePanee.getScene().getWindow();
             Stage  stage=new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
             loader.load();
+            host set= loader.getController();
+
+            String Welcome ="Hi, ";int i=0;
+
+            while(hostt.getName().charAt(i)!=' ') {
+                Welcome+=hostt.getName().charAt(i);i++;}
+            Welcome+=" !";
+
+            set.hiUser.setText(Welcome);
+
+            List<Property> listP= null;
+            try {
+                listP = DaoFactory.propertyDao().hostProperties(hostt);
+            } catch (Exceptionss e) {
+                throw new RuntimeException(e);
+            }
+
+            if(!listP.isEmpty()) {
+                String[]a = new String[1]; i=0;
+                for(Property p:listP){a[i]=p.getPropertyName()+"   : "+p.getPropertyType();i++;}
+                set.listProperty.getItems().addAll(a);
+            }
+
             stage.setTitle("HOST MENU");
             stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             stage.show();
