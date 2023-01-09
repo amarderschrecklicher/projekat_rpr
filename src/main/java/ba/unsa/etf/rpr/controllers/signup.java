@@ -38,7 +38,18 @@ public class signup  extends host implements Initializable {
     @FXML
     private GridPane scenePanee;
 
-    public Host hostNewGive(){return hostt;}
+    FXMLLoader transition(String whereTo , String title) throws IOException {
+        final Stage login=(Stage) scenePanee.getScene().getWindow();
+        Stage  stage=new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(whereTo));
+        loader.load();
+        stage.setTitle(title);
+        stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        stage.show();
+        login.hide();
+
+        return loader;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -86,14 +97,7 @@ public class signup  extends host implements Initializable {
 
 
     public void back(ActionEvent actionEvent) throws IOException {
-        final Stage login=(Stage) scenePanee.getScene().getWindow();
-        Stage  stage=new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-        loader.load();
-        stage.setTitle("EXTRANET");
-        stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-        stage.show();
-        login.hide();
+        transition("/fxml/login.fxml","EXTRANET");
     }
 
     public void close(ActionEvent actionEvent) {
@@ -105,6 +109,7 @@ public class signup  extends host implements Initializable {
         hostt.setName(nameHost.getText()+" "+surnameHost.getText());
         hostt.setEmail(emailHost.getText());
         hostt.setNumber(numberHost.getText());
+
         List<Host> list=DaoFactory.HostDao().getAll();
         for(Host x:list)if(x.getNumber().equals(hostt.getNumber())) {
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
@@ -116,11 +121,8 @@ public class signup  extends host implements Initializable {
 
             DaoFactory.HostDao().add(hostt);
 
-            final Stage login=(Stage) scenePanee.getScene().getWindow();
-            Stage  stage=new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
-            loader.load();
-            host set= loader.getController();
+
+            host set = transition("/fxml/host.fxml","HOST MENU").getController();
 
             String Welcome ="Hi, "; int i=0;
 
@@ -143,10 +145,6 @@ public class signup  extends host implements Initializable {
                 set.listProperty.getItems().addAll(a);
             }
 
-            stage.setTitle("HOST MENU");
-            stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-            stage.show();
-            login.hide();
 
     }
 }
