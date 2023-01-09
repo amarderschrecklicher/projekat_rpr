@@ -79,7 +79,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
 
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next(); // we know that there is one key
-            item.setId(rs.getInt(1)); //set id to return it back */
+            item.setId(rs.getInt(1)); //set id to return it back/
 
             return item;
         }catch (SQLException e){
@@ -157,12 +157,13 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         StringBuilder questions = new StringBuilder();
 
         int counter = 0;
+
         for (Map.Entry<String, Object> entry: row.entrySet()) {
             counter++;
             if (entry.getKey().equals("id")) continue; //skip insertion of id due autoincrement
             columns.append(entry.getKey());
             questions.append("?");
-            if (row.size() != counter) {
+            if (row.size()-1 != counter) {
                 columns.append(",");
                 questions.append(",");
             }

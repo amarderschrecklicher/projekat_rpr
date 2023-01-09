@@ -30,9 +30,9 @@ public class HostDaoSQLImpl extends AbstractDao<Host> implements HostDAO {
     public Map<String, Object> object2row(Host object) {
         Map<String, Object> row = new TreeMap<String, Object>();
         row.put("id",object.getId());
-        row.put("name",object.getName());
-        row.put("number",object.getNumber());
-        row.put("e-mail",object.getEmail());
+        row.put("HostName",object.getName());
+        row.put("HostNumber",object.getNumber());
+        row.put("Mail",object.getEmail());
         return row;
     }
 

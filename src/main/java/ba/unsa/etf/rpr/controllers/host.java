@@ -5,6 +5,7 @@ import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -32,9 +33,27 @@ public class host  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        
+
 
     }
 
 
+    public void hostInfoA(ActionEvent actionEvent) {
+    }
 
+    public void logOutA(ActionEvent actionEvent) {
+    }
+
+    public void aboutA(ActionEvent actionEvent) {
+    }
+
+    public void newPropertyA(ActionEvent actionEvent) {
+    }
+
+    public void editPropertyA(ActionEvent actionEvent) {
+    }
+
+    public void helpA(ActionEvent actionEvent) {
+    }
 }

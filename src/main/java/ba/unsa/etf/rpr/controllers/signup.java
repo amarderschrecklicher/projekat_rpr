@@ -106,13 +106,14 @@ public class signup  extends host implements Initializable {
         hostt.setEmail(emailHost.getText());
         hostt.setNumber(numberHost.getText());
         List<Host> list=DaoFactory.HostDao().getAll();
-        for(Host x:list)if(x.getEmail().equals(hostt.getEmail()) || x.getNumber().equals(hostt.getNumber())) {
+        for(Host x:list)if(x.getNumber().equals(hostt.getNumber())) {
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
             alert1.setTitle("Error");alert1.setHeaderText(null);
             alert1.setContentText("User already exists!");
             alert1.showAndWait();
+            return ;
         }
-        else {
+
             DaoFactory.HostDao().add(hostt);
 
             final Stage login=(Stage) scenePanee.getScene().getWindow();
@@ -121,7 +122,7 @@ public class signup  extends host implements Initializable {
             loader.load();
             host set= loader.getController();
 
-            String Welcome ="Hi, ";int i=0;
+            String Welcome ="Hi, "; int i=0;
 
             while(hostt.getName().charAt(i)!=' ') {
                 Welcome+=hostt.getName().charAt(i);i++;}
@@ -146,6 +147,6 @@ public class signup  extends host implements Initializable {
             stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             stage.show();
             login.hide();
-        }
+
     }
 }
