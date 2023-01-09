@@ -42,7 +42,6 @@ public class host  implements Initializable {
         stage.setTitle(title);
         stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.show();
-        login.hide();
 
         return loader;
     }
@@ -61,13 +60,16 @@ public class host  implements Initializable {
     public void hostInfoA(ActionEvent actionEvent) {
     }
 
-    public void logOutA(ActionEvent actionEvent) {
+    public void logOutA(ActionEvent actionEvent) throws IOException {
+        transition("/fxml/login.fxml","LOGIN");
     }
 
     public void aboutA(ActionEvent actionEvent) {
     }
 
-    public void newPropertyA(ActionEvent actionEvent) {
+    public void newPropertyA(ActionEvent actionEvent) throws IOException {
+        Property set = transition("/fxml/property.fxml","NEW PROPERTY").getController();
+
     }
 
     public void editPropertyA(ActionEvent actionEvent) {
