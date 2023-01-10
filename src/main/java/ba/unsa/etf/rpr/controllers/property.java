@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Property;
+import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import com.sun.jdi.DoubleValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -23,9 +26,6 @@ public class property implements Initializable {
     public TextField propertyNname;
     public TextField propertyType;
     public TextArea propertyName;
-    public ChoiceBox capacity;
-    public ChoiceBox bathrooms;
-    public ChoiceBox kitchens;
     
     public DatePicker date;
     public TextField price;
@@ -36,6 +36,9 @@ public class property implements Initializable {
     public Button apply;
     public RadioButton buttonNo;
     public RadioButton buttonYes;
+    public Spinner people;
+    public Spinner bathrooms;
+    public Spinner kitchens;
 
 
     FXMLLoader transition(String whereTo , String title) throws IOException {
@@ -59,7 +62,7 @@ public class property implements Initializable {
         propertyNname.setFocusTraversable(false);
         propertyType.setFocusTraversable(false);
         propertyName.setFocusTraversable(false);
-        capacity.setFocusTraversable(false);
+        people.setFocusTraversable(false);
         bathrooms.setFocusTraversable(false);
         kitchens.setFocusTraversable(false);
         date.setFocusTraversable(false);
@@ -78,18 +81,39 @@ public class property implements Initializable {
         login.hide();
     }
 
-    public void applyButton(ActionEvent actionEvent) {
+    public void applyButton(ActionEvent actionEvent) throws Exceptionss, IOException {
         if(!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
         && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()
-        && capacity.isShowing() && kitchens.isShowing() && bathrooms.isShowing())
+        && Integer.parseInt(people.getPromptText())>0 && Integer.parseInt(kitchens.getPromptText())>0 && Integer.parseInt(bathrooms.getPromptText())>0)
         {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
+            loader.load();
+            host set= loader.getController();
+
             Property p = new Property();
+            p.setHostId(set.HOST.getId());
             p.setPropertyName(propertyName.getText());
             p.setPropertyType(propertyType.getText());
             p.setLocation(location.getText()+", "+country.getText());
-            p.setKitchens(Integer.valueOf(kitchens.getId()));
-            p.setBathrooms(Integer.valueOf(bathrooms.getId()));
-            p.setPrice(Double.valueOf(price.getText()));
+            p.setCapacity(Integer.parseInt(people.getPromptText()));
+            p.setKitchens(Integer.parseInt(kitchens.getPromptText()));
+            p.setBathrooms(Integer.parseInt(bathrooms.getPromptText()));
+            p.setPrice(Double.parseDouble(price.getText()));
+
+            ArrayList<Property> list = (ArrayList<Property>) DaoFactory.propertyDao().getAll(); boolean b = true;
+            for(Property x : list){
+                if(p.getPropertyName().equals(x.getPropertyName()) || p.getLocation().equals(x.getLocation())){
+                    b=false; p.setId(x.getId()); break; }}
+
+            if(b)DaoFactory.propertyDao().add(p);
+            else DaoFactory.propertyDao().update(p);
+
+        }
+        else {
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Error");alert1.setHeaderText(null);
+            alert1.setContentText("Invalid info");
+            alert1.showAndWait();
         }
     }
 

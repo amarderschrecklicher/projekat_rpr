@@ -26,6 +26,8 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class host  implements Initializable {
 
+    public Host HOST ;
+
     @FXML
     public Label hiUser;
 
@@ -69,6 +71,7 @@ public class host  implements Initializable {
 
     public void newPropertyA(ActionEvent actionEvent) throws IOException {
         Property set = transition("/fxml/property.fxml","NEW PROPERTY").getController();
+
 
     }
 

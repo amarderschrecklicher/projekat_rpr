@@ -68,6 +68,7 @@ public class login  implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
                 loader.load();
                 host set= loader.getController();
+                set.HOST = host;
 
                 String Welcome ="Hi, ";int i=0;
 
