@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="762.0" style="-fx-background-color: #001B52;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
+<GridPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="762.0" style="-fx-background-color: #798cb0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
     <stylesheets>
         <URL value="@/css/login.css" />
     </stylesheets>
@@ -24,7 +24,7 @@
     <RowConstraints maxHeight="158.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <GridPane alignment="CENTER" prefHeight="456.0" prefWidth="180.0" style="-fx-background-color: #053AA5;" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" GridPane.rowSpan="2147483647">
+      <GridPane alignment="CENTER" prefHeight="456.0" prefWidth="180.0" style="-fx-background-color: #1c2941;" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" GridPane.rowSpan="2147483647">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="518.0" minWidth="0.0" prefWidth="27.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="518.0" minWidth="0.0" prefWidth="216.0" />
@@ -71,7 +71,7 @@
             <Insets left="10.0" top="30.0" />
          </GridPane.margin>
       </ImageView>
-      <Label text="Extranet" textFill="#00e457" GridPane.rowIndex="1">
+      <Label text="Extranet" textFill="#1c2941" GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -79,17 +79,17 @@
             <Insets bottom="300.0" left="70.0" top="35.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="signUp" mnemonicParsing="false" onAction="#click2" stylesheets="@../css/login.css" text="Sign up" GridPane.rowIndex="1">
+      <Button fx:id="signUp" mnemonicParsing="false" onAction="#click2" stylesheets="@../css/login.css" text="Sign up" textFill="#798cb0" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets left="179.0" top="375.0" />
+            <Insets left="179.0" top="390.0" />
          </GridPane.margin>
       </Button>
-      <Label text="Not a member?" textFill="#00e457" GridPane.rowIndex="1">
+      <Label text="Not a member?" textFill="#1c2941" GridPane.rowIndex="1">
          <font>
             <Font name="System Italic" size="13.0" />
          </font>
          <GridPane.margin>
-            <Insets left="165.0" top="320.0" />
+            <Insets left="165.0" top="335.0" />
          </GridPane.margin>
       </Label>
    </children>

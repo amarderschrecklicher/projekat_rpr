@@ -5,27 +5,22 @@
     -fx-background-color: white;
 }
 #signIn{
-    -fx-background-color: #eaeaea;
+    -fx-background-color: #798cb0;
 }
 
 #signIn:hover{
-    -fx-background-color: #a6a3a3;
+    -fx-background-color: #405d79;
 }
 #signIn:pressed{
-    -fx-background-color: #868585;
+    -fx-background-color: #1c2941;
 }
+#signUp{
+    -fx-background-color: #1c2941;
+}
+
 #signUp:hover{
-    -fx-background-color: #a6a3a3;
+    -fx-background-color: #121f31;
 }
 #signUp:pressed{
-    -fx-background-color: #868585;
-}
-#closeButton{
-    -fx-background-color: lightpink;
-}
-#closeButton:hover{
-    -fx-background-color: #dc8b93;
-}
-#closeButton:pressed{
-    -fx-background-color: #c25f6b;
+    -fx-background-color: #0a131c;
 }

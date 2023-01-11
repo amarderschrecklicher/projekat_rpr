@@ -21,12 +21,3 @@
 #back:pressed{
     -fx-background-color: #868585;
 }
-#close{
-    -fx-background-color: lightpink;
-}
-#close:hover{
-    -fx-background-color: #dc8b93;
-}
-#close:pressed{
-    -fx-background-color: #c25f6b;
-}

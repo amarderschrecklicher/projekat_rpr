@@ -81,11 +81,6 @@
             <Insets bottom="60.0" left="10.0" />
          </GridPane.margin>
       </Button>
-      <Button id="close" fx:id="closeB" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#close" stylesheets="@../css/signUp.css" text="Close" textAlignment="JUSTIFY" GridPane.columnIndex="2">
-         <GridPane.margin>
-            <Insets bottom="60.0" left="181.0" />
-         </GridPane.margin>
-      </Button>
       <Label text="Extranet" textFill="#00e457" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets bottom="10.0" left="50.0" top="80.0" />

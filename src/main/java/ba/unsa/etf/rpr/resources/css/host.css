@@ -6,6 +6,11 @@
     -fx-background-color: white;
 }
 
+#scenePn{
+    -fx-background-color: #798cb0;
+}
 #listProperty{
-    -fx-background-color: #001B52;
+    -fx-background-color: #798cb0;
+    -fx-border-color: #798cb0;
+    -fx-progress-color: #798cb0 ;
 }
