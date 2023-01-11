@@ -10,25 +10,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
-public class login  implements Initializable {
+public class LoginController implements Initializable {
 
     private  Host host = new Host();
-    @FXML
-    public Button closeButton;
     @FXML
     public Button signIn;
     @FXML
@@ -67,7 +63,7 @@ public class login  implements Initializable {
                 Stage  stage=new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
                 loader.load();
-                host set= loader.getController();
+                HostController set= loader.getController();
                 set.HOST = host;
 
                 String Welcome ="Hi, ";int i=0;
@@ -140,20 +136,6 @@ public class login  implements Initializable {
             }
         });
     }
-
-    public void actionLoginBtn(ActionEvent actionEvent){
-
-        System.out.println("Amar");
-
-    }
-
-    public void click3(ActionEvent actionEvent) {
-        Stage stage=(Stage) scenePane.getScene().getWindow();
-        stage.close();
-
-    }
-
-
 
 
 }

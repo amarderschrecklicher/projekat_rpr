@@ -1,30 +1,24 @@
 package ba.unsa.etf.rpr.controllers;
 
-import ba.unsa.etf.rpr.dao.*;
 import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
-import ba.unsa.etf.rpr.exceptions.Exceptionss;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
-public class host  implements Initializable {
+public class HostController implements Initializable {
 
     public Host HOST ;
 

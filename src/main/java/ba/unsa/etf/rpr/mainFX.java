@@ -15,7 +15,6 @@ public class mainFX extends Application {
     public void start(Stage stage) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("Extranet");
         stage.setScene(new Scene(root , USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.show();

@@ -3,7 +3,6 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
-import com.sun.jdi.DoubleValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,10 +15,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
-public class property implements Initializable {
+public class PropertyController implements Initializable {
 
 
     public VBox vBox;
@@ -39,6 +40,7 @@ public class property implements Initializable {
     public Spinner people;
     public Spinner bathrooms;
     public Spinner kitchens;
+    public Label DATE ;
 
 
     FXMLLoader transition(String whereTo , String title) throws IOException {
@@ -59,9 +61,14 @@ public class property implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(DATE.getText().equals(""))
+        { SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date currDate = new Date();
+        DATE.setText(formatter.format(currDate));}
+
         propertyNname.setFocusTraversable(false);
         propertyType.setFocusTraversable(false);
-        propertyName.setFocusTraversable(false);
+        DATE.setFocusTraversable(false);
         people.setFocusTraversable(false);
         bathrooms.setFocusTraversable(false);
         kitchens.setFocusTraversable(false);
@@ -88,7 +95,7 @@ public class property implements Initializable {
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
             loader.load();
-            host set= loader.getController();
+            HostController set= loader.getController();
 
             Property p = new Property();
             p.setHostId(set.HOST.getId());

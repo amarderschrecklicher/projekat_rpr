@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
-public class signup  extends host implements Initializable {
+public class SignupController extends HostController implements Initializable {
 
     private  Host hostt = new Host();
     @FXML
@@ -122,7 +122,7 @@ public class signup  extends host implements Initializable {
             DaoFactory.HostDao().add(hostt);
 
 
-            host set = transition("/fxml/host.fxml","HOST MENU").getController();
+            HostController set = transition("/fxml/host.fxml","HOST MENU").getController();
 
             String Welcome ="Hi, "; int i=0;
 
