@@ -51,7 +51,7 @@ public class PropertyDaoSQLImpl extends AbstractDao<Property> implements Propert
         row.put("NmbOfBathrooms",object.getBathrooms());
         row.put("NmbOfKitchens",object.getKitchens());
         row.put("PropertyLocation",object.getLocation());
-        row.put("AC/HEATING",object.isAcH());
+        row.put("AC/ Heating",object.isAcH());
         row.put("price",object.getPrice());
         return row;
     }
