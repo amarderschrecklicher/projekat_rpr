@@ -73,11 +73,10 @@ public class PropertyController implements Initializable {
         Date currDate = new Date();
         DATE.setText(formatter.format(currDate));}
 
-        SpinnerValueFactory<Integer> spnr = new SpinnerValueFactory.IntegerSpinnerValueFactory()
-
-
+        SpinnerValueFactory<Integer> spnr = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
         spnr.setValue(1);
-        people.setValueFactory(spnr); nmG = spnr.getValue(); lbGuest.setText(Integer.toString(nmG));
+
+        people.setValueFactory(spnr);
         bathrooms.setValueFactory(spnr);
         kitchens.setValueFactory(spnr);
 
