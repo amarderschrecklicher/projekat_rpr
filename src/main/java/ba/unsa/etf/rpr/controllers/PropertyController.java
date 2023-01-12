@@ -76,11 +76,12 @@ public class PropertyController implements Initializable {
         SpinnerValueFactory<Integer> spnr1 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
         spnr1.setValue(1);
         SpinnerValueFactory<Integer> spnr2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
-        spnr1.setValue(1);
-
+        spnr2.setValue(1);
+        SpinnerValueFactory<Integer> spnr3 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
+        spnr3.setValue(1);
         people.setValueFactory(spnr1);
         bathrooms.setValueFactory(spnr2);
-        kitchens.setValueFactory(spnr);
+        kitchens.setValueFactory(spnr3);
 
         propertyNname.setFocusTraversable(false);
         propertyType.setFocusTraversable(false);
