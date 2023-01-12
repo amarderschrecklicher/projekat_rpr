@@ -26,14 +26,14 @@ public class PropertyDaoSQLImpl extends AbstractDao<Property> implements Propert
             Property q = new Property();
             q.setId(rs.getInt(4));
             q.setHostId(rs.getInt(3));
-            q.setPropertyName(rs.getString(3));
-            q.setPropertyType(rs.getString(4));
+            q.setPropertyName(rs.getString(9));
+            q.setPropertyType(rs.getString(10));
             q.setCapacity(rs.getInt(1));
             q.setBathrooms(rs.getInt(5));
             q.setKitchens(rs.getInt(6));
             q.setLocation(rs.getString(8));
             q.setAcH(rs.getBoolean(2));
-            q.setPrice(rs.getDouble(10));
+            q.setPrice(rs.getDouble(7));
             return q;
         } catch (Exception e) {
             throw new Exceptionss(e.getMessage(), e);
