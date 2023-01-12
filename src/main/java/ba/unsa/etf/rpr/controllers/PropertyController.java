@@ -97,7 +97,6 @@ public class PropertyController implements Initializable {
         price.setFocusTraversable(false);
         apply.setFocusTraversable(false);
         applyDate.setFocusTraversable(false);
-        buttonNo.setFocusTraversable(false);
 
 
         propertyNname.textProperty().addListener((obs,stara,nova)->{
