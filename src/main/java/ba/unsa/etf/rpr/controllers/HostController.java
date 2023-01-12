@@ -76,11 +76,7 @@ public class HostController implements Initializable {
         p.setPropertyName(set.propertyNname.getText());
         p.setLocation(set.location.getText());
         boolean b = true;
-        for(Property x : list){
-            if(x.getPropertyName().equals(p.getPropertyName()) || x.getLocation().equals(p.getLocation())){
-                b= false; break;
-            }
-        }
+
 
 
 
