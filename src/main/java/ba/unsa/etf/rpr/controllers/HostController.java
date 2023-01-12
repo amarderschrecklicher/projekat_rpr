@@ -73,9 +73,7 @@ public class HostController implements Initializable {
 
         List<Property> list = DaoFactory.propertyDao().hostProperties(HOST);
         Property p = new Property();
-        p.setPropertyName(set.propertyNname.getText());
-        p.setLocation(set.location.getText());
-        boolean b = true;
+
 
 
 
