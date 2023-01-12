@@ -66,8 +66,7 @@ public class HostController implements Initializable {
     }
 
     public void newPropertyA(ActionEvent actionEvent) throws IOException, Exceptionss {
-        PropertyController set = transition("/fxml/property.fxml", "NEW PROPERTY").getController();
-
+        transition("/fxml/property.fxml", "NEW PROPERTY").getController();
 
     }
 
