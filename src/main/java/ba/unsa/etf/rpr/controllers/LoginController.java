@@ -55,10 +55,11 @@ public class LoginController implements Initializable {
             alert1.showAndWait();
         }
         else {
-             host=DaoFactory.HostDao().getByNumber(pass);
+                host.setName(user); host.setNumber(pass);
 
             if(DaoFactory.HostDao().searchHost(host)){
-
+                
+                host = DaoFactory.HostDao().getByNumber(pass);
                 final Stage login=(Stage) scenePane.getScene().getWindow();
                 Stage  stage=new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));

@@ -81,6 +81,89 @@ public class PropertyController implements Initializable {
         buttonNo.setFocusTraversable(false);
         buttonYes.setFocusTraversable(false);
         cancel.setFocusTraversable(false);
+
+        propertyNname.textProperty().addListener((obs,stara,nova)->{
+            if(propertyNname.getText().isEmpty()){
+                propertyNname.getStyleClass().removeAll("Ispravno");
+                propertyNname.getStyleClass().add("Neispravno");
+            }else{
+                propertyNname.getStyleClass().removeAll("Neispravno");
+                propertyNname.getStyleClass().add("Ispravno");
+            }
+        });
+        propertyType.textProperty().addListener((obs,stara,nova)->{
+            if(propertyType.getText().isEmpty()){
+                propertyType.getStyleClass().removeAll("Ispravno");
+                propertyType.getStyleClass().add("Neispravno");
+            }else{
+                propertyType.getStyleClass().removeAll("Neispravno");
+                propertyType.getStyleClass().add("Ispravno");
+            }
+        });
+        price.textProperty().addListener((obs,stara,nova)->{
+            if(price.getText().isEmpty()){
+                price.getStyleClass().removeAll("Ispravno");
+                price.getStyleClass().add("Neispravno");
+            }else{
+                price.getStyleClass().removeAll("Neispravno");
+                price.getStyleClass().add("Ispravno");
+            }
+        });        country.textProperty().addListener((obs,stara,nova)->{
+            if(country.getText().isEmpty()){
+                country.getStyleClass().removeAll("Ispravno");
+                country.getStyleClass().add("Neispravno");
+            }else{
+                country.getStyleClass().removeAll("Neispravno");
+                country.getStyleClass().add("Ispravno");
+            }
+        });        location.textProperty().addListener((obs,stara,nova)->{
+            if(location.getText().isEmpty()){
+                location.getStyleClass().removeAll("Ispravno");
+                location.getStyleClass().add("Neispravno");
+            }else{
+                location.getStyleClass().removeAll("Neispravno");
+                location.getStyleClass().add("Ispravno");
+            }
+        });        propertyNname.textProperty().addListener((obs,stara,nova)->{
+            if(propertyNname.getText().isEmpty()){
+                propertyNname.getStyleClass().removeAll("Ispravno");
+                propertyNname.getStyleClass().add("Neispravno");
+            }else{
+                propertyNname.getStyleClass().removeAll("Neispravno");
+                propertyNname.getStyleClass().add("Ispravno");
+            }
+        });        propertyNname.textProperty().addListener((obs,stara,nova)->{
+            if(propertyNname.getText().isEmpty()){
+                propertyNname.getStyleClass().removeAll("Ispravno");
+                propertyNname.getStyleClass().add("Neispravno");
+            }else{
+                propertyNname.getStyleClass().removeAll("Neispravno");
+                propertyNname.getStyleClass().add("Ispravno");
+            }
+        });        propertyNname.textProperty().addListener((obs,stara,nova)->{
+            if(propertyNname.getText().isEmpty()){
+                propertyNname.getStyleClass().removeAll("Ispravno");
+                propertyNname.getStyleClass().add("Neispravno");
+            }else{
+                propertyNname.getStyleClass().removeAll("Neispravno");
+                propertyNname.getStyleClass().add("Ispravno");
+            }
+        });        propertyNname.textProperty().addListener((obs,stara,nova)->{
+            if(propertyNname.getText().isEmpty()){
+                propertyNname.getStyleClass().removeAll("Ispravno");
+                propertyNname.getStyleClass().add("Neispravno");
+            }else{
+                propertyNname.getStyleClass().removeAll("Neispravno");
+                propertyNname.getStyleClass().add("Ispravno");
+            }
+        });
+
+
+
+
+
+
+
     }
 
     public void cancelButton(ActionEvent actionEvent) {
