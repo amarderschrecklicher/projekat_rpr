@@ -144,8 +144,7 @@ public class PropertyController implements Initializable {
         System.out.println(people.getPromptText());
 
         if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
-                && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()
-                && Integer.parseInt(bathrooms.getPromptText()) <= 0) {
+                && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
             loader.load();
             HostController set = loader.getController();
