@@ -38,6 +38,14 @@
             <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+            <Label fx:id="DATE" textFill="#00e457" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Arial Bold" size="38.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
             <TextField fx:id="propertyNname" prefHeight="25.0" prefWidth="238.0" promptText="Property name:" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="100.0" />
@@ -111,14 +119,6 @@
                   <Insets left="210.0" />
                </GridPane.margin>
             </Button>
-            <Label fx:id="DATE" textFill="#00e457" GridPane.columnIndex="1">
-               <font>
-                  <Font name="Arial Bold" size="38.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets left="50.0" top="10.0" />
-               </GridPane.margin>
-            </Label>
             <Label maxHeight="5.0" text="General" textFill="#00e457">
                <font>
                   <Font name="Arial Bold" size="12.0" />
