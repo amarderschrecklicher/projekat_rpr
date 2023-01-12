@@ -42,7 +42,6 @@ public class PropertyController implements Initializable {
     public Spinner<Integer> kitchens;
     public Label DATE ;
 
-    public int nmB;
 
     public Label lbGuest;
     public Label lbBath;
