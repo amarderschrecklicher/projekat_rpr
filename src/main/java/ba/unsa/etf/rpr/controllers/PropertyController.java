@@ -68,10 +68,6 @@ public class PropertyController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(DATE.getText().equals(""))
-        { SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date currDate = new Date();
-        DATE.setText(formatter.format(currDate));}
 
         SpinnerValueFactory<Integer> spnr1 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
         spnr1.setValue(1);
@@ -82,6 +78,12 @@ public class PropertyController implements Initializable {
         people.setValueFactory(spnr1);
         bathrooms.setValueFactory(spnr2);
         kitchens.setValueFactory(spnr3);
+
+        if(DATE.getText().equals(""))
+        { SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            Date currDate = new Date();
+            DATE.setText(formatter.format(currDate));}
+
 
         propertyNname.setFocusTraversable(false);
         propertyType.setFocusTraversable(false);
