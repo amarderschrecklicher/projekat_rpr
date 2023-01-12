@@ -95,9 +95,6 @@ public class HostController implements Initializable {
             p.setBathrooms(Integer.parseInt(set.bathrooms.getPromptText()));
             p.setKitchens(Integer.parseInt(set.kitchens.getPromptText()));
             p.setHostId(HOST.getId());
-            p.setAcH(set.buttonYes.hasProperties());
-            DaoFactory.propertyDao().add(p);
-        }
 
 
 

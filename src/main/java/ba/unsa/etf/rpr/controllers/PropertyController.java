@@ -140,7 +140,7 @@ public class PropertyController implements Initializable {
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
             loader.load();
-            HostController set= loader.getController();
+            HostController set = loader.getController();
 
             Property p = new Property();
             p.setHostId(set.HOST.getId());
@@ -158,10 +158,11 @@ public class PropertyController implements Initializable {
                     b=false; p.setId(x.getId()); break; }}
 
             if(b)DaoFactory.propertyDao().add(p);
-            else DaoFactory.propertyDao().update(p);
+            else{
 
-        }
-        else {
+
+                DaoFactory.propertyDao().update(p);}
+            } else {
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
             alert1.setTitle("Error");alert1.setHeaderText(null);
             alert1.setContentText("Invalid info");
