@@ -25,7 +25,7 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class HostController implements Initializable {
 
-    public Host HOST;
+    public Host HOST = new Host();
 
     @FXML
     public Label hiUser;
