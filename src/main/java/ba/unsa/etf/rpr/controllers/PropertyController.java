@@ -38,7 +38,7 @@ public class PropertyController implements Initializable {
     public RadioButton buttonNo;
     public RadioButton buttonYes;
     public Spinner<Integer> people;
-    public Spinner bathrooms;
+    public Spinner<Integer> bathrooms;
     public Spinner kitchens;
     public Label DATE ;
 
