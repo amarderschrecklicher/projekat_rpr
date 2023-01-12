@@ -154,9 +154,9 @@ public class PropertyController implements Initializable {
             p.setPropertyName(propertyNname.getText());
             p.setPropertyType(propertyType.getText());
             p.setLocation(location.getText() + ", " + country.getText());
-            p.setCapacity(Integer.parseInt(people.getPromptText()));
-            p.setKitchens(Integer.parseInt(kitchens.getPromptText()));
-            p.setBathrooms(Integer.parseInt(bathrooms.getPromptText()));
+            p.setCapacity(people.getValue());
+            p.setKitchens(kitchens.getValue());
+            p.setBathrooms(bathrooms.getValue());
             p.setPrice(Double.parseDouble(price.getText()));
 
             ArrayList<Property> list = (ArrayList<Property>) DaoFactory.propertyDao().getAll();
