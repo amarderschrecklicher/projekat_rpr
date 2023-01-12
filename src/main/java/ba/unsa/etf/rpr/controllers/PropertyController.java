@@ -42,6 +42,13 @@ public class PropertyController implements Initializable {
     public Spinner<Integer> kitchens;
     public Label DATE ;
 
+    public int nmG;
+    public int nmB;
+    public int nmK;
+    public Label lbGuest;
+    public Label lbBath;
+    public Label lbKitchen;
+
 
     FXMLLoader transition(String whereTo , String title) throws IOException {
         final Stage login=(Stage) vBox.getScene().getWindow();
