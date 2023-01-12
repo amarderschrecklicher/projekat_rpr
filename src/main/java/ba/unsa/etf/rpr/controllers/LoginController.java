@@ -58,7 +58,7 @@ public class LoginController implements Initializable {
                 host.setName(user); host.setNumber(pass);
 
             if(DaoFactory.HostDao().searchHost(host)){
-                
+
                 host = DaoFactory.HostDao().getByNumber(pass);
                 final Stage login=(Stage) scenePane.getScene().getWindow();
                 Stage  stage=new Stage();
@@ -67,7 +67,7 @@ public class LoginController implements Initializable {
                 HostController set= loader.getController();
                 set.HOST = host;
 
-                String Welcome ="Hi, ";int i=0;
+                String Welcome ="Hi, "; int i=0;
 
                 while(host.getName().charAt(i)!=' ') {
                     Welcome+=host.getName().charAt(i);i++;}

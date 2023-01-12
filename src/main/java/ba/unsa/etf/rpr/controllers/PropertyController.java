@@ -151,7 +151,7 @@ public class PropertyController implements Initializable {
 
             Property p = new Property();
             p.setHostId(set.HOST.getId());
-            p.setPropertyName(propertyName.getText());
+            p.setPropertyName(propertyNname.getText());
             p.setPropertyType(propertyType.getText());
             p.setLocation(location.getText() + ", " + country.getText());
             p.setCapacity(Integer.parseInt(people.getPromptText()));
