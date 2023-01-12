@@ -90,7 +90,6 @@ public class PropertyController implements Initializable {
         country.setFocusTraversable(false);
         people.setFocusTraversable(false);
         bathrooms.setFocusTraversable(false);
-        kitchens.setFocusTraversable(false);
         DATE.setFocusTraversable(false);
 
 
