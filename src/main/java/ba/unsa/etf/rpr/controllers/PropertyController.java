@@ -126,12 +126,6 @@ public class PropertyController implements Initializable {
             }
         });
 
-
-
-
-
-
-
     }
 
     public void cancelButton(ActionEvent actionEvent) {
