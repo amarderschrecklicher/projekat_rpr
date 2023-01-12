@@ -66,7 +66,7 @@ public class PropertyController implements Initializable {
         Date currDate = new Date();
         DATE.setText(formatter.format(currDate));}
 
-        SpinnerValueFactory<Integer> ppl = new SpinnerValueFactory<Integer>() {
+        SpinnerValueFactory<Integer> spnr = new SpinnerValueFactory<Integer>() {
             @Override
             public void decrement(int i) {
                 i++;
@@ -79,7 +79,10 @@ public class PropertyController implements Initializable {
 
         };
 
-
+        spnr.setValue(1);
+        people.setValueFactory(spnr);
+        bathrooms.setValueFactory(spnr);
+        kitchens.setValueFactory(spnr);
 
         propertyNname.setFocusTraversable(false);
         propertyType.setFocusTraversable(false);
