@@ -91,8 +91,7 @@ public class HostController implements Initializable {
 
             p.setPropertyType(set.propertyType.getText());
             p.setPrice(Double.parseDouble(set.price.getText()));
-            p.setCapacity(Integer.parseInt(set.people.getPromptText()));
-            p.setBathrooms(Integer.parseInt(set.bathrooms.getPromptText()));
+
 
 
 
