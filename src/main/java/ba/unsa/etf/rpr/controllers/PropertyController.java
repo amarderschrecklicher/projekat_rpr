@@ -84,7 +84,7 @@ public class PropertyController implements Initializable {
         bathrooms.setValueFactory(spnr2);
         kitchens.setValueFactory(spnr3);
 
-        DATE.setFocusTraversable(false);
+        DATE.setFocusTraversable(true);
 
 
         propertyNname.textProperty().addListener((obs,stara,nova)->{
