@@ -82,9 +82,6 @@ public class HostController implements Initializable {
             }
         }
 
-        if(!b){
-            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-            alert1.setTitle("Error");alert1.setHeaderText(null);
 
 
 
@@ -100,4 +97,4 @@ public class HostController implements Initializable {
 
     public void helpA(ActionEvent actionEvent) {
     }
-}
+
