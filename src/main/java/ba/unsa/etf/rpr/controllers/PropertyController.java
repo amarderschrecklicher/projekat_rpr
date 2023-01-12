@@ -44,7 +44,7 @@ public class PropertyController implements Initializable {
 
     public int nmG;
     public int nmB;
-    public int nmK;
+
     public Label lbGuest;
     public Label lbBath;
     public Label lbKitchen;
@@ -170,6 +170,7 @@ public class PropertyController implements Initializable {
             }
 
             if (b) {
+                p.setAcH(buttonYes.isPressed());
                 DaoFactory.propertyDao().add(p);
                 alert1.setTitle("Success");
                 alert1.setHeaderText(null);
