@@ -48,6 +48,7 @@ public class PropertyController implements Initializable {
     public Label lbGuest;
     public Label lbBath;
     public Label lbKitchen;
+    public DatePicker date2;
 
 
     FXMLLoader transition(String whereTo , String title) throws IOException {
@@ -85,14 +86,15 @@ public class PropertyController implements Initializable {
 
         propertyNname.setFocusTraversable(false);
         propertyType.setFocusTraversable(false);
-        DATE.setFocusTraversable(false);
+        location.setFocusTraversable(false);
+        country.setFocusTraversable(false);
         people.setFocusTraversable(false);
         bathrooms.setFocusTraversable(false);
         kitchens.setFocusTraversable(false);
+        DATE.setFocusTraversable(false);
         date.setFocusTraversable(false);
+        date2.setFocusTraversable(false);
         price.setFocusTraversable(false);
-        country.setFocusTraversable(false);
-        location.setFocusTraversable(false);
         apply.setFocusTraversable(false);
         applyDate.setFocusTraversable(false);
         buttonNo.setFocusTraversable(false);

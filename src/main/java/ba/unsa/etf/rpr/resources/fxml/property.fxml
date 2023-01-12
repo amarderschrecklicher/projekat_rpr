@@ -73,7 +73,7 @@
                   <Insets left="200.0" />
                </GridPane.margin>
             </Spinner>
-            <DatePicker prefHeight="30.0" prefWidth="174.0" promptText="To:" GridPane.rowIndex="5">
+            <DatePicker fx:id="date2" prefHeight="30.0" prefWidth="174.0" promptText="To:" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></DatePicker>
