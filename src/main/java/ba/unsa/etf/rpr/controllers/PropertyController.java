@@ -66,6 +66,21 @@ public class PropertyController implements Initializable {
         Date currDate = new Date();
         DATE.setText(formatter.format(currDate));}
 
+        SpinnerValueFactory<Integer> ppl = new SpinnerValueFactory<Integer>() {
+            @Override
+            public void decrement(int i) {
+                i++;
+            }
+
+            @Override
+            public void increment(int i) {
+                i--;
+            }
+
+        };
+
+
+
         propertyNname.setFocusTraversable(false);
         propertyType.setFocusTraversable(false);
         DATE.setFocusTraversable(false);
