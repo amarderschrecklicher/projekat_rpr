@@ -66,17 +66,17 @@
                   <Insets left="150.0" right="10.0" />
                </GridPane.margin>
             </TextField>
-            <Spinner fx:id="people" accessibleText="1" editable="true" prefHeight="25.0" prefWidth="65.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Spinner fx:id="people" accessibleText="1" prefHeight="25.0" prefWidth="65.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
             </Spinner>
-            <Spinner fx:id="bathrooms" editable="true" prefHeight="25.0" prefWidth="65.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Spinner fx:id="bathrooms" prefHeight="25.0" prefWidth="65.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="110.0" />
                </GridPane.margin>
             </Spinner>
-            <Spinner fx:id="kitchens" editable="true" prefHeight="25.0" prefWidth="65.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Spinner fx:id="kitchens" prefHeight="25.0" prefWidth="65.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="200.0" />
                </GridPane.margin>
