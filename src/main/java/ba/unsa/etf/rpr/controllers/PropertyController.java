@@ -92,7 +92,6 @@ public class PropertyController implements Initializable {
         bathrooms.setFocusTraversable(false);
         kitchens.setFocusTraversable(false);
         DATE.setFocusTraversable(false);
-        date.setFocusTraversable(false);
 
 
         propertyNname.textProperty().addListener((obs,stara,nova)->{
