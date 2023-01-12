@@ -167,12 +167,18 @@ public class PropertyController implements Initializable {
 
             if (b) {
                 DaoFactory.propertyDao().add(p);
-
+                alert1.setTitle("Success");
+                alert1.setHeaderText(null);
+                alert1.setContentText("Successfully added property!");
+                alert1.showAndWait();
 
             } else {
+                DaoFactory.propertyDao().add(p);
+                alert1.setTitle("Property exists");
+                alert1.setHeaderText(null);
+                alert1.setContentText("Property already exists!");
+                alert1.showAndWait();
 
-
-                DaoFactory.propertyDao().update(p);
             }
         }
         else {
