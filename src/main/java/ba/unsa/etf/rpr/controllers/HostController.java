@@ -89,8 +89,7 @@ public class HostController implements Initializable {
             alert1.showAndWait();
         }else {
 
-            p.setPropertyType(set.propertyType.getText());
-            p.setPrice(Double.parseDouble(set.price.getText()));
+
 
 
 
