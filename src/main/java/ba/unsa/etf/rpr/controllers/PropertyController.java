@@ -93,7 +93,6 @@ public class PropertyController implements Initializable {
         kitchens.setFocusTraversable(false);
         DATE.setFocusTraversable(false);
         date.setFocusTraversable(false);
-        date2.setFocusTraversable(false);
 
 
         propertyNname.textProperty().addListener((obs,stara,nova)->{
