@@ -87,7 +87,7 @@ public class PropertyController implements Initializable {
         };
 
         spnr.setValue(1);
-        people.setValueFactory(spnr);
+        people.setValueFactory(spnr); nmG = spnr.getValue();
         bathrooms.setValueFactory(spnr);
         kitchens.setValueFactory(spnr);
 
