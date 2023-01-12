@@ -134,10 +134,10 @@ public class PropertyController implements Initializable {
     }
 
     public void applyButton(ActionEvent actionEvent) throws Exceptionss, IOException {
-        if(!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
-        && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()
-        && Integer.parseInt(people.getPromptText())>0 && Integer.parseInt(kitchens.getPromptText())>0 && Integer.parseInt(bathrooms.getPromptText())>0)
-        {
+        Alert alert1 = null;
+        if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
+                && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()
+                && Integer.parseInt(people.getPromptText()) > 0 && Integer.parseInt(kitchens.getPromptText()) > 0 && Integer.parseInt(bathrooms.getPromptText()) > 0) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
             loader.load();
             HostController set = loader.getController();
@@ -146,33 +146,40 @@ public class PropertyController implements Initializable {
             p.setHostId(set.HOST.getId());
             p.setPropertyName(propertyName.getText());
             p.setPropertyType(propertyType.getText());
-            p.setLocation(location.getText()+", "+country.getText());
+            p.setLocation(location.getText() + ", " + country.getText());
             p.setCapacity(Integer.parseInt(people.getPromptText()));
             p.setKitchens(Integer.parseInt(kitchens.getPromptText()));
             p.setBathrooms(Integer.parseInt(bathrooms.getPromptText()));
             p.setPrice(Double.parseDouble(price.getText()));
 
-            ArrayList<Property> list = (ArrayList<Property>) DaoFactory.propertyDao().getAll(); boolean b = true;
-            for(Property x : list){
-                if(p.getPropertyName().equals(x.getPropertyName()) || p.getLocation().equals(x.getLocation())){
-                    b=false; p.setId(x.getId()); break;
+            ArrayList<Property> list = (ArrayList<Property>) DaoFactory.propertyDao().getAll();
+            boolean b = true;
+            for (Property x : list) {
+                if (p.getPropertyName().equals(x.getPropertyName()) || p.getLocation().equals(x.getLocation())) {
+                    b = false;
+                    p.setId(x.getId());
+                    break;
                 }
             }
 
-            if(b){DaoFactory.propertyDao().add(p);
+            alert1 = new Alert(Alert.AlertType.INFORMATION);
+
+            if (b) {
+                DaoFactory.propertyDao().add(p);
 
 
-            }
-            else{
-
-
-                DaoFactory.propertyDao().update(p);}
             } else {
-            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-            alert1.setTitle("Error");alert1.setHeaderText(null);
-            alert1.setContentText("Invalid info");
-            alert1.showAndWait();
+
+
+                DaoFactory.propertyDao().update(p);
+            }
         }
+
+        alert1.setTitle("Error");
+        alert1.setHeaderText(null);
+        alert1.setContentText("Invalid info");
+        alert1.showAndWait();
+
     }
 
     public void yes(ActionEvent actionEvent) {
