@@ -1,8 +1,9 @@
 .Ispravno{
     -fx-background-color: white;
 }
-
-
+.Neispravno{
+    -fx-background-color: lightpink;
+}
 #vBox{
     -fx-background-color: #ef0c0c;
 }
