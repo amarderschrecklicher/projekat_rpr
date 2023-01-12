@@ -137,7 +137,8 @@ public class PropertyController implements Initializable {
         Alert alert1 = null;
         if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
                 && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()
-                && Integer.parseInt(people.getPromptText()) > 0 && Integer.parseInt(kitchens.getPromptText()) > 0 && Integer.parseInt(bathrooms.getPromptText()) > 0) {
+                && Integer.parseInt(people.getPromptText()) > 0 && Integer.parseInt(kitchens.getPromptText()) > 0
+                && Integer.parseInt(bathrooms.getPromptText()) > 0) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
             loader.load();
             HostController set = loader.getController();
@@ -174,12 +175,11 @@ public class PropertyController implements Initializable {
                 DaoFactory.propertyDao().update(p);
             }
         }
-
+        else {
         alert1.setTitle("Error");
         alert1.setHeaderText(null);
         alert1.setContentText("Invalid info");
-        alert1.showAndWait();
-
+        alert1.showAndWait();}
     }
 
     public void yes(ActionEvent actionEvent) {
