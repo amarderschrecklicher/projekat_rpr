@@ -136,6 +136,7 @@ public class PropertyController implements Initializable {
     public void applyButton(ActionEvent actionEvent) throws Exceptionss, IOException {
 
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+        System.out.println(people.getPromptText());
 
         if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
                 && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()
