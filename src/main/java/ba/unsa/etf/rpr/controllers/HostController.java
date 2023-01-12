@@ -25,7 +25,7 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class HostController implements Initializable {
 
-    public Host HOST ;
+    public Host HOST;
 
     @FXML
     public Label hiUser;
@@ -35,24 +35,21 @@ public class HostController implements Initializable {
     @FXML
     public BorderPane scenePn;
 
-    FXMLLoader transition(String whereTo , String title) throws IOException {
-        final Stage login=(Stage) scenePn.getScene().getWindow();
-        Stage  stage=new Stage();
+    FXMLLoader transition(String whereTo, String title) throws IOException {
+        final Stage login = (Stage) scenePn.getScene().getWindow();
+        Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(whereTo));
         loader.load();
         stage.setTitle(title);
-        stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        stage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.show();
 
         return loader;
     }
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        
 
 
     }
@@ -62,26 +59,14 @@ public class HostController implements Initializable {
     }
 
     public void logOutA(ActionEvent actionEvent) throws IOException {
-        transition("/fxml/login.fxml","LOGIN");
+        transition("/fxml/login.fxml", "LOGIN");
     }
 
     public void aboutA(ActionEvent actionEvent) {
     }
 
     public void newPropertyA(ActionEvent actionEvent) throws IOException, Exceptionss {
-        PropertyController set = transition("/fxml/property.fxml","NEW PROPERTY").getController();
-
-        List<Property> list = DaoFactory.propertyDao().hostProperties(HOST);
-        Property p = new Property();
-
-
-
-
-
-
-
-
-
+        PropertyController set = transition("/fxml/property.fxml", "NEW PROPERTY").getController();
 
 
     }
@@ -92,3 +77,4 @@ public class HostController implements Initializable {
     public void helpA(ActionEvent actionEvent) {
     }
 
+}
