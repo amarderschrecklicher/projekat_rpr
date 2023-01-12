@@ -73,6 +73,15 @@ public class PropertyController implements Initializable {
         Date currDate = new Date();
         DATE.setText(formatter.format(currDate));}
 
+        SpinnerValueFactory<Integer> spnr1 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
+        spnr1.setValue(1);
+        SpinnerValueFactory<Integer> spnr2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
+        spnr2.setValue(1);
+        SpinnerValueFactory<Integer> spnr3 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
+        spnr3.setValue(1);
+        people.setValueFactory(spnr1);
+        bathrooms.setValueFactory(spnr2);
+        kitchens.setValueFactory(spnr3);
 
         propertyNname.setFocusTraversable(false);
         propertyType.setFocusTraversable(false);
@@ -89,16 +98,6 @@ public class PropertyController implements Initializable {
         buttonNo.setFocusTraversable(false);
         buttonYes.setFocusTraversable(false);
         cancel.setFocusTraversable(false);
-
-        SpinnerValueFactory<Integer> spnr1 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
-        spnr1.setValue(1);
-        SpinnerValueFactory<Integer> spnr2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
-        spnr2.setValue(1);
-        SpinnerValueFactory<Integer> spnr3 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
-        spnr3.setValue(1);
-        people.setValueFactory(spnr1);
-        bathrooms.setValueFactory(spnr2);
-        kitchens.setValueFactory(spnr3);
 
         propertyNname.textProperty().addListener((obs,stara,nova)->{
             if(propertyNname.getText().isEmpty()){
