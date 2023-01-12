@@ -86,7 +86,6 @@ public class PropertyController implements Initializable {
 
         propertyNname.setFocusTraversable(false);
         propertyType.setFocusTraversable(false);
-        location.setFocusTraversable(false);
         DATE.setFocusTraversable(false);
 
 
