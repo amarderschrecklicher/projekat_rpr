@@ -85,7 +85,6 @@ public class PropertyController implements Initializable {
         kitchens.setValueFactory(spnr3);
 
         propertyNname.setFocusTraversable(false);
-        propertyType.setFocusTraversable(false);
         DATE.setFocusTraversable(false);
 
 
