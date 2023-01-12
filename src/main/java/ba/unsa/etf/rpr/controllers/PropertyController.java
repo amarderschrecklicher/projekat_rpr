@@ -132,14 +132,6 @@ public class PropertyController implements Initializable {
                 propertyNname.getStyleClass().removeAll("Neispravno");
                 propertyNname.getStyleClass().add("Ispravno");
             }
-        });        propertyNname.textProperty().addListener((obs,stara,nova)->{
-            if(propertyNname.getText().isEmpty()){
-                propertyNname.getStyleClass().removeAll("Ispravno");
-                propertyNname.getStyleClass().add("Neispravno");
-            }else{
-                propertyNname.getStyleClass().removeAll("Neispravno");
-                propertyNname.getStyleClass().add("Ispravno");
-            }
         });
 
 
