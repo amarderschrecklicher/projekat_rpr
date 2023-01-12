@@ -155,9 +155,13 @@ public class PropertyController implements Initializable {
             ArrayList<Property> list = (ArrayList<Property>) DaoFactory.propertyDao().getAll(); boolean b = true;
             for(Property x : list){
                 if(p.getPropertyName().equals(x.getPropertyName()) || p.getLocation().equals(x.getLocation())){
-                    b=false; p.setId(x.getId()); break; }}
+                    b=false; p.setId(x.getId()); break; }
+            }
 
-            if(b)DaoFactory.propertyDao().add(p);
+            if(b){DaoFactory.propertyDao().add(p);
+
+
+            }
             else{
 
 
