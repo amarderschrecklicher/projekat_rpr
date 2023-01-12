@@ -73,21 +73,11 @@ public class PropertyController implements Initializable {
         Date currDate = new Date();
         DATE.setText(formatter.format(currDate));}
 
-        SpinnerValueFactory<Integer> spnr = new SpinnerValueFactory<Integer>() {
-            @Override
-            public void decrement(int i) {
-                i++;
-            }
+        SpinnerValueFactory<Integer> spnr = new SpinnerValueFactory.IntegerSpinnerValueFactory()
 
-            @Override
-            public void increment(int i) {
-                i--;
-            }
-
-        };
 
         spnr.setValue(1);
-        people.setValueFactory(spnr); nmG = spnr.getValue();
+        people.setValueFactory(spnr); nmG = spnr.getValue(); lbGuest.setText(Integer.toString(nmG));
         bathrooms.setValueFactory(spnr);
         kitchens.setValueFactory(spnr);
 
