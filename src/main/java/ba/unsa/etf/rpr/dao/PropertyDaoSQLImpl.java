@@ -44,7 +44,7 @@ public class PropertyDaoSQLImpl extends AbstractDao<Property> implements Propert
     public Map<String, Object> object2row(Property object) {
         Map<String, Object> row = new TreeMap<String, Object>();
         row.put("Capacity",object.getCapacity());
-        row.put("Heating-AC",object.isAcH());
+        row.put("Heating_AC",object.isAcH());
         row.put("HostId",object.getHostId());
         row.put("id", object.getId());
         row.put("NmbOfBathrooms",object.getBathrooms());
