@@ -134,7 +134,9 @@ public class PropertyController implements Initializable {
     }
 
     public void applyButton(ActionEvent actionEvent) throws Exceptionss, IOException {
-        Alert alert1 = null;
+
+        Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+
         if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
                 && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()
                 && Integer.parseInt(people.getPromptText()) > 0 && Integer.parseInt(kitchens.getPromptText()) > 0
@@ -162,8 +164,6 @@ public class PropertyController implements Initializable {
                     break;
                 }
             }
-
-            alert1 = new Alert(Alert.AlertType.INFORMATION);
 
             if (b) {
                 DaoFactory.propertyDao().add(p);
