@@ -19,7 +19,7 @@ public class mainFX extends Application {
         stage.setScene(new Scene(root , USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.show();
     }
-    public static void mainFX(String []args) {
+    public static void main(String []args) {
         launch(args);
     }
 }
