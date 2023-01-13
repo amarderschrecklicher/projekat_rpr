@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class HostController implements Initializable {
     public ListView<String> listProperty;
     @FXML
     public BorderPane scenePn;
+    public GridPane grdPn;
 
     FXMLLoader transition(String whereTo, String title) throws IOException {
         final Stage login = (Stage) scenePn.getScene().getWindow();
