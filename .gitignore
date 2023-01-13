@@ -1,4 +1,4 @@
 .idea
 target
-sdkjfx/javafx-sdk-19
+sdkjfx
 src/main/java/resources/properties/
