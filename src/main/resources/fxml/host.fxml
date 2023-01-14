@@ -24,7 +24,7 @@
          <children>
             <Label fx:id="hiUser" text="Label" textFill="#1c2941">
                <font>
-                  <Font name="Footlight MT Light" size="36.0" />
+                  <Font name="Felix Titling" size="36.0" />
                </font>
                <GridPane.margin>
                   <Insets left="20.0" />

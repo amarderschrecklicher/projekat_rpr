@@ -29,12 +29,12 @@
             <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="DATE" textFill="#00e457" GridPane.columnIndex="1">
+            <Label fx:id="DATE" textFill="#1c2941" GridPane.columnIndex="1">
                <font>
-                  <Font name="Arial Bold" size="38.0" />
+                  <Font name="Arial Bold" size="44.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="50.0" top="10.0" />
+                  <Insets left="40.0" top="20.0" />
                </GridPane.margin>
             </Label>
             <TextField fx:id="propertyNname" prefHeight="25.0" prefWidth="238.0" promptText="Property name:" GridPane.rowIndex="1">
