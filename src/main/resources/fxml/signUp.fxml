@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane fx:id="scenePanee" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="762.0" style="-fx-background-color: #001B52;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.SignupController">
+<GridPane fx:id="scenePanee" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="762.0" style="-fx-background-color: #798cb0;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.SignupController">
     <stylesheets>
         <URL value="@../css/signUp.css" />
     </stylesheets>
@@ -35,7 +30,7 @@
             <Insets />
          </GridPane.margin>
       </ImageView>
-      <GridPane depthTest="ENABLE" prefHeight="276.0" prefWidth="278.0" style="-fx-background-color: #053AA5;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <GridPane depthTest="ENABLE" prefHeight="276.0" prefWidth="278.0" style="-fx-background-color: #1c2941;" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="15.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="245.0" />
@@ -81,7 +76,7 @@
             <Insets bottom="60.0" left="10.0" />
          </GridPane.margin>
       </Button>
-      <Label text="Extranet" textFill="#00e457" GridPane.columnIndex="1">
+      <Label text="Extranet" textFill="#1c2941" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets bottom="10.0" left="50.0" top="80.0" />
          </GridPane.margin>
