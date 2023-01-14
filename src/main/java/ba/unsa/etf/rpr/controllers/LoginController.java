@@ -10,12 +10,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -64,19 +66,12 @@ public class LoginController implements Initializable {
                 Stage stage = new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
                 loader.load();
+                stage.setTitle("USER");
+                stage.getIcons().add(new Image("/icons/host_icon.png"));
                 HostController set = loader.getController();
-                set.HOST = lHOST;
+                HostController.HOST = lHOST;
 
-                String Welcome = "Hi, ";
-                int i = 0;
-
-                while (lHOST.getName().charAt(i) != ' ') {
-                    Welcome += lHOST.getName().charAt(i);
-                    i++;
-                }
-                Welcome += " !";
-
-                set.hiUser.setText(Welcome);
+                set.hiUser.setText("Hi " + lHOST.getName().split(" ", 2)[0] +" !");
 
                 List<Property> listP = null;
                 try {
@@ -85,9 +80,10 @@ public class LoginController implements Initializable {
                     throw new RuntimeException(e);
                 }
 
+
                 if (!listP.isEmpty()) {
-                    String[] a = new String[1];
-                    i = 0;
+                    String[] a = new String[listP.size()];
+                    int i = 0;
                     for (Property p : listP) {
                         a[i] = p.getPropertyName() + "   : " + p.getPropertyType();
                         i++;
