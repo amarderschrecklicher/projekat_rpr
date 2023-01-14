@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -44,6 +45,7 @@ public class HostController extends LoginController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(whereTo));
         loader.load();
         stage.setTitle(title);
+        stage.getIcons().add(new Image(""));
         stage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.show();
 
