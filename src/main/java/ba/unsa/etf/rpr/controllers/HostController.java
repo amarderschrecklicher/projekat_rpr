@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
@@ -24,9 +25,9 @@ import java.util.ResourceBundle;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
-public class HostController implements Initializable {
+public class HostController extends LoginController implements Initializable {
 
-    public Host HOST = new Host();
+    public static Host HOST = lHOST;
 
     @FXML
     public Label hiUser;
@@ -53,7 +54,6 @@ public class HostController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
     }
 
 
@@ -68,7 +68,7 @@ public class HostController implements Initializable {
     }
 
     public void newPropertyA(ActionEvent actionEvent) throws IOException, Exceptionss {
-        transition("/fxml/property.fxml", "NEW PROPERTY").getController();
+        transition("/fxml/property.fxml", "NEW PROPERTY");
 
     }
 

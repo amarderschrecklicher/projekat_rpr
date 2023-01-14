@@ -73,9 +73,8 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             for (Map.Entry<String, Object> entry: row.entrySet()) {
                 if (entry.getKey().equals("id")) continue; // skip ID
                 stmt.setObject(counter, entry.getValue());
-                counter++;
+                counter++; System.out.print(entry.getValue()+" ");
             }
-            System.out.println(builder);
             stmt.executeUpdate();
 
             ResultSet rs = stmt.getGeneratedKeys();

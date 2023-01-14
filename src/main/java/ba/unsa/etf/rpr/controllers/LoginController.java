@@ -24,7 +24,7 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class LoginController implements Initializable {
 
-    private  Host host = new Host();
+    public static Host lHOST = new Host();
     @FXML
     public Button signIn;
     @FXML
@@ -55,43 +55,51 @@ public class LoginController implements Initializable {
             alert1.showAndWait();
         }
         else {
-                host.setName(user); host.setNumber(pass);
+                lHOST.setName(user); lHOST.setNumber(pass);
 
-            if(DaoFactory.HostDao().searchHost(host)){
+            if(DaoFactory.HostDao().searchHost(lHOST)) {
 
-                host = DaoFactory.HostDao().getByNumber(pass);
-                final Stage login=(Stage) scenePane.getScene().getWindow();
-                Stage  stage=new Stage();
+                lHOST = DaoFactory.HostDao().getByNumber(pass);
+                final Stage login = (Stage) scenePane.getScene().getWindow();
+                Stage stage = new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
                 loader.load();
-                HostController set= loader.getController();
-                set.HOST = host;
+                HostController set = loader.getController();
+                set.HOST = lHOST;
 
-                String Welcome ="Hi, "; int i=0;
+                String Welcome = "Hi, ";
+                int i = 0;
 
-                while(host.getName().charAt(i)!=' ') {
-                    Welcome+=host.getName().charAt(i);i++;}
-                Welcome+=" !";
+                while (lHOST.getName().charAt(i) != ' ') {
+                    Welcome += lHOST.getName().charAt(i);
+                    i++;
+                }
+                Welcome += " !";
 
                 set.hiUser.setText(Welcome);
 
-                List<Property> listP= null;
+                List<Property> listP = null;
                 try {
-                    listP = DaoFactory.propertyDao().hostProperties(host);
+                    listP = DaoFactory.propertyDao().hostProperties(lHOST);
                 } catch (Exceptionss e) {
                     throw new RuntimeException(e);
                 }
 
-                if(!listP.isEmpty()) {
-                    String[]a = new String[1]; i=0;
-                    for(Property p:listP){a[i]=p.getPropertyName()+"   : "+p.getPropertyType();i++;}
+                if (!listP.isEmpty()) {
+                    String[] a = new String[1];
+                    i = 0;
+                    for (Property p : listP) {
+                        a[i] = p.getPropertyName() + "   : " + p.getPropertyType();
+                        i++;
+                    }
                     set.listProperty.getItems().addAll(a);
                 }
 
                 stage.setTitle("HOST MENU");
-                stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+                stage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
                 stage.show();
                 login.hide();
+
 
             }
             else {

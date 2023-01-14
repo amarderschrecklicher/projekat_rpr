@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.event.ActionEvent;
@@ -20,7 +21,7 @@ import java.text.SimpleDateFormat;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
-public class PropertyController implements Initializable {
+public class PropertyController extends HostController implements Initializable {
 
 
     public VBox vBox;
@@ -42,11 +43,11 @@ public class PropertyController implements Initializable {
     public Spinner<Integer> kitchens;
     public Label DATE ;
 
-
     public Label lbGuest;
     public Label lbBath;
     public Label lbKitchen;
     public DatePicker date2;
+
 
 
     FXMLLoader transition(String whereTo , String title) throws IOException {
@@ -143,12 +144,9 @@ public class PropertyController implements Initializable {
 
         if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
                 && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
-            loader.load();
-            HostController set = loader.getController();
 
             Property p = new Property();
-            p.setHostId(set.HOST.getId());
+            p.setHostId(HOST.getId());
             p.setPropertyName(propertyNname.getText());
             p.setPropertyType(propertyType.getText());
             p.setLocation(location.getText() + ", " + country.getText());
@@ -168,7 +166,7 @@ public class PropertyController implements Initializable {
             }
 
             if (b) {
-                p.setAcH(buttonYes.isPressed());
+                p.setAcH(buttonNo.isPressed());
                 DaoFactory.propertyDao().add(p);
                 alert1.setTitle("Success");
                 alert1.setHeaderText(null);
