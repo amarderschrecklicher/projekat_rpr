@@ -154,7 +154,7 @@ public class PropertyController extends HostController implements Initializable 
             p.setKitchens(kitchens.getValue());
             p.setBathrooms(bathrooms.getValue());
             p.setPrice(Double.parseDouble(price.getText()));
-
+            p.setAcH(buttonNo.isPressed());
             ArrayList<Property> list = (ArrayList<Property>) DaoFactory.propertyDao().getAll();
             boolean b = true;
             for (Property x : list) {
@@ -166,7 +166,6 @@ public class PropertyController extends HostController implements Initializable 
             }
 
             if (b) {
-                p.setAcH(buttonNo.isPressed());
                 DaoFactory.propertyDao().add(p);
                 alert1.setTitle("Success");
                 alert1.setHeaderText(null);
@@ -174,7 +173,7 @@ public class PropertyController extends HostController implements Initializable 
                 alert1.showAndWait();
 
             } else {
-                DaoFactory.propertyDao().add(p);
+
                 alert1.setTitle("Property exists");
                 alert1.setHeaderText(null);
                 alert1.setContentText("Property already exists!");

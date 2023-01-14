@@ -7,4 +7,21 @@
 #vBox{
     -fx-background-color:  #798cb0;
 }
-
+#apply{
+    fx-background-color: #1c2941;
+}
+#apply :hover{
+    -fx-background-color: #121f31;
+}
+#apply:pressed{
+    -fx-background-color: #0a131c;
+}
+#cancel{
+    fx-background-color: #1c2941;
+}
+#cancel:hover{
+    -fx-background-color: #121f31;
+}
+#cancel:pressed{
+    -fx-background-color: #0a131c;
+}
