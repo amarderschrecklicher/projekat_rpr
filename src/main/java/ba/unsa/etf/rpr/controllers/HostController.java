@@ -47,7 +47,6 @@ public class HostController extends LoginController implements Initializable {
         stage.setTitle(title);
         stage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.show();
-
         return stage;
     }
 
