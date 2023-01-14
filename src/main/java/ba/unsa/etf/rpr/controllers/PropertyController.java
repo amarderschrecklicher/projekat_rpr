@@ -68,6 +68,7 @@ public class PropertyController extends HostController implements Initializable 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         if(DATE.getText().equals(""))
         { SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date currDate = new Date();

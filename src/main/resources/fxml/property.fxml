@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox fx:id="vBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.PropertyController">
+<VBox fx:id="vBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.PropertyController">
     <stylesheets>
         <URL value="@../css/property.css" />
     </stylesheets>
@@ -77,7 +86,7 @@
                   <Insets />
                </GridPane.margin></DatePicker>
             <DatePicker fx:id="date" prefHeight="30.0" prefWidth="174.0" promptText="From:" GridPane.rowIndex="7" />
-            <Button fx:id="applyDate" mnemonicParsing="false" onAction="#applyDateButton" text="Apply date" GridPane.rowIndex="6">
+            <Button fx:id="applyDate" mnemonicParsing="false" onAction="#applyDateButton" stylesheets="@../css/property.css" text="Apply date" textFill="#798cb0" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="200.0" />
                </GridPane.margin>
@@ -97,15 +106,15 @@
             </RadioButton>
             <TextField fx:id="price" prefHeight="34.0" prefWidth="90.0" promptText="Price:" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets left="150.0" right="50.0" />
+                  <Insets left="70.0" right="130.0" />
                </GridPane.margin>
             </TextField>
-            <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <Button fx:id="cancel" cancelButton="true" mnemonicParsing="false" onAction="#cancelButton" stylesheets="@../css/property.css" text="Cancel" textFill="#798cb0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets left="150.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="apply" mnemonicParsing="false" onAction="#applyButton" prefHeight="25.0" prefWidth="54.0" text="Apply" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <Button fx:id="apply" defaultButton="true" mnemonicParsing="false" onAction="#applyButton" prefHeight="25.0" prefWidth="54.0" stylesheets="@../css/property.css" text="Apply" textFill="#798cb0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets left="210.0" />
                </GridPane.margin>
