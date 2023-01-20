@@ -69,6 +69,7 @@ public class PropertyController extends HostController implements Initializable 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
         if(DATE.getText().equals(""))
         { SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date currDate = new Date();
@@ -155,7 +156,7 @@ public class PropertyController extends HostController implements Initializable 
             p.setKitchens(kitchens.getValue());
             p.setBathrooms(bathrooms.getValue());
             p.setPrice(Double.parseDouble(price.getText()));
-            p.setAcH(buttonNo.isPressed());
+            p.setAcH(buttonYes.isSelected());
             ArrayList<Property> list = (ArrayList<Property>) DaoFactory.propertyDao().getAll();
             boolean b = true;
             for (Property x : list) {
