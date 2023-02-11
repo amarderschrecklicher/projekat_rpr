@@ -53,6 +53,8 @@ public class PropertyController extends HostController implements Initializable 
     public ArrayList<LocalDate> fromDates = new ArrayList<LocalDate>();
     public ArrayList<LocalDate> toDates = new ArrayList<LocalDate>();
 
+    public Property p = new Property();
+
 
     FXMLLoader transition(String whereTo , String title) throws IOException {
         final Stage login=(Stage) vBox.getScene().getWindow();
@@ -173,12 +175,10 @@ public class PropertyController extends HostController implements Initializable 
     public void applyButton(ActionEvent actionEvent) throws Exceptionss, IOException {
 
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-        System.out.println(people.getPromptText());
 
         if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
                 && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()) {
 
-            Property p = new Property();
             p.setHostId(HOST.getId());
             p.setPropertyName(propertyNname.getText());
             p.setPropertyType(propertyType.getText());
@@ -190,13 +190,17 @@ public class PropertyController extends HostController implements Initializable 
             p.setAcH(buttonYes.isSelected());
             ArrayList<Property> list = (ArrayList<Property>) DaoFactory.propertyDao().getAll();
             boolean b = true;
+            int id = 0;
             for (Property x : list) {
                 if (p.getPropertyName().equals(x.getPropertyName()) || p.getLocation().equals(x.getLocation())) {
                     b = false;
                     p.setId(x.getId());
                     break;
                 }
+                id = x.getId();
             }
+
+
 
             if (b || apply.getText().equals("Update")) {
                 if(apply.getText().equals("Update")){
@@ -218,6 +222,7 @@ public class PropertyController extends HostController implements Initializable 
                 applyDate.setDisable(false);
                 fromDate.setDisable(false);
                 toDate.setDisable(false);
+                p.setId(id+1);
 
             } else {
 
