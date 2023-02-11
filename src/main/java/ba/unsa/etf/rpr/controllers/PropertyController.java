@@ -144,6 +144,10 @@ public class PropertyController extends HostController implements Initializable 
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
         System.out.println(people.getPromptText());
 
+        if(apply.getText().equals("Update")){
+
+        }
+
         if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
                 && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()) {
 
@@ -173,6 +177,7 @@ public class PropertyController extends HostController implements Initializable 
                 alert1.setHeaderText(null);
                 alert1.setContentText("Successfully added property!");
                 alert1.showAndWait();
+                apply.setText("Update");
 
             } else {
 
