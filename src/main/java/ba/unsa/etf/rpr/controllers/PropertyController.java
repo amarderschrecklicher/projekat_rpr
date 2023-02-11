@@ -70,7 +70,7 @@ public class PropertyController extends HostController implements Initializable 
         return loader;
     }
 
-    public void applyDateButton(ActionEvent actionEvent) {
+    public void applyDateButton(ActionEvent actionEvent) throws Exceptionss {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
@@ -84,21 +84,23 @@ public class PropertyController extends HostController implements Initializable 
             alert.showAndWait();
         }
         else {
+
+            Reservations r = new Reservations();
+            r.setDateIn(Date.valueOf(from));
+            r.setDateOut(Date.valueOf(to));
+            r.setPropertyID(p.getId());
+            r.setReservationDate(Date.valueOf(LocalDate.now()));
+            r.setGuestID(0);
+            DaoFactory.reservationsDao().add(r);
             fromDates.add(from);
             toDates.add(to);
+
             alert.setTitle("Success");
             alert.setHeaderText(null);
             alert.setContentText("Date added!");
             alert.showAndWait();
-        }
-        Reservations r = new Reservations();
-        r.setDateIn(Date.valueOf(from));
-        r.setDateOut(Date.valueOf(to));
-        r.setPropertyID(p.getId());
-        r.setReservationDate(Date.valueOf(LocalDate.now()));
-        r.setGuestID(0);
 
-
+    }
     }
 
     @Override
