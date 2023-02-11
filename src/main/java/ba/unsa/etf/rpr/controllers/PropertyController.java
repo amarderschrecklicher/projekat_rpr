@@ -65,17 +65,21 @@ public class PropertyController extends HostController implements Initializable 
     }
 
     public void applyDateButton(ActionEvent actionEvent) {
+
+        if(toDate.isDisable() || fromDate.isDisable()){
+            return;
+        }
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
         LocalDate from = fromDate.getValue();
         LocalDate to = toDate.getValue();
 
-        if(from.isBefore(LocalDate.now()) || to.isBefore(LocalDate.now()) || to.isBefore(from)){
+        if(from.isBefore(LocalDate.now()) || to.isBefore(LocalDate.now()) || to.isBefore(from) || from.isAfter(to)){
             alert.setTitle("Error");
             alert.setHeaderText(null);
             alert.setContentText("Invalid date!");
             alert.showAndWait();
-
         }
 
     }
@@ -160,6 +164,10 @@ public class PropertyController extends HostController implements Initializable 
 
         if(apply.getText().equals("Update")){
 
+        }
+        else {
+            toDate.cancelEdit();
+            fromDate.cancelEdit();
         }
 
         if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
