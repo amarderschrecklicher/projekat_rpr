@@ -175,10 +175,6 @@ public class PropertyController extends HostController implements Initializable 
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
         System.out.println(people.getPromptText());
 
-        if(apply.getText().equals("Update")){
-
-        }
-
         if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
                 && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()) {
 
@@ -203,10 +199,19 @@ public class PropertyController extends HostController implements Initializable 
             }
 
             if (b) {
-                DaoFactory.propertyDao().add(p);
+                if(apply.getText().equals("Update")){
+                    DaoFactory.propertyDao().update(p);
+                }
+                else {
+                    DaoFactory.propertyDao().add(p);
+                }
                 alert1.setTitle("Success");
                 alert1.setHeaderText(null);
-                alert1.setContentText("Successfully added property!");
+                if(apply.getText().equals("Update")){
+                    alert1.setContentText("Successfully updated property!");
+                } else {
+                    alert1.setContentText("Successfully added property!");
+                }
                 alert1.showAndWait();
                 apply.setText("Update");
                 applyDate.setDisable(false);
