@@ -66,10 +66,6 @@ public class PropertyController extends HostController implements Initializable 
 
     public void applyDateButton(ActionEvent actionEvent) {
 
-        if(toDate.isDisable() || fromDate.isDisable()){
-            return;
-        }
-
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
         LocalDate from = fromDate.getValue();
@@ -166,8 +162,9 @@ public class PropertyController extends HostController implements Initializable 
 
         }
         else {
-            toDate.cancelEdit();
-            fromDate.cancelEdit();
+                applyDate.setDisable(false);
+                fromDate.setDisable(false);
+                toDate.setDisable(false);
         }
 
         if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
@@ -200,6 +197,9 @@ public class PropertyController extends HostController implements Initializable 
                 alert1.setContentText("Successfully added property!");
                 alert1.showAndWait();
                 apply.setText("Update");
+                applyDate.setDisable(true);
+                fromDate.setDisable(true);
+                toDate.setDisable(true);
 
             } else {
 
