@@ -170,10 +170,16 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
 
         for (Map.Entry<String, Object> entry: row.entrySet()) {
             counter++;
-            if (entry.getKey().equals("id")) continue; //skip insertion of id due autoincrement
+            if (entry.getKey().equals("id")) {
+                if(tableName.equals("Reservations")){
+                    columns.append(",");
+                    questions.append(",");
+                }
+                continue; //skip insertion of id due autoincrement
+            }
             columns.append(entry.getKey());
             questions.append("?");
-            if (row.size()-1 != counter) {
+            if (row.size()-1 != counter && !tableName.equals("Reservations")) {
                 columns.append(",");
                 questions.append(",");
             }
