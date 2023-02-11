@@ -198,7 +198,7 @@ public class PropertyController extends HostController implements Initializable 
                 }
             }
 
-            if (b) {
+            if (b || apply.getText().equals("Update")) {
                 if(apply.getText().equals("Update")){
                     DaoFactory.propertyDao().update(p);
                 }
@@ -207,6 +207,7 @@ public class PropertyController extends HostController implements Initializable 
                 }
                 alert1.setTitle("Success");
                 alert1.setHeaderText(null);
+
                 if(apply.getText().equals("Update")){
                     alert1.setContentText("Successfully updated property!");
                 } else {

@@ -91,6 +91,9 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         Map<String, Object> row = object2row(item);
         String updateColumns = prepareUpdateParts(row);
         StringBuilder builder = new StringBuilder();
+
+        System.out.print(updateColumns);
+
         builder.append("UPDATE ")
                 .append(tableName)
                 .append(" SET ")
@@ -184,7 +187,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             counter++;
             if (entry.getKey().equals("id")) continue; //skip update of id due where clause
             columns.append(entry.getKey()).append("= ?");
-            if (row.size() != counter) {
+            if (row.size() - 1 != counter) {
                 columns.append(",");
             }
         }
