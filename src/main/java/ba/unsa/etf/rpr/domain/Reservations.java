@@ -1,7 +1,7 @@
 package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
-import java.util.Date;
+import java.sql.Date;
 
 public class Reservations implements Idable {
 

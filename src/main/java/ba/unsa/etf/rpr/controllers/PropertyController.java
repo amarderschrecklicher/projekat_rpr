@@ -3,7 +3,9 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
+import ba.unsa.etf.rpr.domain.Reservations;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
+import com.mysql.cj.result.LocalDateValueFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,7 +19,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Date;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -90,6 +92,12 @@ public class PropertyController extends HostController implements Initializable 
             alert.setContentText("Date added!");
             alert.showAndWait();
         }
+        Reservations r = new Reservations();
+        r.setDateIn(Date.valueOf(from));
+        r.setDateOut(Date.valueOf(to));
+        r.setPropertyID(p.getId());
+        r.setReservationDate(Date.valueOf(LocalDate.now()));
+        r.setGuestID(0);
 
     }
 
@@ -99,7 +107,7 @@ public class PropertyController extends HostController implements Initializable 
 
         if(DATE.getText().equals(""))
         { SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date currDate = new Date();
+        LocalDate currDate = LocalDate.now();
         DATE.setText(formatter.format(currDate));}
 
         if(apply.getText().equals("Apply")) {
