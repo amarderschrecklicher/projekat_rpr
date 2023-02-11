@@ -50,6 +50,9 @@ public class PropertyController extends HostController implements Initializable 
     public DatePicker fromDate;
     public DatePicker toDate;
 
+    public ArrayList<LocalDate> fromDates = new ArrayList<LocalDate>();
+    public ArrayList<LocalDate> toDates = new ArrayList<LocalDate>();
+
 
     FXMLLoader transition(String whereTo , String title) throws IOException {
         final Stage login=(Stage) vBox.getScene().getWindow();
@@ -77,6 +80,14 @@ public class PropertyController extends HostController implements Initializable 
             alert.setContentText("Invalid date!");
             alert.showAndWait();
         }
+        else {
+            fromDates.add(from);
+            toDates.add(to);
+            alert.setTitle("Success");
+            alert.setHeaderText(null);
+            alert.setContentText("Date added!");
+            alert.showAndWait();
+        }
 
     }
 
@@ -88,6 +99,12 @@ public class PropertyController extends HostController implements Initializable 
         { SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date currDate = new Date();
         DATE.setText(formatter.format(currDate));}
+
+        if(apply.getText().equals("Apply")) {
+            applyDate.setDisable(true);
+            fromDate.setDisable(true);
+            toDate.setDisable(true);
+        }
 
         SpinnerValueFactory<Integer> spnr1 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
         spnr1.setValue(1);
@@ -161,11 +178,6 @@ public class PropertyController extends HostController implements Initializable 
         if(apply.getText().equals("Update")){
 
         }
-        else {
-                applyDate.setDisable(false);
-                fromDate.setDisable(false);
-                toDate.setDisable(false);
-        }
 
         if (!propertyNname.getText().isEmpty() && !propertyType.getText().isEmpty()
                 && !location.getText().isEmpty() && !country.getText().isEmpty() && !price.getText().isEmpty()) {
@@ -197,9 +209,9 @@ public class PropertyController extends HostController implements Initializable 
                 alert1.setContentText("Successfully added property!");
                 alert1.showAndWait();
                 apply.setText("Update");
-                applyDate.setDisable(true);
-                fromDate.setDisable(true);
-                toDate.setDisable(true);
+                applyDate.setDisable(false);
+                fromDate.setDisable(false);
+                toDate.setDisable(false);
 
             } else {
 
