@@ -5,7 +5,6 @@ import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.domain.Reservations;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
-import com.mysql.cj.result.LocalDateValueFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -99,6 +98,7 @@ public class PropertyController extends HostController implements Initializable 
         r.setReservationDate(Date.valueOf(LocalDate.now()));
         r.setGuestID(0);
 
+
     }
 
     @Override
@@ -107,7 +107,7 @@ public class PropertyController extends HostController implements Initializable 
 
         if(DATE.getText().equals(""))
         { SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        LocalDate currDate = LocalDate.now();
+        java.util.Date currDate = new java.util.Date();
         DATE.setText(formatter.format(currDate));}
 
         if(apply.getText().equals("Apply")) {

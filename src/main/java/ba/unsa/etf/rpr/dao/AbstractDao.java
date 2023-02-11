@@ -97,8 +97,13 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         builder.append("UPDATE ")
                 .append(tableName)
                 .append(" SET ")
-                .append(updateColumns)
-                .append(" WHERE id"+tableName+" = ?");
+                .append(updateColumns);
+                if(tableName.equals("Property")) {
+                builder.append(" WHERE " + tableName + "ID = ?");
+                }
+                else{
+                    builder.append(" WHERE id" + tableName + " = ?");
+                }
             System.out.println(builder);
         try{
             PreparedStatement stmt = getConnection().prepareStatement(builder.toString());
