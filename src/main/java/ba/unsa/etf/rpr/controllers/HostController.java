@@ -39,10 +39,11 @@ public class HostController extends LoginController implements Initializable {
     public BorderPane scenePn;
     public GridPane grdPn;
 
-    Stage sTransition(String whereTo, String title) throws IOException {
+    Stage sTransition(String whereTo, String title,Object control) throws IOException {
         final Stage login = (Stage) scenePn.getScene().getWindow();
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(whereTo));
+        loader.setController(control);
         loader.load();
         stage.setTitle(title);
         stage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
@@ -61,7 +62,7 @@ public class HostController extends LoginController implements Initializable {
     }
 
     public void logOutA(ActionEvent actionEvent) throws IOException {
-        Stage s =sTransition("/fxml/login.fxml", "LOGIN");
+        Stage s =sTransition("/fxml/login.fxml", "LOGIN",new LoginController());
         s.getIcons().add(new Image("/icons/login_icon.png"));
     }
 
@@ -69,7 +70,7 @@ public class HostController extends LoginController implements Initializable {
     }
 
     public void newPropertyA(ActionEvent actionEvent) throws IOException, Exceptionss {
-        Stage s = sTransition("/fxml/property.fxml", "NEW PROPERTY");
+        Stage s = sTransition("/fxml/property.fxml", "NEW PROPERTY",new PropertyController());
         s.getIcons().add(new Image("/icons/property_icon.png"));
     }
 

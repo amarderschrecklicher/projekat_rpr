@@ -65,6 +65,7 @@ public class LoginController implements Initializable {
                 final Stage login = (Stage) scenePane.getScene().getWindow();
                 Stage stage = new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/host.fxml"));
+                loader.setController(new HostController());
                 loader.load();
                 stage.setTitle("USER");
                 stage.getIcons().add(new Image("/icons/host_icon.png"));
@@ -111,6 +112,7 @@ public class LoginController implements Initializable {
     final Stage login=(Stage) scenePane.getScene().getWindow();
     Stage  stage=new Stage();
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signUp.fxml"));
+    loader.setController(new SignupController());
     loader.load();
     stage.setTitle("SIGN UP");
     stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
