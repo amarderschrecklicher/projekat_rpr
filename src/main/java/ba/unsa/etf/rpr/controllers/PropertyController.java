@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Date;
@@ -46,8 +47,8 @@ public class PropertyController extends HostController implements Initializable 
     public Label lbGuest;
     public Label lbBath;
     public Label lbKitchen;
-    public DatePicker date2;
-
+    public DatePicker fromDate;
+    public DatePicker toDate;
 
 
     FXMLLoader transition(String whereTo , String title) throws IOException {
@@ -64,6 +65,19 @@ public class PropertyController extends HostController implements Initializable 
     }
 
     public void applyDateButton(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        LocalDate from = fromDate.getValue();
+        LocalDate to = toDate.getValue();
+
+        if(from.isBefore(LocalDate.now()) || to.isBefore(LocalDate.now()) || to.isBefore(from)){
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid date!");
+            alert.showAndWait();
+
+        }
+
     }
 
     @Override
