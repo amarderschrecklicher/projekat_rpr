@@ -92,14 +92,14 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         String updateColumns = prepareUpdateParts(row);
         StringBuilder builder = new StringBuilder();
 
-        System.out.print(updateColumns);
+
 
         builder.append("UPDATE ")
                 .append(tableName)
                 .append(" SET ")
                 .append(updateColumns)
-                .append(" WHERE id = ?");
-
+                .append(" WHERE id"+tableName+" = ?");
+            System.out.println(builder);
         try{
             PreparedStatement stmt = getConnection().prepareStatement(builder.toString());
             int counter = 1;
@@ -108,7 +108,10 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
                 stmt.setObject(counter, entry.getValue());
                 counter++;
             }
-            stmt.setObject(counter+1, item.getId());
+
+            stmt.setObject(counter, item.getId());
+
+
             stmt.executeUpdate();
             return item;
         }catch (SQLException e){
