@@ -57,11 +57,10 @@ public class PropertyController extends HostController implements Initializable 
     public Property p = new Property();
 
 
-    FXMLLoader transition(String whereTo , String title,Object control) throws IOException {
+    FXMLLoader transition(String whereTo , String title) throws IOException {
         final Stage login=(Stage) vBox.getScene().getWindow();
         Stage  stage=new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(whereTo));
-        loader.setController(control);
         loader.load();
         stage.setTitle(title);
         stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
