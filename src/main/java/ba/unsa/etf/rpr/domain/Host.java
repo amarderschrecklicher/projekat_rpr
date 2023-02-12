@@ -9,6 +9,17 @@ public class Host implements Idable {
     private String number;
     private String email;
 
+    public Host(){
+
+    }
+
+   public Host (String name,String number,String email){
+        this.id = -1;
+        this.name = name;
+        this.email = email;
+        this.number = number;
+    }
+
     public int getId() {
         return id;
     }
