@@ -106,6 +106,24 @@ public class PropertyController extends HostController implements Initializable 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        if(PROPERTY!=null){
+            SpinnerValueFactory<Integer> spnr1 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
+            spnr1.setValue(PROPERTY.getCapacity());
+            SpinnerValueFactory<Integer> spnr2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
+            spnr2.setValue(PROPERTY.getBathrooms());
+            SpinnerValueFactory<Integer> spnr3 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
+            spnr3.setValue(PROPERTY.getKitchens());
+
+            propertyNname.setText(PROPERTY.getPropertyName());
+            propertyType.setText(PROPERTY.getPropertyType());
+            price.setText(String.valueOf(PROPERTY.getPrice()));
+            people.setValueFactory(spnr1);
+            bathrooms.setValueFactory(spnr2);
+            kitchens.setValueFactory(spnr3);
+            if(PROPERTY.isAcH())
+            buttonYes.selectedProperty();
+        }
+
 
         if(DATE.getText().equals(""))
         { SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
