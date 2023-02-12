@@ -2,18 +2,16 @@ package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.HostManager;
 import ba.unsa.etf.rpr.domain.Host;
-import ba.unsa.etf.rpr.domain.Property;
 import org.apache.commons.cli.*;
 
 import java.io.PrintWriter;
-import java.util.List;
 
 public class App
 {
     private static final Option addHost = new Option("h","add-host",false, "Adding new host to projekat database");
     private static final Option addProperty = new Option("p","add-property",false, "Adding new property to projekat database");
-    private static final Option deleteProperty = new Option("getH", "get-host",false, "Deleting a property from  projekat database");
-    private static final Option updateProperty= new Option("getP", "get-property",false, "Updating a property from  projekat database");
+    private static final Option deleteProperty = new Option("delP", "get-host",false, "Deleting a property from  projekat database");
+    private static final Option updateProperty= new Option("updP", "get-property",false, "Updating a property from  projekat database");
 
     /**
      *
@@ -38,13 +36,6 @@ public class App
         return options;
     }
 
-    public static Property searchThroughProperties(List<Property> listOfCategories, String categoryName) {
-
-        Property property = null;
-        property = listOfCategories.stream().filter(cat -> cat.getPropertyName().toLowerCase().equals(categoryName.toLowerCase())).findAny().get();
-        return property;
-
-    }
 
     public static void main( String[] args ) throws Exception {
         Options options = addOptions();
@@ -70,10 +61,6 @@ public class App
                 System.exit(1);
             }
 
-//                if(!category.getName().equals(cl.getArgList().get(1))){
-//                    System.out.println("There is no category with passed name! Try again.");
-//                    System.exit(-1);
-//                }
 
 
         }
