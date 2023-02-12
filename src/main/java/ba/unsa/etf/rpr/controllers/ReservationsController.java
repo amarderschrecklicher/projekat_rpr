@@ -65,7 +65,7 @@ public class ReservationsController extends HostController implements Initializa
                 table.getColumns().addAll(resId,guestName,nmbGuests,dateIn,dateOut,totPrice);
                 ObservableList<Table> tab = FXCollections.observableArrayList();
                 for (Reservations r : lr) {
-                    if (r.getGuestID() != 0) {
+                    if (r.getGuestID() != 0 && r.getPropertyID()==PROPERTY.getId()) {
                         Guest g = DaoFactory.GuestDao().getById(r.getGuestID());
                         LocalDate ld = r.getDateIn().toLocalDate();
                         LocalDate ld2 = r.getDateOut().toLocalDate();
