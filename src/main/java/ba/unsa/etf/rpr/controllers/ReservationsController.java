@@ -59,33 +59,30 @@ public class ReservationsController extends HostController implements Initializa
 
         try {
             ArrayList<Reservations> lr = (ArrayList<Reservations>) DaoFactory.reservationsDao().getAll();
+            if (lr != null) {
+                table.getColumns().addAll(resId,guestName,nmbGuests,dateIn,dateOut,totPrice);
+                ObservableList<Table> tab = FXCollections.observableArrayList();
+                for (Reservations r : lr) {
+                    if (r.getGuestID() != 0) {
+                        Guest g = DaoFactory.GuestDao().getById(r.getGuestID());
+                        LocalDate ld = r.getDateIn().toLocalDate();
+                        LocalDate ld2 = r.getDateOut().toLocalDate();
+                        int nights = 0;
+                        while (!ld.isEqual(ld2)) {
+                            ld = ld.plusDays(1);
+                            nights = nights + 1;
+                        }
+                        tab.add(new Table(Integer.toString(r.getId()), g.getName(), Integer.toString(g.getNumberOfGuests()),
+                                r.getDateIn().toString(), r.getDateOut().toString(),
+                                r.getReservationDate().toString(),
+                                Double.toString(DaoFactory.propertyDao().getById(r.getPropertyID()).getPrice() * nights)));
 
-            for(Reservations r : lr){
-                if(r.getGuestID()!=0) {
-                    table.getItems().add(0,Integer.toString(r.getId()));
-                    table.getItems().add(1,r.getDateIn().toString());
-                    table.getItems().add(2,Integer.toString(r.getId()));
-                    table.getItems().add(3,r.getDateOut().toString());
-
-                    Guest g = DaoFactory.GuestDao().getById(r.getGuestID());
-                    table.getItems().add(4,g.getName());
-                    table.getItems().add(5,Integer.toString(g.getNumberOfGuests()));
-
-                    LocalDate ld = r.getDateIn().toLocalDate();
-                    LocalDate ld2 = r.getDateOut().toLocalDate();
-                    int nights = 0;
-                    while (!ld.isEqual(ld2)){
-                        ld = ld.plusDays(1);
-                        nights = nights + 1;
                     }
-                    table.getItems().add(6,r.getReservationDate().toString());
-                    table.getItems().add(7,Double.toString(DaoFactory.propertyDao().getById(r.getPropertyID()).getPrice()*nights));
-
                 }
             }
-        } catch (Exceptionss e) {
-            throw new RuntimeException(e);
-        }
+            } catch(Exceptionss e){
+                throw new RuntimeException(e);
+            }
 
         propertyName.setText(PROPERTY.getPropertyName());
       locationn.setText(locationn.getText()+" "+PROPERTY.getLocation());
