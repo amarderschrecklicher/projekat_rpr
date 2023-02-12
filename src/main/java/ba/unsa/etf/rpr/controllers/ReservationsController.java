@@ -78,16 +78,23 @@ public class ReservationsController extends HostController implements Initializa
                                 r.getDateIn().toString(), r.getDateOut().toString(),
                                 r.getReservationDate().toString(),
                                 Double.toString(DaoFactory.propertyDao().getById(r.getPropertyID()).getPrice() * nights)));
+                        System.out.println(Integer.toString(r.getId())+g.getName()+Integer.toString(g.getNumberOfGuests())+" "+
+                                r.getDateIn().toString()+" "+ r.getDateOut().toString()+" "+
+                                r.getReservationDate().toString()+" "+
+                                Double.toString(DaoFactory.propertyDao().getById(r.getPropertyID()).getPrice() * nights));
 
                     }
                 }
-                resId.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
-                guestName.setCellValueFactory(new PropertyValueFactory<Table,String>("Guest Name"));
-                nmbGuests.setCellValueFactory(new PropertyValueFactory<Table,String>("Number of Guests"));
-                dateIn.setCellValueFactory(new PropertyValueFactory<Table,String>("Check in"));
-                dateOut.setCellValueFactory(new PropertyValueFactory<Table,String>("Check out"));
-                dateRes.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation date"));
-                totPrice.setCellValueFactory(new PropertyValueFactory<Table,String>("Total price"));
+
+                resId.setCellValueFactory(new PropertyValueFactory<Table,String>("resId"));
+                guestName.setCellValueFactory(new PropertyValueFactory<Table,String>("guestName"));
+                nmbGuests.setCellValueFactory(new PropertyValueFactory<Table,String>("nmbGuests"));
+                dateIn.setCellValueFactory(new PropertyValueFactory<Table,String>("dateIn"));
+                dateOut.setCellValueFactory(new PropertyValueFactory<Table,String>("dateOut"));
+                dateRes.setCellValueFactory(new PropertyValueFactory<Table,String>("dateRes"));
+                totPrice.setCellValueFactory(new PropertyValueFactory<Table,String>("totalPrice"));
+
+                table.setItems(tab);
 
             }
             } catch(Exceptionss e){
