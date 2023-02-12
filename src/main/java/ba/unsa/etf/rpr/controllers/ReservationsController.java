@@ -16,7 +16,7 @@ public class ReservationsController extends HostController implements Initializa
     public  Label AC ;
     public Label propertyName;
     public TableView table;
-    public Label location;
+    public Label locationn;
     public Label capacity;
     public Label price;
 
@@ -29,7 +29,9 @@ public class ReservationsController extends HostController implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
+      propertyName.setText(PROPERTY.getPropertyName());
+      locationn.setText(location+" "+PROPERTY.getLocation());
+      capacity.setText(capacity+" "+PROPERTY.getCapacity());
+      price.setText(price+" "+PROPERTY.getPrice());
     }
 }
