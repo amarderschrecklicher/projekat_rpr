@@ -41,7 +41,7 @@ public class ReservationsController extends HostController implements Initializa
     public TableColumn guestName;
     public TableColumn nmbGuests;
     public TableColumn totPrice;
-    public TableColumn dataRes;
+    public TableColumn dateRes;
 
     Stage sTransition(String whereTo, String title, Object control) throws IOException {
         final Stage login = (Stage) scenePn.getScene().getWindow();
@@ -82,12 +82,13 @@ public class ReservationsController extends HostController implements Initializa
                     }
                 }
                 resId.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
-                guestName.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
-                nmbGuests.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
-                dateIn.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
-                dateOut.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
-                da.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
-                resId.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
+                guestName.setCellValueFactory(new PropertyValueFactory<Table,String>("Guest Name"));
+                nmbGuests.setCellValueFactory(new PropertyValueFactory<Table,String>("Number of Guests"));
+                dateIn.setCellValueFactory(new PropertyValueFactory<Table,String>("Check in"));
+                dateOut.setCellValueFactory(new PropertyValueFactory<Table,String>("Check out"));
+                dateRes.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation date"));
+                totPrice.setCellValueFactory(new PropertyValueFactory<Table,String>("Total price"));
+
             }
             } catch(Exceptionss e){
                 throw new RuntimeException(e);
