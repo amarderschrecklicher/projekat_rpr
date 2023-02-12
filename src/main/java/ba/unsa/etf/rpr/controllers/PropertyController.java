@@ -113,9 +113,11 @@ public class PropertyController extends HostController implements Initializable 
             spnr2.setValue(PROPERTY.getBathrooms());
             SpinnerValueFactory<Integer> spnr3 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
             spnr3.setValue(PROPERTY.getKitchens());
-
+            apply.setText("Update");
             propertyNname.setText(PROPERTY.getPropertyName());
             propertyType.setText(PROPERTY.getPropertyType());
+            location.setText(PROPERTY.getLocation());
+            country.setText(PROPERTY.getLocation());
             price.setText(String.valueOf(PROPERTY.getPrice()));
             people.setValueFactory(spnr1);
             bathrooms.setValueFactory(spnr2);

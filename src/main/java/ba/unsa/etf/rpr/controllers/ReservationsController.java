@@ -3,13 +3,19 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class ReservationsController extends HostController implements Initializable {
 
@@ -20,17 +26,22 @@ public class ReservationsController extends HostController implements Initializa
     public Label capacity;
     public Label price;
 
-    @FXML
-    public void cancelButton(ActionEvent actionEvent) {
+    Stage sTransition(String whereTo, String title, Object control) throws IOException {
+        final Stage login = (Stage) scenePn.getScene().getWindow();
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(whereTo));
+        loader.setController(control);
+        loader.load();
+        stage.setTitle(title);
+        stage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.show();
+        return stage;
     }
-    @FXML
-    public void applyButton(ActionEvent actionEvent) {
-    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        System.out.print(PROPERTY.getPropertyName());
       propertyName.setText(PROPERTY.getPropertyName());
       locationn.setText(locationn.getText()+" "+PROPERTY.getLocation());
       capacity.setText(capacity.getText()+" "+PROPERTY.getCapacity());
