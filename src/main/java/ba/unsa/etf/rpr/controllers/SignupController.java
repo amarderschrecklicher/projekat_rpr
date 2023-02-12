@@ -110,6 +110,15 @@ public class SignupController extends HostController implements Initializable {
         hostt.setEmail(emailHost.getText());
         hostt.setNumber(numberHost.getText());
 
+        if(nameHost.getText().equals("")||surnameHost.getText().equals("")||emailHost.getText().equals("") ||
+        numberHost.getText().equals("")){
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Error");alert1.setHeaderText(null);
+            alert1.setContentText("Field/s empty!");
+            alert1.showAndWait();
+            return;
+        }
+
         List<Host> list=DaoFactory.HostDao().getAll();
         for(Host x:list)if(x.getNumber().equals(hostt.getNumber())) {
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
