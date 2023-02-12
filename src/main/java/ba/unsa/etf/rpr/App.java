@@ -1,10 +1,8 @@
 package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.HostManager;
-import ba.unsa.etf.rpr.business.PropertyManager;
 import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
-import ba.unsa.etf.rpr.domain.Reservations;
 import org.apache.commons.cli.*;
 
 import java.io.PrintWriter;
