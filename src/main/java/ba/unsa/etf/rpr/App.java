@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.business.HostManager;
 import ba.unsa.etf.rpr.business.PropertyManager;
 import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
@@ -55,12 +56,17 @@ public class App
         CommandLine cl = commandLineParser.parse(options, args);
 
 //        while(true) {
-        if ((cl.hasOption(addHost.getOpt()) || cl.hasOption(addHost.getLongOpt()) )) {
-            Host host = new Host();
-            Reservations reservations = new Reservations();
-            Property property = null;
+        if ((cl.hasOption(addHost.getOpt()))) {
             try {
-                property = searchThroughProperties(PropertyManager.getAll(), (String) cl.getArgList().get(1));
+
+                Host host = new Host();
+                HostManager manager = new HostManager();
+                host.setName(cl.getArgList().get(0));
+                host.setNumber(cl.getArgList().get(1));
+                host.setEmail(cl.getArgList().get(2));
+                manager.add(host);
+                System.out.println("Successfully added host!");
+
             } catch (Exception e) {
                 System.out.println("There is no host in the list! Try again.");
                 System.exit(1);
