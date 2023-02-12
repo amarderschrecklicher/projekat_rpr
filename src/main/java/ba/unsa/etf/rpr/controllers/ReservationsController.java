@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -40,6 +41,7 @@ public class ReservationsController extends HostController implements Initializa
     public TableColumn guestName;
     public TableColumn nmbGuests;
     public TableColumn totPrice;
+    public TableColumn dataRes;
 
     Stage sTransition(String whereTo, String title, Object control) throws IOException {
         final Stage login = (Stage) scenePn.getScene().getWindow();
@@ -79,6 +81,13 @@ public class ReservationsController extends HostController implements Initializa
 
                     }
                 }
+                resId.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
+                guestName.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
+                nmbGuests.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
+                dateIn.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
+                dateOut.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
+                da.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
+                resId.setCellValueFactory(new PropertyValueFactory<Table,String>("Reservation id"));
             }
             } catch(Exceptionss e){
                 throw new RuntimeException(e);

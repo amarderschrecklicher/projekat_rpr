@@ -50,6 +50,7 @@
                   <TableColumn fx:id="nmbGuests" prefWidth="98.0" text="Number of Guests" />
                   <TableColumn fx:id="dateIn" prefWidth="85.0" text="Date in" />
                   <TableColumn fx:id="dateOut" prefWidth="124.0" text="Date out" />
+                  <TableColumn fx:id="dateRes" prefWidth="124.0" text="Reservation date" />
                   <TableColumn fx:id="totPrice" prefWidth="72.0" text="Total price" />
               </columns>
                <GridPane.margin>
