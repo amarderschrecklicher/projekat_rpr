@@ -116,8 +116,8 @@ public class PropertyController extends HostController implements Initializable 
             apply.setText("Update");
             propertyNname.setText(PROPERTY.getPropertyName());
             propertyType.setText(PROPERTY.getPropertyType());
-            location.setText(PROPERTY.getLocation());
-            country.setText(PROPERTY.getLocation());
+            location.setText(PROPERTY.getLocation().split(",")[0]);
+            country.setText(PROPERTY.getLocation().split(",")[1].substring(1));
             price.setText(String.valueOf(PROPERTY.getPrice()));
             people.setValueFactory(spnr1);
             bathrooms.setValueFactory(spnr2);

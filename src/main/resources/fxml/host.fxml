@@ -46,7 +46,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <ListView fx:id="listProperty"  prefHeight="267.0" prefWidth="116.0" stylesheets="@../css/host.css" GridPane.rowIndex="2">
+            <ListView fx:id="listProperty" prefHeight="267.0" prefWidth="116.0" stylesheets="@../css/host.css" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></ListView>
@@ -70,18 +70,16 @@
             <items>
               <MenuItem fx:id="hostInfo" mnemonicParsing="false" onAction="#hostInfoA" text="Host info" />
                   <MenuItem fx:id="logOut" mnemonicParsing="false" onAction="#logOutA" text="Log out" />
-              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#aboutA" text="About" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Property">
                <items>
                   <MenuItem fx:id="newProperty" mnemonicParsing="false" onAction="#newPropertyA" text="New Property" />
-                  <MenuItem fx:id="editProperty" mnemonicParsing="false" onAction="#editPropertyA" text="Edit Property" />
                </items>
           </Menu>
             <Menu fx:id="help" mnemonicParsing="false" onAction="#helpA" text="Help">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="User Manual" />
               </items>
             </Menu>
         </menus>

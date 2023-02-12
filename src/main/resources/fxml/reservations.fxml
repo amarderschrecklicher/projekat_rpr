@@ -45,12 +45,12 @@
             </Label>
             <TableView fx:id="table" prefHeight="176.0" prefWidth="93.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
               <columns>
-                <TableColumn prefWidth="89.0" text="Reservation ID" />
-                <TableColumn prefWidth="91.0" text="Date in" />
-                  <TableColumn prefWidth="98.0" text="Date Out" />
-                  <TableColumn prefWidth="85.0" text="Guest Name" />
-                  <TableColumn prefWidth="124.0" text="Number of Guests" />
-                  <TableColumn prefWidth="72.0" text="Total price" />
+                <TableColumn fx:id="resId" prefWidth="89.0" text="Reservation ID" />
+                <TableColumn fx:id="dateIn" prefWidth="91.0" text="Date in" />
+                  <TableColumn fx:id="dateOut" prefWidth="98.0" text="Date Out" />
+                  <TableColumn fx:id="guestName" prefWidth="85.0" text="Guest Name" />
+                  <TableColumn fx:id="nmbGuests" prefWidth="124.0" text="Number of Guests" />
+                  <TableColumn fx:id="totPrice" prefWidth="72.0" text="Total price" />
               </columns>
                <GridPane.margin>
                   <Insets right="20.0" />

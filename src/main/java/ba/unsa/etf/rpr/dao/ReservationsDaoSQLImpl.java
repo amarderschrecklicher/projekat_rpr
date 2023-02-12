@@ -29,11 +29,11 @@ public class ReservationsDaoSQLImpl extends AbstractDao<Reservations> implements
         try{
         Reservations q = new Reservations();
         q.setId(rs.getInt(1));
-        q.setGuestID(rs.getInt(2));
-        q.setPropertyID(rs.getInt(3));
-        q.setReservationDate(rs.getDate(4));
-        q.setDateIn(rs.getDate(5));
-        q.setDateOut(rs.getDate(6));
+        q.setGuestID(rs.getInt(4));
+        q.setPropertyID(rs.getInt(5));
+        q.setReservationDate(rs.getDate(6));
+        q.setDateIn(rs.getDate(2));
+        q.setDateOut(rs.getDate(3));
         return q;
     } catch (Exception e) {
         throw new Exceptionss(e.getMessage(), e);
