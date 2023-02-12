@@ -61,6 +61,13 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         Map<String, Object> row = object2row(item);
         Map.Entry<String, String> columns = prepareInsertParts(row);
 
+        if(columns.getKey().endsWith(",")){
+            String a = columns.getKey();
+            String b = columns.getValue();
+            Map.Entry<String, String> ne = new AbstractMap.SimpleEntry<String,String> (a.substring(0,a.length()-1),b.substring(0,b.length()-1));
+            columns = ne;
+        }
+
         StringBuilder builder = new StringBuilder();
         builder.append("INSERT INTO ").append(tableName);
         builder.append(" (").append(columns.getKey()).append(") ");
@@ -167,19 +174,17 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         StringBuilder questions = new StringBuilder();
 
         int counter = 0;
-
+        if(tableName.equals("Reservations")){
+            counter = 1;
+        }
         for (Map.Entry<String, Object> entry: row.entrySet()) {
             counter++;
             if (entry.getKey().equals("id")) {
-                if(tableName.equals("Reservations")){
-                    columns.append(",");
-                    questions.append(",");
-                }
                 continue; //skip insertion of id due autoincrement
             }
             columns.append(entry.getKey());
             questions.append("?");
-            if (row.size()-1 != counter && !tableName.equals("Reservations")) {
+            if (row.size()-1 != counter ) {
                 columns.append(",");
                 questions.append(",");
             }

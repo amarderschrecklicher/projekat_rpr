@@ -30,6 +30,8 @@ public class HostController extends LoginController implements Initializable {
 
     public static Host HOST = lHOST;
 
+    public static Property PROPERTY = new Property();
+
     @FXML
     public Label hiUser;
 
@@ -37,6 +39,11 @@ public class HostController extends LoginController implements Initializable {
     public ListView<String> listProperty;
     @FXML
     public BorderPane scenePn;
+    @FXML
+    public Button info;
+    @FXML
+    public Button update;
+
     public GridPane grdPn;
 
     Stage sTransition(String whereTo, String title,Object control) throws IOException {
@@ -54,6 +61,14 @@ public class HostController extends LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        update.setDisable(true);
+        info.setDisable(true);
+
+        if(listProperty.isPressed()){
+            update.setDisable(false);
+            info.setDisable(false);
+
+        }
 
     }
 
@@ -74,10 +89,24 @@ public class HostController extends LoginController implements Initializable {
         s.getIcons().add(new Image("/icons/property_icon.png"));
     }
 
-    public void editPropertyA(ActionEvent actionEvent) {
+    public void infoProperty(ActionEvent actionEvent) throws IOException, Exceptionss {
+        String st = String.valueOf(listProperty.getSelectionModel());
+        st = st.trim();
+        ArrayList<Property> l = (ArrayList<Property>) DaoFactory.propertyDao().hostProperties(HOST);
+        for(Property p : l){
+            if(p.getPropertyName().equals(st)){
+                PROPERTY = p; break;
+            }
+        }
+        Stage s = sTransition("/fxml/reservations.fxml", "PROPERTY INFO",new ReservationsController());
+    }
+    public void updateProperty(ActionEvent actionEvent) {
     }
 
     public void helpA(ActionEvent actionEvent) {
     }
+    public void editPropertyA(ActionEvent actionEvent) {
+    }
+
 
 }

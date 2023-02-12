@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,6 +29,7 @@ public class ReservationsController extends HostController implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
 
     }
 }

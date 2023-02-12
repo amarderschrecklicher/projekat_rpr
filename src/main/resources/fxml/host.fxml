@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="scenePn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/host.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" >
+<BorderPane fx:id="scenePn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/host.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@../css/host.css" />
     </stylesheets>
@@ -42,6 +50,16 @@
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></ListView>
+            <Button fx:id="info" mnemonicParsing="false" onAction="#infoProperty" text="Property Info" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="130.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="update" mnemonicParsing="false" onAction="#updateProperty" text="Update" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="230.0" />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
    </center>
