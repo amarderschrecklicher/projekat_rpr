@@ -14,6 +14,8 @@ public interface ReservationsDAO extends Dao<Reservations> {
 /*
     List<Reservations> allOfReseravtions(Guest guest)throws Exceptionss;*/
 
+    public void deleteByProperty(int id)throws Exceptionss;
+
     Property propertyDetails(int idReservation)throws Exceptionss;
 
     Host hostOfReservation(int idReservation)throws Exceptionss;

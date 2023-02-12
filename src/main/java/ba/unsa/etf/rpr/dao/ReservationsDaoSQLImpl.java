@@ -6,10 +6,7 @@ import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.domain.Reservations;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.util.Date;
@@ -50,6 +47,17 @@ public class ReservationsDaoSQLImpl extends AbstractDao<Reservations> implements
         row.put("dateIn",object.getDateIn());
         row.put("dateOut",object.getDateOut());
         return row;
+    }
+    @Override
+    public void deleteByProperty(int id) throws Exceptionss {
+        String sql = "DELETE FROM Reservations WHERE PropertyID = ?";
+        try{
+            PreparedStatement stmt = getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            stmt.setObject(1, id);
+            stmt.executeUpdate();
+        }catch (SQLException e){
+            throw new Exceptionss(e.getMessage(), e);
+        }
     }
 
 

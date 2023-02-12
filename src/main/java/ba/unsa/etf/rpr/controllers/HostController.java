@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
+import ba.unsa.etf.rpr.domain.Reservations;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import com.sun.javafx.property.adapter.PropertyDescriptor;
 import javafx.beans.value.ChangeListener;
@@ -120,8 +121,14 @@ public class HostController extends LoginController implements Initializable {
     }
     public void deleteProp(ActionEvent actionEvent) throws Exceptionss, IOException {
         prop(listProperty);
+        DaoFactory.reservationsDao().deleteByProperty(PROPERTY.getId());
         DaoFactory.propertyDao().delete(PROPERTY.getId());
         Stage s = sTransition("/fxml/host.fxml", "HOST",new HostController());
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText("Property successfully deleted!");
+        alert.showAndWait();
 
     }
 
