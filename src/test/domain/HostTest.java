@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.domain.Host;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HostTest {
 
@@ -39,14 +40,12 @@ public class HostTest {
      */
     @Test
     public void testToString(){
-        User user = new User("Niko", "Nikic", "nnikic1@etf.unsa.ba", false, "nnikic1", "topic");
-        String output = "User{user_id=0" +
-                ", first_name='Niko" + '\'' +
-                ", last_name='Nikic" + '\'' +
-                ", email='nnikic1@etf.unsa.ba" + '\'' +
-                ", admin=false" +
-                ", username='nnikic1" + '\'' +
-                ", password='topic" + '\'' +
+        Host user = new Host("Niko Nikic", "007", "nnikic1@etf.unsa.ba");
+        String output =  "Host{" +
+                "id=-1"  +
+                ", name='Niko Nikic"  + '\'' +
+                ", number='007\"" + '\'' +
+                ", email='nnikic1@etf.unsa.ba"  + '\'' +
                 '}';
         assertEquals(output, user.toString());
     }
@@ -56,8 +55,8 @@ public class HostTest {
      */
     @Test
     public void testEquals(){
-        User user1 = new User("Niko", "Nikic", "nnikic1@etf.unsa.ba", false, "nnikic1", "topic");
-        User user2 = new User("Niko", "Nikic", "nnikic1@etf.unsa.ba", false, "nnikic1", "topic");
+        Host user1 = new Host("Niko Nikic", "007", "nnikic1@etf.unsa.ba");
+        Host user2 = new Host("Niko Nikic", "007", "nnikic1@etf.unsa.ba");
         assertTrue(user1.equals(user2));
     }
 
