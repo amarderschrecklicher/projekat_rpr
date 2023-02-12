@@ -59,22 +59,27 @@ public class ReservationsController extends HostController implements Initializa
 
         try {
             ArrayList<Reservations> lr = (ArrayList<Reservations>) DaoFactory.reservationsDao().getAll();
+
             for(Reservations r : lr){
                 if(r.getGuestID()!=0) {
-                    resId.setText(Integer.toString(r.getId()));
-                    dateIn.setText(r.getDateIn().toString());
-                    dateOut.setText(r.getDateOut().toString());
+                    table.getItems().add(0,Integer.toString(r.getId()));
+                    table.getItems().add(1,r.getDateIn().toString());
+                    table.getItems().add(2,Integer.toString(r.getId()));
+                    table.getItems().add(3,r.getDateOut().toString());
+
                     Guest g = DaoFactory.GuestDao().getById(r.getGuestID());
-                    guestName.setText(g.getName());
-                    nmbGuests.setText(Integer.toString(g.getNumberOfGuests()));
+                    table.getItems().add(4,g.getName());
+                    table.getItems().add(5,Integer.toString(g.getNumberOfGuests()));
+
                     LocalDate ld = r.getDateIn().toLocalDate();
                     LocalDate ld2 = r.getDateOut().toLocalDate();
                     int nights = 0;
                     while (!ld.isEqual(ld2)){
-                        ld.plusDays(1);
+                        ld = ld.plusDays(1);
                         nights = nights + 1;
                     }
-                    price.setText(Double.toString(DaoFactory.propertyDao().getById(r.getPropertyID()).getPrice()*nights));
+                    table.getItems().add(6,r.getReservationDate().toString());
+                    table.getItems().add(7,Double.toString(DaoFactory.propertyDao().getById(r.getPropertyID()).getPrice()*nights));
 
                 }
             }
@@ -85,7 +90,7 @@ public class ReservationsController extends HostController implements Initializa
         propertyName.setText(PROPERTY.getPropertyName());
       locationn.setText(locationn.getText()+" "+PROPERTY.getLocation());
       capacity.setText(capacity.getText()+" "+PROPERTY.getCapacity());
-      price.setText(price.getText()+" "+PROPERTY.getPrice());
+      price.setText(price.getText()+" "+PROPERTY.getPrice()+"€");
       if(PROPERTY.isAcH()){
           AC.setText(AC.getText()+" Yes");
       }else {

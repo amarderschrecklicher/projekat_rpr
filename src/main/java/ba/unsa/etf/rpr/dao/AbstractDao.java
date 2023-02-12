@@ -40,6 +40,9 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
     public abstract Map<String, Object> object2row(T object);
 
     public T getById(int id) throws Exceptionss {
+        if(tableName.equals("Property")){
+            return executeQueryUnique("SELECT * FROM "+this.tableName+" WHERE "+this.tableName+"ID = ?", new Object[]{id});
+        }
        return executeQueryUnique("SELECT * FROM "+this.tableName+" WHERE id"+this.tableName+" = ?", new Object[]{id});
     }
 
