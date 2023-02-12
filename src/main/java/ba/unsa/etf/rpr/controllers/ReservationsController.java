@@ -35,13 +35,13 @@ public class ReservationsController extends HostController implements Initializa
     public Label locationn;
     public Label capacity;
     public Label price;
-    public TableColumn resId;
-    public TableColumn dateIn;
-    public TableColumn dateOut;
-    public TableColumn guestName;
-    public TableColumn nmbGuests;
-    public TableColumn totPrice;
-    public TableColumn dateRes;
+    public TableColumn resId = new TableColumn("Reservation ID");
+    public TableColumn dateIn = new TableColumn("Check in");
+    public TableColumn dateOut = new TableColumn("Check out");
+    public TableColumn guestName = new TableColumn("Guest");
+    public TableColumn nmbGuests = new TableColumn("People");
+    public TableColumn totPrice = new TableColumn("Total price");
+    public TableColumn dateRes = new TableColumn("Reservation date");
 
     Stage sTransition(String whereTo, String title, Object control) throws IOException {
         final Stage login = (Stage) scenePn.getScene().getWindow();
@@ -59,9 +59,12 @@ public class ReservationsController extends HostController implements Initializa
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
+
         try {
             ArrayList<Reservations> lr = (ArrayList<Reservations>) DaoFactory.reservationsDao().getAll();
             if (lr != null) {
+                guestName.setMinWidth(120); dateIn.setMinWidth(105); dateOut.setMinWidth(105);
                 table.getColumns().addAll(resId,guestName,nmbGuests,dateIn,dateOut,totPrice);
                 ObservableList<Table> tab = FXCollections.observableArrayList();
                 for (Reservations r : lr) {
@@ -77,11 +80,7 @@ public class ReservationsController extends HostController implements Initializa
                         tab.add(new Table(Integer.toString(r.getId()), g.getName(), Integer.toString(g.getNumberOfGuests()),
                                 r.getDateIn().toString(), r.getDateOut().toString(),
                                 r.getReservationDate().toString(),
-                                Double.toString(DaoFactory.propertyDao().getById(r.getPropertyID()).getPrice() * nights)));
-                        System.out.println(Integer.toString(r.getId())+g.getName()+Integer.toString(g.getNumberOfGuests())+" "+
-                                r.getDateIn().toString()+" "+ r.getDateOut().toString()+" "+
-                                r.getReservationDate().toString()+" "+
-                                Double.toString(DaoFactory.propertyDao().getById(r.getPropertyID()).getPrice() * nights));
+                                Double.toString(DaoFactory.propertyDao().getById(r.getPropertyID()).getPrice() * nights )+" €"));
 
                     }
                 }
@@ -104,7 +103,7 @@ public class ReservationsController extends HostController implements Initializa
         propertyName.setText(PROPERTY.getPropertyName());
       locationn.setText(locationn.getText()+" "+PROPERTY.getLocation());
       capacity.setText(capacity.getText()+" "+PROPERTY.getCapacity());
-      price.setText(price.getText()+" "+PROPERTY.getPrice()+"€");
+      price.setText(price.getText()+" "+PROPERTY.getPrice()+" €");
       if(PROPERTY.isAcH()){
           AC.setText(AC.getText()+" Yes");
       }else {
