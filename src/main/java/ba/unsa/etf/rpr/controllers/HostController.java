@@ -89,18 +89,27 @@ public class HostController extends LoginController implements Initializable {
         s.getIcons().add(new Image("/icons/property_icon.png"));
     }
 
-    public void infoProperty(ActionEvent actionEvent) throws IOException, Exceptionss {
+    public void prop(ListView<String> lp) throws Exceptionss {
         String st = String.valueOf(listProperty.getSelectionModel());
         st = st.trim();
+        System.out.print(st);
         ArrayList<Property> l = (ArrayList<Property>) DaoFactory.propertyDao().hostProperties(HOST);
-        for(Property p : l){
-            if(p.getPropertyName().equals(st)){
-                PROPERTY = p; break;
+        for(Property p : l) {
+            if (p.getPropertyName().equals(st)) {
+                PROPERTY = p;
+                break;
             }
         }
+    }
+
+    public void infoProperty(ActionEvent actionEvent) throws IOException, Exceptionss {
+        prop(listProperty);
         Stage s = sTransition("/fxml/reservations.fxml", "PROPERTY INFO",new ReservationsController());
     }
-    public void updateProperty(ActionEvent actionEvent) {
+    public void updateProperty(ActionEvent actionEvent) throws Exceptionss, IOException {
+        prop(listProperty);
+        Stage s = sTransition("/fxml/property.fxml", "PROPERTY INFO",new PropertyController());
+
     }
 
     public void helpA(ActionEvent actionEvent) {
