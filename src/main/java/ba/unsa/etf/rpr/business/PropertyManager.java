@@ -1,9 +1,10 @@
 package ba.unsa.etf.rpr.business;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
-import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
+
+import java.util.List;
 
 public class PropertyManager {
     public Property add(Property  property) throws Exceptionss {
@@ -20,7 +21,17 @@ public class PropertyManager {
             throw e;
         }
     }
+    public static List<Property> getAll() throws Exceptionss {
 
+        try{
+            return  DaoFactory.propertyDao().getAll();
+        }catch (Exceptionss e){
+            if (e.getMessage().contains("UQ_NAME")){
+                throw new Exceptionss("Category with same name exists");
+            }
+            throw e;
+        }
+    }
     public Property  update(Property  property) throws Exceptionss {
 
         try{
