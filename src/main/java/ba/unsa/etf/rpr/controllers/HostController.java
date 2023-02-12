@@ -118,11 +118,14 @@ public class HostController extends LoginController implements Initializable {
         Stage s = sTransition("/fxml/property.fxml", "PROPERTY INFO",new PropertyController());
 
     }
+    public void deleteProp(ActionEvent actionEvent) throws Exceptionss, IOException {
+        prop(listProperty);
+        DaoFactory.propertyDao().delete(PROPERTY.getId());
+        Stage s = sTransition("/fxml/host.fxml", "HOST",new HostController());
+
+    }
 
     public void helpA(ActionEvent actionEvent) {
     }
-    public void editPropertyA(ActionEvent actionEvent) {
-    }
-
 
 }

@@ -60,6 +60,7 @@
                   <Insets left="230.0" />
                </GridPane.margin>
             </Button>
+            <Button fx:id="delete" mnemonicParsing="false" onAction="#deleteProp" text="Delete" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </center>
