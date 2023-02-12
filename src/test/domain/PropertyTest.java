@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 public class PropertyTest {
-    private PropertyManager manager;
+    public PropertyManager manager;
 
     @Mock
     private PropertyDAO dao;
@@ -23,7 +23,7 @@ public class PropertyTest {
 
     /**
      * initializes fields annotated with Mockito annotations
-     * initializes roomManager
+     * initializes propertyManager
      */
     @BeforeEach
     public void setUp() {

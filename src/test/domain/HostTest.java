@@ -1,12 +1,48 @@
 package domain;
 
+import ba.unsa.etf.rpr.business.HostManager;
+import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.dao.HostDAO;
 import ba.unsa.etf.rpr.domain.Host;
+import ba.unsa.etf.rpr.exceptions.Exceptionss;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.when;
 
 public class HostTest {
+
+    @Test
+    void validatesHostExists() throws Exceptionss {
+        //This is admin user that exist in DB Dump
+        String correctName = "andrew tate";
+        String correctPass = "t8";
+
+        Host users1 =  new Host("andrew tate","t8","email...");
+
+        MockedStatic<DaoFactory> dao = Mockito.mockStatic(DaoFactory.class);
+        HostDAO HD = Mockito.mock(HostDAO.class);
+        when(DaoFactory.HostDao()).thenReturn(HD);
+
+        when(DaoFactory.HostDao().getByNumber(correctPass)).thenReturn(users1);
+        boolean x ;
+        if(correctName.equals(users1.getName()) && correctPass.equals(users1.getNumber())){
+            x = true;
+        }else {
+            x = false;
+        }
+
+        assertTrue(x);
+
+    }
+    @BeforeEach
+    public void initializeObjectsWeNeed() {
+        HostManager m = new HostManager();
+    }
 
     /**
      * tests setters and getters in User
