@@ -46,7 +46,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <ListView fx:id="listProperty" prefHeight="267.0" prefWidth="116.0" stylesheets="@../css/host.css" GridPane.rowIndex="2">
+            <ListView fx:id="listProperty"  prefHeight="267.0" prefWidth="116.0" stylesheets="@../css/host.css" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></ListView>

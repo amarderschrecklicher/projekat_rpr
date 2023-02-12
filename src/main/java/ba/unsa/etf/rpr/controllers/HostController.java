@@ -4,6 +4,9 @@ import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
+import com.sun.javafx.property.adapter.PropertyDescriptor;
+import javafx.beans.value.ChangeListener;
+import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,17 +64,28 @@ public class HostController extends LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        listProperty.setFocusTraversable(false);
+        update.setFocusTraversable(false);
+        info.setFocusTraversable(false);
         update.setDisable(true);
         info.setDisable(true);
 
-        if(listProperty.isPressed()){
-            update.setDisable(false);
-            info.setDisable(false);
-
-        }
+        listProperty.getSelectionModel().getSelectedItems().addListener(new ListChangeListener<String>() {
+            @Override
+            public void onChanged(Change<? extends String> change) {
+                update.setDisable(false);
+                info.setDisable(false);
+            }
+        });
 
     }
 
+    public void editList (ActionEvent actionEvent) {
+        update.setDisable(false);
+        info.setDisable(false);
+
+    }
 
     public void hostInfoA(ActionEvent actionEvent) {
     }
