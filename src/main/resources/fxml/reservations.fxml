@@ -67,7 +67,7 @@
                   <Insets right="20.0" />
                </GridPane.margin>
             </TableView>
-            <Label fx:id="location" maxHeight="5.0" text="Location:" textFill="#1c2941" GridPane.rowIndex="3">
+            <Label fx:id="locationn" maxHeight="5.0" text="Location:" textFill="#1c2941" GridPane.rowIndex="3">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
