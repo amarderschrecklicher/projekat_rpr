@@ -19,9 +19,10 @@ public class Property implements Idable {
 
     }
 
-    public Property(String propertyName,String propertyType,int capacity,
+    public Property(int hostId,String propertyName,String propertyType,int capacity,
                     int bathrooms,int kitchens,String location,boolean acH,double price){
         this.id = -1;
+        this.hostId=hostId;
         this.propertyName = propertyName;
         this.capacity = capacity;
         this.bathrooms = bathrooms;

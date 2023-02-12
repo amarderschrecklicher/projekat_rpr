@@ -10,13 +10,14 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 public class PropertyTest {
     private PropertyManager manager;
 
     @Mock
     private PropertyDAO dao;
-    public Property property= new Property("Garden","House",12,
+    public Property property= new Property(7,"Garden","House",12,
     3,1,"Miami",true,250);
 
 
@@ -54,7 +55,7 @@ public class PropertyTest {
      */
     @Test
     public void testConstructor(){
-        Property property1 = new Property("Garden","House",12,
+        Property property1 = new Property(6,"Garden","House",12,
                 3,1,"Miami",true,250);
         assertEquals("Miami",property1.getLocation());
         assertEquals(250, property1.getPrice());
@@ -70,6 +71,38 @@ public class PropertyTest {
 
         assertEquals(11, p.getCapacity());
         assertEquals("Villa", p.getPropertyType());
+    }
+    /**
+     * tests toString method
+     */
+    @Test
+    public void testToString(){
+       Property pr = new Property(5,"Garden","House",12,
+               3,1,"Miami",true,250);
+        String output = "Property{" +
+                "id=-1" +
+                ", hostId=5"  +
+                ", propertyName='Garden"  + '\'' +
+                ", propertyType='Villa"  + '\'' +
+                ", capacity=12"  +
+                ", bathrooms=3"  +
+                ", kitchens=1"  +
+                ", location='Miami"  + '\'' +
+                ", acH=true" +
+                ", price=250"  +
+                '}';
+        assertEquals(output, pr.toString());
+    }
+    /**
+     * tests equals method
+     */
+    @Test
+    public void testEquals(){
+        Property p2 = new Property(5,"Garden","House",12,
+                3,1,"Miami",true,250);
+        Property p3 = new Property(5,"Garden","House",12,
+                3,1,"Miami",true,250);
+        assertTrue(p2.equals(p3));
     }
 
 }
