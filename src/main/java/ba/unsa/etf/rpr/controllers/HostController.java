@@ -81,12 +81,6 @@ public class HostController extends LoginController implements Initializable {
 
     }
 
-    public void editList (ActionEvent actionEvent) {
-        update.setDisable(false);
-        info.setDisable(false);
-
-    }
-
     public void hostInfoA(ActionEvent actionEvent) {
     }
 
@@ -104,9 +98,8 @@ public class HostController extends LoginController implements Initializable {
     }
 
     public void prop(ListView<String> lp) throws Exceptionss {
-        String st = String.valueOf(listProperty.getSelectionModel());
-        st = st.trim();
-        System.out.print(st);
+        String st = listProperty.getSelectionModel().getSelectedItem();
+        st = st.split(" ")[0];
         ArrayList<Property> l = (ArrayList<Property>) DaoFactory.propertyDao().hostProperties(HOST);
         for(Property p : l) {
             if (p.getPropertyName().equals(st)) {

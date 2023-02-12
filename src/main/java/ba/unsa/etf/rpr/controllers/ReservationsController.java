@@ -29,9 +29,16 @@ public class ReservationsController extends HostController implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        System.out.print(PROPERTY.getPropertyName());
       propertyName.setText(PROPERTY.getPropertyName());
-      locationn.setText(location+" "+PROPERTY.getLocation());
-      capacity.setText(capacity+" "+PROPERTY.getCapacity());
-      price.setText(price+" "+PROPERTY.getPrice());
+      locationn.setText(locationn.getText()+" "+PROPERTY.getLocation());
+      capacity.setText(capacity.getText()+" "+PROPERTY.getCapacity());
+      price.setText(price.getText()+" "+PROPERTY.getPrice());
+      if(PROPERTY.isAcH()){
+          AC.setText(AC.getText()+" Yes");
+      }else {
+          AC.setText(AC.getText()+" No");
+      }
     }
 }
