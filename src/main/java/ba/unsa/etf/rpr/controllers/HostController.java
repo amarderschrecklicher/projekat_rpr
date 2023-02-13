@@ -3,28 +3,25 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
-import ba.unsa.etf.rpr.domain.Reservations;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
-import com.sun.javafx.property.adapter.PropertyDescriptor;
-import javafx.beans.value.ChangeListener;
 import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -47,6 +44,8 @@ public class HostController extends LoginController implements Initializable {
     public Button info;
     @FXML
     public Button update;
+    @FXML
+    public Button delete;
 
     public GridPane grdPn;
 
@@ -69,14 +68,17 @@ public class HostController extends LoginController implements Initializable {
         listProperty.setFocusTraversable(false);
         update.setFocusTraversable(false);
         info.setFocusTraversable(false);
+        delete.setFocusTraversable(false);
         update.setDisable(true);
         info.setDisable(true);
+        delete.setDisable(true);
 
         listProperty.getSelectionModel().getSelectedItems().addListener(new ListChangeListener<String>() {
             @Override
             public void onChanged(Change<? extends String> change) {
                 update.setDisable(false);
                 info.setDisable(false);
+                delete.setDisable(false);
             }
         });
 
@@ -123,7 +125,7 @@ public class HostController extends LoginController implements Initializable {
         prop(listProperty);
         DaoFactory.reservationsDao().deleteByProperty(PROPERTY.getId());
         DaoFactory.propertyDao().delete(PROPERTY.getId());
-        Stage s = sTransition("/fxml/host.fxml", "HOST",new HostController());
+        Stage s = sTransition("/fxml/host.fxml", "HOST",this);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Success");
         alert.setHeaderText(null);
@@ -132,7 +134,5 @@ public class HostController extends LoginController implements Initializable {
 
     }
 
-    public void helpA(ActionEvent actionEvent) {
-    }
 
 }
