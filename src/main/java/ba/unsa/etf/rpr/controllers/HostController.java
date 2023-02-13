@@ -16,12 +16,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -34,7 +34,7 @@ public class HostController extends LoginController implements Initializable {
     public static Property PROPERTY = null;
 
     @FXML
-    public Label hiUser;
+    public Label hiUser ;
 
     @FXML
     public ListView<String> listProperty;
@@ -47,9 +47,11 @@ public class HostController extends LoginController implements Initializable {
     @FXML
     public Button delete;
 
-    public GridPane grdPn;
+    public static void setHOST(Host host) {
+        HOST = host;
+    }
 
-    Stage sTransition(String whereTo, String title,Object control) throws IOException {
+    Stage sTransition(String whereTo, String title, Object control) throws IOException {
         final Stage login = (Stage) scenePn.getScene().getWindow();
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(whereTo));
@@ -64,7 +66,22 @@ public class HostController extends LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        hiUser.setText("Hi " + HOST.getName().split(" ", 2)[0] +" !");
+        List<Property> listP = null;
+        try {
+            listP = DaoFactory.propertyDao().hostProperties(HOST);
+        } catch (Exceptionss e) {
+            throw new RuntimeException(e);
+        }
+        if (!listP.isEmpty()) {
+            String[] a = new String[listP.size()];
+            int i = 0;
+            for (Property p : listP) {
+                a[i] = p.getPropertyName() + "   : " + p.getPropertyType();
+                i++;
+            }
+            listProperty.getItems().addAll(a);
+        }
         listProperty.setFocusTraversable(false);
         update.setFocusTraversable(false);
         info.setFocusTraversable(false);
@@ -84,8 +101,6 @@ public class HostController extends LoginController implements Initializable {
 
     }
 
-    public void hostInfoA(ActionEvent actionEvent) {
-    }
 
     public void logOutA(ActionEvent actionEvent) throws IOException {
         final Stage login = (Stage) scenePn.getScene().getWindow();
@@ -103,6 +118,8 @@ public class HostController extends LoginController implements Initializable {
     public void newPropertyA(ActionEvent actionEvent) throws IOException, Exceptionss {
         Stage s = sTransition("/fxml/property.fxml", "NEW PROPERTY",new PropertyController());
         s.getIcons().add(new Image("/icons/property_icon.png"));
+        final Stage login2=(Stage) scenePn.getScene().getWindow();
+        login2.hide();
     }
 
     public void prop(ListView<String> lp) throws Exceptionss {

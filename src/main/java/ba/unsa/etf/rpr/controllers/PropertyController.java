@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -53,17 +54,17 @@ public class PropertyController extends HostController implements Initializable 
     public Property p = new Property();
 
 
-    FXMLLoader transition(String whereTo , String title) throws IOException {
-        final Stage login=(Stage) vBox.getScene().getWindow();
-        Stage  stage=new Stage();
+    Stage sTransition(String whereTo, String title, Object control) throws IOException {
+        final Stage login = (Stage) vBox.getScene().getWindow();
+        Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(whereTo));
+        loader.setController(control);
         loader.load();
         stage.setTitle(title);
-        stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        stage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.show();
         login.hide();
-
-        return loader;
+        return stage;
     }
 
     public void applyDateButton(ActionEvent actionEvent) throws Exceptionss {
@@ -193,9 +194,12 @@ public class PropertyController extends HostController implements Initializable 
 
     }
 
-    public void cancelButton(ActionEvent actionEvent) {
-        final Stage login=(Stage) vBox.getScene().getWindow();
-        login.hide();
+    public void cancelButton(ActionEvent actionEvent) throws IOException {
+        setHOST(HOST);
+        Stage s = sTransition("/fxml/host.fxml", "Login",new HostController());
+        s.setTitle("USER");
+        s.getIcons().add(new Image("/icons/host_icon.png"));
+
     }
 
     public void applyButton(ActionEvent actionEvent) throws Exceptionss, IOException {

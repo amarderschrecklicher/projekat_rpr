@@ -75,7 +75,6 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         builder.append("INSERT INTO ").append(tableName);
         builder.append(" (").append(columns.getKey()).append(") ");
         builder.append("VALUES (").append(columns.getValue()).append(")");
-        System.out.println(builder);
         try{
             PreparedStatement stmt = getConnection().prepareStatement(builder.toString(), Statement.RETURN_GENERATED_KEYS);
             // bind params. IMPORTANT treeMap is used to keep columns sorted so params are bind correctly
@@ -83,7 +82,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             for (Map.Entry<String, Object> entry: row.entrySet()) {
                 if (entry.getKey().equals("id")) continue; // skip ID
                 stmt.setObject(counter, entry.getValue());
-                counter++; System.out.print(entry.getValue()+" ");
+                counter++;
             }
             stmt.executeUpdate();
 
