@@ -54,6 +54,10 @@ public class PropertyController extends HostController implements Initializable 
     public Property p = new Property();
 
 
+    /**
+     * method for transiting through Controllers
+     */
+
     Stage sTransition(String whereTo, String title, Object control) throws IOException {
         final Stage login = (Stage) vBox.getScene().getWindow();
         Stage stage = new Stage();
@@ -66,6 +70,11 @@ public class PropertyController extends HostController implements Initializable 
         login.hide();
         return stage;
     }
+
+
+    /**
+     * adding available dates to Property
+     */
 
     public void applyDateButton(ActionEvent actionEvent) throws Exceptionss {
 
@@ -100,6 +109,9 @@ public class PropertyController extends HostController implements Initializable 
     }
     }
 
+    /**
+     * initialize method, setting up Sppiners
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -194,6 +206,9 @@ public class PropertyController extends HostController implements Initializable 
 
     }
 
+    /**
+     * going back to HostController
+     */
     public void cancelButton(ActionEvent actionEvent) throws IOException {
         setHOST(HOST);
         Stage s = sTransition("/fxml/host.fxml", "Login",new HostController());
@@ -202,6 +217,9 @@ public class PropertyController extends HostController implements Initializable 
 
     }
 
+    /**
+     * adding new Property
+     */
     public void applyButton(ActionEvent actionEvent) throws Exceptionss, IOException {
 
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);

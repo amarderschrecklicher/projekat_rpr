@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
-import ba.unsa.etf.rpr.dao.*;
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
@@ -9,15 +9,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
-import java.util.Arrays;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -38,15 +40,10 @@ public class LoginController implements Initializable {
     public TextField userName;
 
 
-    public void click(ActionEvent actionEvent){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText(null);
-        alert.setContentText("haloooo!");
 
-        alert.showAndWait();
-
-    }
+    /**
+     * login button, if host found it goes to the HostController
+     */
     public void click1(ActionEvent actionEvent) throws ClassNotFoundException, SQLException, Exceptionss, IOException {
         String user = userName.getText(), pass = passWord.getText();
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
@@ -108,6 +105,10 @@ public class LoginController implements Initializable {
         }
 
     }
+
+    /**
+     *  goes to the SignUpController
+     */
     public void click2(ActionEvent actionEvent) throws IOException {
     final Stage login=(Stage) scenePane.getScene().getWindow();
     Stage  stage=new Stage();
@@ -120,6 +121,9 @@ public class LoginController implements Initializable {
     login.hide();
     }
 
+    /**
+     *  intiialize method, working with css
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)  {
         

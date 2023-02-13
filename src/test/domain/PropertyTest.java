@@ -55,8 +55,8 @@ public class PropertyTest {
      */
     @Test
     public void testConstructor(){
-        Property property1 = new Property(6,"Garden","House",12,
-                3,1,"Miami",true,250);
+        Property property1 = new Property(6,"Garden","Villa",12,
+                3,1,"Miami",true,250.0);
         assertEquals("Miami",property1.getLocation());
         assertEquals(250, property1.getPrice());
     }
@@ -83,13 +83,13 @@ public class PropertyTest {
                 "id=-1" +
                 ", hostId=5"  +
                 ", propertyName='Garden"  + '\'' +
-                ", propertyType='Villa"  + '\'' +
+                ", propertyType='House"  + '\'' +
                 ", capacity=12"  +
                 ", bathrooms=3"  +
                 ", kitchens=1"  +
                 ", location='Miami"  + '\'' +
                 ", acH=true" +
-                ", price=250"  +
+                ", price=250.0"  +
                 '}';
         assertEquals(output, pr.toString());
     }

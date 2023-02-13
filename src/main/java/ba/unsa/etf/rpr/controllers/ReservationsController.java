@@ -39,6 +39,11 @@ public class ReservationsController extends HostController implements Initializa
     public TableColumn totPrice = new TableColumn("Total price");
     public TableColumn dateRes = new TableColumn("Reservation date");
 
+
+    /**
+     * transition
+     */
+
     Stage sTransition(String whereTo, String title, Object control) throws IOException {
         final Stage login = (Stage) scenePn.getScene().getWindow();
         Stage stage = new Stage();
@@ -52,6 +57,9 @@ public class ReservationsController extends HostController implements Initializa
     }
 
 
+    /**
+     * initialize method, showing info about Property
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

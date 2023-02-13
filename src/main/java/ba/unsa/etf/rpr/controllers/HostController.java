@@ -51,6 +51,9 @@ public class HostController extends LoginController implements Initializable {
         HOST = host;
     }
 
+    /**
+     * transition
+     */
     Stage sTransition(String whereTo, String title, Object control) throws IOException {
         final Stage login = (Stage) scenePn.getScene().getWindow();
         Stage stage = new Stage();
@@ -64,6 +67,9 @@ public class HostController extends LoginController implements Initializable {
     }
 
 
+    /**
+     * initialize method, Hi HOST!
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hiUser.setText("Hi " + HOST.getName().split(" ", 2)[0] +" !");
@@ -102,6 +108,9 @@ public class HostController extends LoginController implements Initializable {
     }
 
 
+    /**
+     * log out
+     */
     public void logOutA(ActionEvent actionEvent) throws IOException {
         final Stage login = (Stage) scenePn.getScene().getWindow();
         Stage stage = new Stage();
@@ -115,6 +124,9 @@ public class HostController extends LoginController implements Initializable {
     }
 
 
+    /**
+     * adding new property
+     */
     public void newPropertyA(ActionEvent actionEvent) throws IOException, Exceptionss {
         Stage s = sTransition("/fxml/property.fxml", "NEW PROPERTY",new PropertyController());
         s.getIcons().add(new Image("/icons/property_icon.png"));
@@ -122,6 +134,9 @@ public class HostController extends LoginController implements Initializable {
         login2.hide();
     }
 
+    /**
+     * finding the property in ListView
+     */
     public void prop(ListView<String> lp) throws Exceptionss {
         String st = listProperty.getSelectionModel().getSelectedItem();
         st = st.split(" ")[0];

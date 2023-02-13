@@ -80,7 +80,7 @@ public class HostTest {
         String output =  "Host{" +
                 "id=-1"  +
                 ", name='Niko Nikic"  + '\'' +
-                ", number='007\"" + '\'' +
+                ", number='007" + '\'' +
                 ", email='nnikic1@etf.unsa.ba"  + '\'' +
                 '}';
         assertEquals(output, user.toString());
