@@ -56,6 +56,7 @@ public class ReservationsController extends HostController implements Initializa
     public void initialize(URL location, ResourceBundle resources) {
 
         table.setFocusTraversable(false);
+        table.setEditable(false);
          AC.setFocusTraversable(false); ;
          propertyName.setFocusTraversable(false);
          table.setFocusTraversable(false);
