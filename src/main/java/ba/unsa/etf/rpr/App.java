@@ -40,7 +40,11 @@ public class App
 
         return options;
     }
-
+    /**
+     *
+     * 4 options will be displayed, for adding host or property or updating property pr deleting property
+     *
+     */
 
     public static void main( String[] args ) throws Exception {
         Options options = addOptions();
