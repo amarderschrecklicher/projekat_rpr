@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
-import ba.unsa.etf.rpr.domain.Host;
 import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.domain.Reservations;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
@@ -15,11 +14,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -45,9 +44,6 @@ public class PropertyController extends HostController implements Initializable 
     public Spinner<Integer> kitchens;
     public Label DATE ;
 
-    public Label lbGuest;
-    public Label lbBath;
-    public Label lbKitchen;
     public DatePicker fromDate;
     public DatePicker toDate;
 
@@ -106,7 +102,7 @@ public class PropertyController extends HostController implements Initializable 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        if(PROPERTY!=null){
+        if(PROPERTY!=null ){
             SpinnerValueFactory<Integer> spnr1 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);
             spnr1.setValue(PROPERTY.getCapacity());
             SpinnerValueFactory<Integer> spnr2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100);

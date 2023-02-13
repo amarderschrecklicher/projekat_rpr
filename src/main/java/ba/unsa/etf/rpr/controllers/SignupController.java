@@ -2,7 +2,6 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Host;
-import ba.unsa.etf.rpr.domain.Property;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,11 +37,12 @@ public class SignupController extends HostController implements Initializable {
     @FXML
     private GridPane scenePanee;
 
-    FXMLLoader transition(String whereTo , String title) throws IOException {
+    FXMLLoader transition(String whereTo , String title,Object o) throws IOException {
         final Stage login=(Stage) scenePanee.getScene().getWindow();
         Stage  stage=new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(whereTo));
         loader.load();
+        loader.setController(o);
         stage.setTitle(title);
         stage.setScene(new Scene(loader.getRoot(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.show();
@@ -97,7 +97,7 @@ public class SignupController extends HostController implements Initializable {
 
 
     public void back(ActionEvent actionEvent) throws IOException {
-        transition("/fxml/login.fxml","EXTRANET");
+        transition("/fxml/login.fxml","EXTRANET",new LoginController());
     }
 
     public void close(ActionEvent actionEvent) {
@@ -129,30 +129,11 @@ public class SignupController extends HostController implements Initializable {
         }
 
             DaoFactory.HostDao().add(hostt);
-
-
-            HostController set = transition("/fxml/host.fxml","HOST MENU").getController();
-
-            String Welcome ="Hi, "; int i=0;
-
-            while(hostt.getName().charAt(i)!=' ') {
-                Welcome+=hostt.getName().charAt(i);i++;}
-            Welcome+=" !";
-
-            set.hiUser.setText(Welcome);
-
-            List<Property> listP= null;
-            try {
-                listP = DaoFactory.propertyDao().hostProperties(hostt);
-            } catch (Exceptionss e) {
-                throw new RuntimeException(e);
-            }
-
-            if(!listP.isEmpty()) {
-                String[]a = new String[1]; i=0;
-                for(Property p:listP){a[i]=p.getPropertyName()+"   : "+p.getPropertyType();i++;}
-                set.listProperty.getItems().addAll(a);
-            }
+        Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+        alert1.setTitle("Success");alert1.setHeaderText(null);
+        alert1.setContentText("User added!");
+        alert1.showAndWait();
+        transition("/fxml/login.fxml","Log in",new LoginController());
 
 
     }

@@ -22,7 +22,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -32,7 +31,7 @@ public class HostController extends LoginController implements Initializable {
 
     public static Host HOST = lHOST;
 
-    public static Property PROPERTY = new Property();
+    public static Property PROPERTY = null;
 
     @FXML
     public Label hiUser;
@@ -112,31 +111,15 @@ public class HostController extends LoginController implements Initializable {
         ArrayList<Property> l = (ArrayList<Property>) DaoFactory.propertyDao().hostProperties(HOST);
         for(Property p : l) {
             if (p.getPropertyName().equals(st)) {
+                PROPERTY = new Property();
                 PROPERTY = p;
                 break;
             }
         }
     }
 
-    public void updateList(){
-        List<Property> listP = null;
-        try {
-            listP = DaoFactory.propertyDao().hostProperties(HOST);
-        } catch (Exceptionss e) {
-            throw new RuntimeException(e);
-        }
 
 
-        if (!listP.isEmpty()) {
-            String[] a = new String[listP.size()];
-            int i = 0;
-            for (Property p : listP) {
-                a[i] = p.getPropertyName() + "   : " + p.getPropertyType();
-                i++;
-            }
-            listProperty.getItems().addAll(a);
-        }
-    }
 
     public void infoProperty(ActionEvent actionEvent) throws IOException, Exceptionss {
         prop(listProperty);
