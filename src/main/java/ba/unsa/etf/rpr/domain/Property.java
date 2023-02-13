@@ -24,6 +24,7 @@ public class Property implements Idable {
         this.id = -1;
         this.hostId=hostId;
         this.propertyName = propertyName;
+        this.propertyType=propertyType;
         this.capacity = capacity;
         this.bathrooms = bathrooms;
         this.kitchens = kitchens;
