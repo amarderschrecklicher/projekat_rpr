@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: sql7.freemysqlhosting.net
--- Generation Time: Jan 14, 2023 at 05:08 PM
+-- Generation Time: Feb 13, 2023 at 07:18 AM
 -- Server version: 5.5.62-0ubuntu0.14.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.16
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `sql7583417`
 --
+CREATE DATABASE IF NOT EXISTS `sql7583417` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `sql7583417`;
 
 -- --------------------------------------------------------
 
@@ -41,7 +43,8 @@ CREATE TABLE `Guest` (
 --
 
 INSERT INTO `Guest` (`idGuest`, `GuestName`, `NumberOfGuests`, `GuestNumber`, `GuestCountry`) VALUES
-(2, 'Doso Otiso', 5, '061444', 'Germany');
+(0, 'available', 0, '0', 'o'),
+(3, 'Stefan', 12, '0617777', 'Serbia');
 
 -- --------------------------------------------------------
 
@@ -70,7 +73,11 @@ INSERT INTO `Host` (`idHost`, `HostName`, `HostNumber`, `Mail`) VALUES
 (20, 'andrew tate', 't8', 't8@gmail.com'),
 (21, 'novi nov', '060', 'novi@gmail.com'),
 (22, 'ada dzanko', '06999', 'ada@gmail.com'),
-(23, 'djenka onka', '0611', 'onka@hotmail.com');
+(23, 'djenka onka', '0611', 'onka@hotmail.com'),
+(24, ' ', '', ''),
+(25, 'Niko Nikic', '0617777', 'nikok@gmail.com'),
+(26, 'Niko Nikic', '0618888', 'nikok@gmail.com'),
+(27, 'Niko Nikic', '0619999', 'nikok@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -96,12 +103,21 @@ CREATE TABLE `Property` (
 --
 
 INSERT INTO `Property` (`Capacity`, `Heating_AC`, `HostId`, `PropertyID`, `NmbOfBathrooms`, `NmbOfKitchens`, `PricePerNight`, `PropertyLocation`, `PropertyName`, `PropertyType`) VALUES
-(10, 1, 1, 1, 3, 1, 120, 'Vogosca', 'Garden Home', 'Villa'),
-(6, 0, 20, 7, 2, 1, 80, 'Vogosca, Bosna', 'Sunce', 'Hotel'),
-(6, 0, 20, 8, 2, 1, 80, 'Vogosca, Bosna', 'Sunce', 'Hotel'),
-(6, 0, 20, 9, 2, 1, 80, 'Vogosca, Bosna', 'Sunce', 'Hotel'),
-(1, 0, 1, 10, 1, 1, 250, 'negjde, ovjde', 'nova', 'nova1'),
-(1, 0, 1, 11, 1, 1, 250, 'negjde, ovjde', 'nova', 'nova1');
+(1, 0, 20, 3, 1, 1, 325, 'rffsa, cs', 'hljeb', 'opa'),
+(1, 0, 20, 5, 1, 1, 132, 'jjd, rrr', 'halooo', 'brat moj'),
+(1, 0, 20, 6, 1, 1, 123, 'aa, dda', 'aa', 'dsadd'),
+(1, 0, 1, 14, 1, 1, 150, 'Sarajevo, BiH', 'Garden', 'House'),
+(5, 0, 1, 15, 2, 1, 70, 'Mostar, Bih', 'Sun', 'Apartment'),
+(10, 1, 1, 16, 2, 2, 200, 'Ilidza, BiH', 'PoolVilla', 'Villa'),
+(2, 0, 27, 17, 1, 1, 50, 'Bihac, Bih', 'Novi', 'Apartment'),
+(5, 0, 1, 18, 2, 2, 210, 'Miami, Florida', 'New', 'House'),
+(1, 0, 20, 19, 1, 1, 2, 'as, ss', 'ds', 'asdaaa'),
+(1, 0, 20, 20, 1, 1, 21, 'ad, aa', 'eas', 'ads'),
+(1, 0, 20, 21, 1, 1, 21, 'ae, asd', 'dsdc', 'asda'),
+(1, 0, 20, 22, 1, 1, 2, 'c, a', 'dsp', 'aa'),
+(1, 0, 20, 23, 1, 1, 2, 'v, c', 'vv', 'c'),
+(1, 0, 20, 24, 1, 1, 2, 'c, d', 'a', 'b'),
+(1, 0, 20, 25, 1, 1, 2, 'as, d', 'sas', 'as');
 
 -- --------------------------------------------------------
 
@@ -110,20 +126,23 @@ INSERT INTO `Property` (`Capacity`, `Heating_AC`, `HostId`, `PropertyID`, `NmbOf
 --
 
 CREATE TABLE `Reservations` (
-  `idReservationss` int(11) NOT NULL,
+  `idReservations` int(11) NOT NULL,
+  `DateIn` date NOT NULL,
+  `DateOut` date NOT NULL,
   `GuestID` int(11) NOT NULL,
   `PropertyID` int(11) NOT NULL,
-  `ReservationDate` date NOT NULL,
-  `DateIn` date NOT NULL,
-  `DateOut` date NOT NULL
+  `ReservationDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Reservations`
 --
 
-INSERT INTO `Reservations` (`idReservationss`, `GuestID`, `PropertyID`, `ReservationDate`, `DateIn`, `DateOut`) VALUES
-(3, 2, 1, '2023-01-01', '2023-01-07', '2023-01-14');
+INSERT INTO `Reservations` (`idReservations`, `DateIn`, `DateOut`, `GuestID`, `PropertyID`, `ReservationDate`) VALUES
+(3, '2023-02-21', '2023-02-28', 3, 3, '2023-02-12'),
+(6, '2023-03-15', '2023-03-22', 3, 3, '2023-02-12'),
+(8, '2023-02-22', '2023-03-08', 0, 15, '2023-02-13'),
+(9, '2023-02-22', '2023-03-02', 0, 16, '2023-02-13');
 
 --
 -- Indexes for dumped tables
@@ -146,15 +165,16 @@ ALTER TABLE `Host`
 --
 ALTER TABLE `Property`
   ADD PRIMARY KEY (`PropertyID`) USING BTREE,
+  ADD UNIQUE KEY `PropertyLocation_UNIQUE` (`PropertyLocation`),
   ADD KEY `HostId` (`HostId`) USING BTREE;
 
 --
 -- Indexes for table `Reservations`
 --
 ALTER TABLE `Reservations`
-  ADD PRIMARY KEY (`idReservationss`),
-  ADD UNIQUE KEY `GuestID` (`GuestID`),
-  ADD UNIQUE KEY `PropertyID` (`PropertyID`);
+  ADD PRIMARY KEY (`idReservations`),
+  ADD KEY `GuestID` (`GuestID`) USING BTREE,
+  ADD KEY `PropertyID` (`PropertyID`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -164,17 +184,22 @@ ALTER TABLE `Reservations`
 -- AUTO_INCREMENT for table `Guest`
 --
 ALTER TABLE `Guest`
-  MODIFY `idGuest` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idGuest` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `Host`
 --
 ALTER TABLE `Host`
-  MODIFY `idHost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idHost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `Property`
 --
 ALTER TABLE `Property`
-  MODIFY `PropertyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `PropertyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT for table `Reservations`
+--
+ALTER TABLE `Reservations`
+  MODIFY `idReservations` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Constraints for dumped tables
 --
@@ -189,8 +214,8 @@ ALTER TABLE `Property`
 -- Constraints for table `Reservations`
 --
 ALTER TABLE `Reservations`
-  ADD CONSTRAINT `Reservations_ibfk_2` FOREIGN KEY (`PropertyID`) REFERENCES `Property` (`PropertyID`),
-  ADD CONSTRAINT `Reservations_ibfk_1` FOREIGN KEY (`GuestID`) REFERENCES `Guest` (`idGuest`);
+  ADD CONSTRAINT `Reservations_ibfk_1` FOREIGN KEY (`GuestID`) REFERENCES `Guest` (`idGuest`),
+  ADD CONSTRAINT `Reservations_ibfk_2` FOREIGN KEY (`PropertyID`) REFERENCES `Property` (`PropertyID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
