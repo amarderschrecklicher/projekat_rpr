@@ -6,12 +6,9 @@ import ba.unsa.etf.rpr.domain.Reservations;
 import ba.unsa.etf.rpr.exceptions.Exceptionss;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -20,7 +17,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -59,6 +55,13 @@ public class ReservationsController extends HostController implements Initializa
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        table.setFocusTraversable(false);
+         AC.setFocusTraversable(false); ;
+         propertyName.setFocusTraversable(false);
+         table.setFocusTraversable(false);
+        locationn.setFocusTraversable(false);
+         capacity.setFocusTraversable(false);
+         price.setFocusTraversable(false);
 
 
         try {

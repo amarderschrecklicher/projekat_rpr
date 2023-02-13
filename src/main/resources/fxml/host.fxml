@@ -69,7 +69,6 @@
         <menus>
           <Menu text="Host">
             <items>
-              <MenuItem fx:id="hostInfo" mnemonicParsing="false" onAction="#hostInfoA" text="Host info" />
                   <MenuItem fx:id="logOut" mnemonicParsing="false" onAction="#logOutA" text="Log out" />
             </items>
           </Menu>
@@ -78,11 +77,6 @@
                   <MenuItem fx:id="newProperty" mnemonicParsing="false" onAction="#newPropertyA" text="New Property" />
                </items>
           </Menu>
-            <Menu fx:id="help" mnemonicParsing="false" onAction="#helpA" text="Help">
-              <items>
-                <MenuItem mnemonicParsing="false" text="User Manual" />
-              </items>
-            </Menu>
         </menus>
       </MenuBar>
    </top>

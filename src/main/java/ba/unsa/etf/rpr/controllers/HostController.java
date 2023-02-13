@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -88,12 +89,17 @@ public class HostController extends LoginController implements Initializable {
     }
 
     public void logOutA(ActionEvent actionEvent) throws IOException {
-        Stage s =sTransition("/fxml/login.fxml", "LOGIN",new LoginController());
-        s.getIcons().add(new Image("/icons/login_icon.png"));
+        final Stage login = (Stage) scenePn.getScene().getWindow();
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        loader.load();
+        stage.setTitle("Login");
+        stage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.show();
+        login.hide();;
+
     }
 
-    public void aboutA(ActionEvent actionEvent) {
-    }
 
     public void newPropertyA(ActionEvent actionEvent) throws IOException, Exceptionss {
         Stage s = sTransition("/fxml/property.fxml", "NEW PROPERTY",new PropertyController());
@@ -112,6 +118,26 @@ public class HostController extends LoginController implements Initializable {
         }
     }
 
+    public void updateList(){
+        List<Property> listP = null;
+        try {
+            listP = DaoFactory.propertyDao().hostProperties(HOST);
+        } catch (Exceptionss e) {
+            throw new RuntimeException(e);
+        }
+
+
+        if (!listP.isEmpty()) {
+            String[] a = new String[listP.size()];
+            int i = 0;
+            for (Property p : listP) {
+                a[i] = p.getPropertyName() + "   : " + p.getPropertyType();
+                i++;
+            }
+            listProperty.getItems().addAll(a);
+        }
+    }
+
     public void infoProperty(ActionEvent actionEvent) throws IOException, Exceptionss {
         prop(listProperty);
         Stage s = sTransition("/fxml/reservations.fxml", "PROPERTY INFO",new ReservationsController());
@@ -123,9 +149,10 @@ public class HostController extends LoginController implements Initializable {
     }
     public void deleteProp(ActionEvent actionEvent) throws Exceptionss, IOException {
         prop(listProperty);
-        DaoFactory.reservationsDao().deleteByProperty(PROPERTY.getId());
-        DaoFactory.propertyDao().delete(PROPERTY.getId());
-        Stage s = sTransition("/fxml/host.fxml", "HOST",this);
+            DaoFactory.reservationsDao().deleteByProperty(PROPERTY.getId());
+            DaoFactory.propertyDao().delete(PROPERTY.getId());
+        int i = listProperty.getSelectionModel().getSelectedIndex();
+        listProperty.getItems().remove(i);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Success");
         alert.setHeaderText(null);
